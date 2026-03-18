@@ -1,14 +1,14 @@
 # Java Cheatsheet
 
-
-## Java SE
-Offizielle Dokumentation der Java Standard Edition (Java SE) findet sich [hier](https://docs.oracle.com/en/java/javase/).
-### API
-Auf den versionsspezifischen Unterseiten findet sich dann u.a. auch die API, z.B. [Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/).
+## Dokumentation
+* [Java Standard Edition (Java SE)](https://docs.oracle.com/en/java/javase/)
+* [Java Enterprise Edition (Java EE)](http://docs.oracle.com/javaee)
 
 
-## Java EE
-Offizielle Dokumentation der Java Enterprise Edition (Java EE) findet sich [hier](http://docs.oracle.com/javaee).
+## API
+Die Java API enthält alle Build-in-Sprachelemente, z.B. Klassen.
+
+[Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl lassen sich auch andere Versionen aufrufen)
 
 
 ## Kommandozeile
@@ -40,7 +40,6 @@ java Main.java # Klasse muss main-Methode enthalten
 ## JAR-Dateien
 
 ### JAR-Datei über die Konsole erstellen
-
 1) Im Ordner mit den Java-Dateien neue Datei *manifest.txt* mit folgendem Inhalt erstellen.
     ```
     Main-Class: DateiMitMainMethode.java
@@ -67,6 +66,36 @@ java Main.java # Klasse muss main-Methode enthalten
 java -jar DateiName.jar
 ```
 
+
 ## Weitere Quellen
 * [OpenJDK](https://openjdk.org/)
 * [Amazon Corretto](https://aws.amazon.com/de/corretto/)
+
+
+
+# Maven
+
+## Installation (Linux)
+```shell
+sudo apt install maven
+```
+
+## Dokumentation und Central Repository
+* [Maven Documentation](https://maven.apache.org/guides/index.html)
+* [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
+* [POM Reference](https://maven.apache.org/pom.html)
+* [MvnRepository](https://mvnrepository.com/)
+* [Maven Central Repository](https://central.sonatype.com/search)
+
+## Kommandozeile
+...
+
+
+## Weitere Quellen
+* [Maven by Example](https://www.sonatype.com/resources/guides/maven-by-example) (Sehr gutes Tutorial)
+* [Maven Cheatsheet von Eberhard Wolff](https://github.com/ewolff/cheatsheets-DE/blob/master/MavenCheatSheet.md)
+
+
+
+# Gradle
+...
