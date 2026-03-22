@@ -3,6 +3,7 @@
 ## Dokumentation
 * [Offizielle git Dokumentation](https://git-scm.com/)
 * [Offizielle git Referenz](https://git-scm.com/docs)
+
 Außerdem lässt sich mit ```git --help``` oder ```git command --help``` für einen spezifischen Befehl, Hilfe anzeigen.
 
 
@@ -151,7 +152,7 @@ In der *README.md*-Datei ("read me", engl. für "lies mich") wird das Projekt er
 
 
 ## .gitattributes
-In der .gitattributes-Datei 
+In der .gitattributes-Datei wird spezifiziert, wie Git mit bestimmten Dateien umgehen soll. Spezifiziert werden z.B. Dateitypen, Zeilenenden, Merge-Verhalten oder Diff-Tools.
 * [.gitattributes Referenz](https://git-scm.com/docs/gitattributes)
 
 
