@@ -11,6 +11,16 @@ Die Java API enthält alle Build-in-Sprachelemente, z.B. Klassen.
 [Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl lassen sich auch andere Versionen aufrufen)
 
 
+## Installation (Linux)
+```shell
+sudo apt update # Paketquellen aktualisieren
+sudo apt upgrade # Pakete aktualisieren
+
+sudo apt install openjdk-25-jdk # OpenJDK 25 installieren
+java --version # Prüfen, ob Java korrekt installiert wurde
+```
+
+
 ## Kommandozeile
 
 ### Java Version abfragen
@@ -68,6 +78,10 @@ java -jar DateiName.jar
 
 
 ## Weitere Quellen
+* [wiki.ubuntuusers.de/Java](https://wiki.ubuntuusers.de/Java/)
+* [wiki.ubuntuusers.de/OpenJDK](https://wiki.ubuntuusers.de/OpenJDK/)
+
+Versionen
 * [OpenJDK](https://openjdk.org/)
 * [Amazon Corretto](https://aws.amazon.com/de/corretto/)
 

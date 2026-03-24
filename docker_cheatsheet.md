@@ -5,8 +5,12 @@
 * [Offizielle Docker Referenz](https://docs.docker.com/reference/)
 
 
-## Installation und Start (Linux)
-...
+## Installation und Setup (Linux)
+```shell
+sudo apt update # Paketquellen aktualisieren
+sudo apt upgrade # Pakete aktualisieren
+```
+Folge danach der [Installationsanleitung](https://docs.docker.com/desktop/setup/install/linux/ubuntu/) von Docker.
 
 Ein Service ist unter Linux ein Prozess, der so eingestellt werden kann, dass er immer läuft. Für den Docker Deamon ist es sinnvoll so einen Service zu erstellen (entspricht Autostart von Docker Desktop unter Windows).
 * Start: ```sudo service docker start```
@@ -122,4 +126,3 @@ docker-compose ps
 
 ## Weitere Quellen
 * [Docker Cheatsheet von Eberhard Wolff](https://github.com/ewolff/cheatsheets-DE/blob/master/DockerCheatSheet.md)
-* [Setup PostgreSQL with Docker](https://cs.fyi/guide/setup-postgresql-using-docker)

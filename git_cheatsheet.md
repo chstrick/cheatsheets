@@ -9,8 +9,13 @@ Außerdem lässt sich mit ```git --help``` oder ```git command --help``` für ei
 
 ## Installation und Setup (Linux)
 ```shell
-sudo apt install git
+sudo apt update # Paketquellen aktualisieren
+sudo apt upgrade # Pakete aktualisieren
+
+sudo apt install git # Git installieren
+git --version # Prüfen, ob Git korrekt installiert wurde
 git lfs install # (Empfohlen) git-lfs auch direkt installieren
+
 git config --global user.name "userName" # Nutzername festlegen (erscheint in Commits)
 git config --global user.email "user@email.com" # Nutzer-E-Mail festlegen
 git config --global credential.helper store # speichert Credentials, damit diese nicht bei jeder Kommuniation mit dem Remote-Repo eingegeben werden müssen
