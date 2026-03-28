@@ -12,3 +12,4 @@ My personal cheatsheets:
 * [Gradle](./java_cheatsheet.md#Gradle)
 * [LaTeX](./latex_cheatsheet.md)
 * [Web Engineering](./web_cheatsheet.md)
+* [Software Engineering](./software_engineering_cheatsheet.md)
