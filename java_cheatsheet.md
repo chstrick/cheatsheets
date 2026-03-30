@@ -5,10 +5,10 @@
 * [Java Enterprise Edition (Java EE)](http://docs.oracle.com/javaee)
 
 
-## API
-Die Java API enthält alle Build-in-Sprachelemente, z.B. Klassen.
+### API
+Die Java-API enthält alle Build-in-Sprachelemente/Packages.
 
-[Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl lassen sich auch andere Versionen aufrufen)
+[Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl im Link lassen sich auch andere Versionen aufrufen)
 
 
 ## Installation (Linux)
@@ -43,7 +43,7 @@ javac -sourcepath . path/to/Main.java
 
 ### Java-Programm ausführen
 ```shell
-java Main.java # Klasse muss main-Methode enthalten
+java Main.class # Klasse muss main-Methode enthalten
 ```
 
 
@@ -59,17 +59,17 @@ java Main.java # Klasse muss main-Methode enthalten
 
 2) Mit ```cd``` in Ordner mit den Java-Dateien und der *manifest.txt* navigieren.
 
-4) Mit ```javac``` die .class-Datei(en) compilieren.
+4) Mit ```javac``` die Java-Datei(en) compilieren.
 
-5) Mit ```jar cfm JarDateiName.jar manifest.txt Datei1.class Datei2.class``` wird eine .jar-Datei erstellt, die die angegeben .class-Dateien enthält.
-
-    oder
-
-5) Mit ```jar cfm JarDateiName.jar manifest.txt *.class``` wird eine .jar-Datei erstellt, die alle im Ordner vorhandenen .class-Datein einbindet.
+5) Mit ```jar cfm JarDateiName.jar manifest.txt Datei1.class Datei2.class``` wird eine JAR-Datei erstellt, die die angegeben .class-Dateien enthält.
 
     oder
 
-5) Mit ```jar cvfm JarDateiName.jar manifest.txt *.class ordnerName``` wird eine .jar-Datei erstellt, die alle im Ordner vorhandenen .class-Datein und den Ordner *ordnerName* (samt Inhalt, z.B. Bilder) einbindet.
+5) Mit ```jar cfm JarDateiName.jar manifest.txt *.class``` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Datein einbindet.
+
+    oder
+
+5) Mit ```jar cvfm JarDateiName.jar manifest.txt *.class ordnerName``` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Datein und den Ordner *ordnerName* (samt Inhalt, z.B. Bilder) einbindet.
 
 ### JAR-Datei über die Konsole ausführen
 ```shell
@@ -89,17 +89,19 @@ Versionen
 
 # Maven
 
-## Installation (Linux)
-```shell
-sudo apt install maven
-```
-
 ## Dokumentation und Central Repository
 * [Maven Documentation](https://maven.apache.org/guides/index.html)
 * [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
 * [POM Reference](https://maven.apache.org/pom.html)
 * [MvnRepository](https://mvnrepository.com/)
 * [Maven Central Repository](https://central.sonatype.com/search)
+
+
+## Installation (Linux)
+```shell
+sudo apt install maven
+```
+
 
 ## Kommandozeile
 ...

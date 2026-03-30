@@ -50,6 +50,15 @@ sudo apt install synaptic
 ### Manuelle Installation
 Pakete können auch manuell installiert werden. Dazu die meist mitgelieferte Anleitung befolgen.
 
+### Prüfen, ob ein Paket installiert ist
+```shell
+dpkg -l paketName | cat
+```
+oder für alle Pakete
+```shell
+dpkg -l | cat
+```
+
 ### Pakete komplett manuell löschen
 1) Eventuell Ordner manuell löschen, auch versteckte Dateien (sichtbar machen mit Strg-H).
 2) Paket löschen
@@ -62,15 +71,6 @@ sudo apt autoremove
 sudo rm paketName.desktop
 ```
 4) Eventuell Paket aus Autostart löschen. Dazu in der Anwendungssuche (Windows-Taste drücken) *startprogramme* eingeben Programm *Startprogramme* ausführen und das Paket über die GUI entfernen.
-
-### Prüfen, ob ein Paket installiert ist
-```shell
-dpkg -l paketName | cat
-```
-oder für alle Pakete
-```shell
-dpkg -l | cat
-```
 
 
 ## Umgebungsvariablen
@@ -128,10 +128,7 @@ cat /proc/self/environ | tr '\0' '\n'
 
 
 ## PDF
-PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) bearbeiten. Dieses muss zuvor installiert werden:
-```shell
-sudo apt install pdftk
-```
+PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) bearbeiten. Dieses muss zuvor mit ```sudo apt install pdftk``` installiert werden.
 
 ### PDF-Dateien zusammenfügen
 ```shell

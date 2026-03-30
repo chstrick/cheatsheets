@@ -16,4 +16,3 @@
 
 ## Weitere Quellen
 * [wiki.ubuntuusers.de/LaTeX](https://wiki.ubuntuusers.de/LaTeX/)
-...

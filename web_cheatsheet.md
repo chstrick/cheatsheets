@@ -7,7 +7,6 @@
     * [JavaScript](https://developer.mozilla.org/de/docs/Web/JavaScript)
 * [Grundlagenkurs von André Kless (HBRS)](https://akless.github.io/akless/we/index.html)
 * [Online-Lehrbuch Web Development](http://web-development.github.io/)
-* [Video: Jake Archibald: Die Event-Loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be&t=490)
 
 
 ## JavaScript
@@ -36,6 +35,7 @@ Tutorials
 * [W3Schools](https://www.w3schools.com/) (Einfache Tutorials)
 
 Coole Sachen
+* [Video: Jake Archibald: Die Event-Loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be&t=490)
 * [Lösungen: Schreibe eine JS-Funktion , die ...](https://github.com/nem035/js-function-fun/blob/master/functions.js)
 * [Lösung: JS-Funktion mit unendlichen Argumenten](https://medium.com/@ishwar.rimal/trickiest-javascript-interview-question-with-solution-73958f99a376)
 * [Currying in JavaScript](https://www.sitepoint.com/currying-in-functional-javascript/)

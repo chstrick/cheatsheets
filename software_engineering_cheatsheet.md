@@ -47,6 +47,7 @@ Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresyste
     * [Beschreibung](https://martinfowler.com/articles/serverless.html) und viele weitere Themen, z. B. Testing
 * Weitere Architekturthemen
     * [Software Architecture Guide (Martin Fowler)](https://martinfowler.com/architecture/)
+    * [Wikipedia-Liste mit Softwarearchitekturmustern](https://en.wikipedia.org/wiki/List_of_software_architecture_styles_and_patterns)
 
 ### Design Principles
 * SOLID principles
@@ -60,11 +61,12 @@ Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresyste
 * YAGNI (You Ain't Gonna Need It)
 * Composition over Inheritance
 * Weitere Prinzipien
-    * [Katalog Design Principles](https://java-design-patterns.com/principles/)
+    * [Design Principles Katalog](https://java-design-patterns.com/principles/)
 
 ### Design Patterns
-...
-* [Katalog Design Patterns](https://java-design-patterns.com/patterns/)
+* [GoF Pattern Catalog](https://people.csail.mit.edu/addy/pattern/patcafso.htm)
+* [GoF Perttern Map](https://people.csail.mit.edu/addy/pattern/patmap.htm)
+* [Design Patterns Katalog in Java](https://java-design-patterns.com/patterns/)
 
 ### 12-Faktor-App
 Heutzutage werden Softwaresysteme oft als *Software-as-a-Service (SaaS)* konzipiert, d.h.  Die sogenannte *[12-Faktor-App](https://12factor.net/)* ist eine Art (abstrakter) Leitfaden zur Konzeption, Entwicklung und Betrieb von modernen SaaS-Anwendungen.

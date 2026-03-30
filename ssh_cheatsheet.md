@@ -2,6 +2,7 @@
 
 Die [Secure Shell (SSH)](https://wiki.ubuntuusers.de/SSH/) bietet die Möglichkeit sich über eine gesicherte Verbindung mit einem Remote-Server zu verbinden.
 
+
 ## Mit Remote-Server über SSH und Passwort verbinden
 ```shell
 ssh userName@remoteHost # remoteHost = IP-Adresse z.B. 127.0.0.1
@@ -10,6 +11,7 @@ ssh userName@remoteHost # remoteHost = IP-Adresse z.B. 127.0.0.1
                         # Danach muss man das Passwort eingeben
 ```
 Anstelle eines Passworts wird eine [Public-Key-basierte Authentifizierung](https://wiki.ubuntuusers.de/SSH/#Public-Key-Authentifizierung) empfohlen.
+
 
 ## Mit Remote-Server über SSH und Public-Key verbinden
 Public- und Private-Key erzeugen:

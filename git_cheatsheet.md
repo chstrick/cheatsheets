@@ -4,7 +4,7 @@
 * [Offizielle git Dokumentation](https://git-scm.com/)
 * [Offizielle git Referenz](https://git-scm.com/docs)
 
-Außerdem lässt sich mit ```git --help``` oder ```git command --help``` für einen spezifischen Befehl, Hilfe anzeigen.
+Außerdem lässt sich mit ```git --help``` Hilfe anzeigen, oder mit ```git command --help``` für einen spezifischen Befehl.
 
 
 ## Installation und Setup (Linux)
@@ -138,7 +138,7 @@ git branch -d branchName
 
 
 ## Git Rebase
-...
+Mit dem Befehl ```git rebase commitId/branchName``` lässt sich der aktuelle Arbeits-Branch auf den angegeben Commit anwenden, der "Startpunkt" des aktuellen Branches wird quasi verschoben.
 * [Siehe auch: Git Rebase](https://www.atlassian.com/de/git/tutorials/rewriting-history/git-rebase)
 * [Siehe auch: Merge vs. Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
 
@@ -173,10 +173,10 @@ git add .gitattributes # sicherstellen, dass die Datei .gitattributes getrackt w
 ## Sontiges
 
 ### Git Cherry-Pick
-...
-https://www.atlassian.com/de/git/tutorials/cherry-pick
+Mit dem Befehl ```git cherry-pick commitId``` lässt sich ein beliebiger Commit auswählen und an den aktuellen HEAD anhängen.
+* [Siehe auch: Cherry-Pick](https://www.atlassian.com/de/git/tutorials/cherry-pick)
 
-## Letzte(n) Remote-Commit(s) löschen
+### Letzte(n) Remote-Commit(s) löschen
 ```shell
 git stash # alle lokale Änderungen zwischenspeichern!
 git reset --hard idLetzterFunktionierenderCommit # setzt HEAD (aktueller Commit) auf diesen Commit
