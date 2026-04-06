@@ -1,6 +1,6 @@
 # Cheatsheets
 
-My personal cheatsheets:
+Meine persönlichen Cheatsheets:
 
 * [Git](./git_cheatsheet.md)
 * [Linux](./linux_cheatsheet.md)
@@ -10,6 +10,7 @@ My personal cheatsheets:
 * [Python](./python_cheatsheet.md)
 * [Maven](./java_cheatsheet.md#Maven)
 * [Gradle](./java_cheatsheet.md#Gradle)
+* [Android](./android_cheatsheet.md)
 * [LaTeX](./latex_cheatsheet.md)
-* [Web Engineering](./web_cheatsheet.md)
 * [Software Engineering](./software_engineering_cheatsheet.md)
+* [Web Engineering](./web_cheatsheet.md)

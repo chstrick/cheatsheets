@@ -116,10 +116,13 @@ git commit --amend -m "Neue Commit Message" # mit amend lässt sich auch die Com
 ## Lokale Änderungen rückgängig machen
 ```shell
 # Datei aus Staging Area löschen, aber Datei erhalten
-git rm --cached
+git restore --staged
 
 # einen Stash-Eintrag löschen
 git stash drop nr
+
+# Datei aus Versionsverwaltung löschen, aber Datei erhalten
+git rm --cached
 
 # einen Commit rückgängig machen
 git revert commitId # erstellt einen neuen Commit, der die Änderungen des Commits mit der commitId rückgängig macht

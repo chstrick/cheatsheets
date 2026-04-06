@@ -21,30 +21,23 @@ Ubuntu bietet standardmäßig die Anwendung *Softwarecenter* mit einer GUI an. I
 
 ### apt
 Pakete lassen sich auch mit [apt](https://wiki.ubuntuusers.de/apt/apt/) über die Kommandozeile verwalten.
-
-Installieren:
 ```shell
+# Paket installieren
 sudo apt install paketName
-```
-Deinstallieren:
-```shell
+
+# Paket deinstallieren
 sudo apt remove paketName
-```
-Updaten:
-```shell
+
+# Paket updaten
 sudo apt update # Paketquellen aktualisieren
 sudo apt upgrade # alle Pakete werden upgedatet
-```
-Abhängigkeiten entfernen:
-```shell
+
+# Abhängigkeiten entfernen
 sudo apt autoremove # alle nicht mehr benötigten Pakete entfernen
 ```
 
 ### Synaptic
-Wer lieber eine GUI nutzt, kann das Programm *Synaptic* installieren.
-```shell
-sudo apt install synaptic
-```
+Wer lieber eine GUI nutzt, kann das Programm *Synaptic* installieren (```sudo apt install synaptic```).
 Über die GUI von *Synaptic* lassen sich Pakete auf dem Rechner verwalten (installieren, deinstallieren, aktualisieren, ...).
 
 ### Manuelle Installation
@@ -53,9 +46,8 @@ Pakete können auch manuell installiert werden. Dazu die meist mitgelieferte Anl
 ### Prüfen, ob ein Paket installiert ist
 ```shell
 dpkg -l paketName | cat
-```
-oder für alle Pakete
-```shell
+
+# oder für eine Liste aller Pakete
 dpkg -l | cat
 ```
 
@@ -79,9 +71,8 @@ sudo rm paketName.desktop
 ### Umgebungsvariablen anzeigen
 ```shell
 echo $VARIABLE
-```
-oder
-```shell
+
+# oder
 printenv VARIABLE1 VARIABLE2 ...
 ```
 
@@ -120,9 +111,8 @@ Eine Übersicht über alle Konfigurationsdateien findet sich [hier](https://wiki
 ### Umgebungsvariablen für Prozess anzeigen
 ```shell
 cat /proc/PID/environ | tr '\0' '\n' # PID ist die Prozess-ID, environ ist eine Datei
-```
-Für den aktuellen Prozess kann man auch *self* schreiben:
-```shell
+
+# für den aktuellen Prozess kann man auch *self* schreiben
 cat /proc/self/environ | tr '\0' '\n'
 ```
 
@@ -133,9 +123,8 @@ PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubunt
 ### PDF-Dateien zusammenfügen
 ```shell
 pdftk datei1.pdf datei2.pdf datei3.pdf cat output datei123.pdf
-```
-oder
-```shell
+
+# oder
 pdftk *.pdf cat output zusammen.pdf
 ```
 Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/pdftk/).
@@ -148,9 +137,8 @@ sudo apt install imagemagick
 Mit *ImageMagick* lassen sich dann Bilddateien zu einer PDF-Datei zusammenfügen:
 ```shell
 convert bild1.png bild2.png pdfDatei.pdf
-```
-Oder für alle Bilddateien in einem Ordner:
-```shell
+
+# oder für alle Bilddateien in einem Ordner
 convert *.* -gravity center -page a4 pdfDatei.pdf
 ```
 Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/ImageMagick/).

@@ -30,14 +30,13 @@ java --version
 
 ### Java-Datei(en) compilieren
 ```shell
+# Eine Datei kompilieren
 javac Main.java
-```
-Mehrere Dateien kompilieren, durch Auflistung:
-```shell
+
+# Mehrere Dateien kompilieren
 javac Main.java tests/Tests.java
-```
-Alle benötigten Java-Datein kompilieren:
-```shell
+
+# Alle benötigten Datein kompilieren:
 javac -sourcepath . path/to/Main.java
 ```
 

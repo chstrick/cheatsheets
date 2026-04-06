@@ -16,9 +16,9 @@ Anstelle eines Passworts wird eine [Public-Key-basierte Authentifizierung](https
 ## Mit Remote-Server über SSH und Public-Key verbinden
 Public- und Private-Key erzeugen:
 ```shell
-ssh-keygen -t rsa -b 4096 -C "userName@remoteHost" -p passwort -f ~/.ssh/keyDateiName
+ssh-keygen -t rsa -b 4096 -P "passwort" -f ~/.ssh/keyDateiName
 # wird zwei Dateien unter /home/user/.ssh/ erzeugen, keyDateiName (private key) und keyDateiName.pub (public key)
-# Passwort muss immer bei Nutzung des Schlüssel eingeben werden
+# Passwort muss immer bei Nutzung des Schlüssels eingegeben werden
 ```
 Nachdem der Public-Key dem Server übermittelt wurde, kann man sich mit dem Private-Key einloggen:
 ```shell
