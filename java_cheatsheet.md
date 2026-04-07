@@ -80,6 +80,10 @@ java -jar DateiName.jar
 * [wiki.ubuntuusers.de/Java](https://wiki.ubuntuusers.de/Java/)
 * [wiki.ubuntuusers.de/OpenJDK](https://wiki.ubuntuusers.de/OpenJDK/)
 
+Tutorials
+* [Youtube-Kanal mit guten Tutorials zu Java](https://www.youtube.com/c/CodingwithJohn)
+* [Geprüfte und Ungeprüfte Exceptions in Java](https://www.youtube.com/watch?v=bCPClyGsVhc)
+
 Versionen
 * [OpenJDK](https://openjdk.org/)
 * [Amazon Corretto](https://aws.amazon.com/de/corretto/)
