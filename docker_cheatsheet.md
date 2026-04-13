@@ -1,9 +1,13 @@
 # Docker Cheatsheet
 
+</br>
+
 ## Dokumentation
 * [Offizielle Docker Dokumentation](https://docs.docker.com/)
 * [Offizielle Docker Referenz](https://docs.docker.com/reference/)
 
+
+</br>
 
 ## Installation und Setup (Linux)
 ```shell
@@ -17,6 +21,8 @@ Ein Service ist unter Linux ein Prozess, der so eingestellt werden kann, dass er
 * Stop: ```sudo service docker stop```
 * Status aller Services (nicht nur Docker): ```service --status-all```
 
+
+</br>
 
 ## Docker
 
@@ -83,6 +89,8 @@ docker push
 ```
 
 
+</br>
+
 ## Docker-Compose
 
 ### Docker-Compose File
@@ -123,6 +131,8 @@ docker-compose rm
 docker-compose ps
 ```
 
+
+</br>
 
 ## Weitere Quellen
 Tutorials

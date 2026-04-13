@@ -1,5 +1,7 @@
 # Software Engineering Cheatsheet
 
+</br>
+
 ## Softwareentwicklung
 *Softwareentwicklung* ist der Prozess der Konzeption, Implementierung, und heutzutage meist auch des Betriebs (DevOps, SaaS), von Software auf Ingenieur-mäßige Art und Weise (daher *Software Engineering*).
 
@@ -23,18 +25,22 @@ Der Begriff *Refactoring* beschreibt die Änderung (vor allem die Vereinfachung)
 * [Software Delivery Guide (Martin Fowler)](https://martinfowler.com/delivery.html)
 
 
+</br>
+
 ## Softwarearchitektur
 Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresystems beschrieben. 
 * [Schichtenarchitektur](https://www.predic8.de/schichtenarchitektur.htm)
 * [Dependency Inversion]() (wichtig für folgende Architekturen, siehe auch [Design Principles](#design-principles))
 * Hexagonal-Architektur
     * [Beschreibung](https://www.predic8.de/hexagonale-architektur.htm)
+    * [Beispiel mit Spring Boot](https://reflectoring.io/spring-hexagonal/)
 * Onion-Architektur
     * [Beschreibung](https://www.predic8.de/onion-architecture.htm)
 * Clean-Architektur
     * [Beschreibung](https://www.predic8.de/clean-architecture.htm)
     * [Artikel von Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
     * [Video von Uncle Bob](https://www.youtube.com/watch?v=o_TH-Y78tt4)
+    * [Beispiel mit Spring Boot](https://reflectoring.io/java-components-clean-boundaries/)
 * Vertical Slice Architektur
     * [Beschreibung](https://www.predic8.de/vertical-slice-architecture.htm)
     * [Beispiel mit Spring Boot](https://www.predic8.de/vertical-slice-architecture-java-spring-boot.htm)
@@ -42,6 +48,7 @@ Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresyste
     * [Beschreibung](https://martinfowler.com/microservices/) und viele weitere Themen, z. B. Testing
     * [Beispiel mit Spring Boot](https://www.predic8.de/microservices-spring-boot-spring-cloud.htm)
 * Modulith
+    * [Spring Modulith](https://spring.io/projects/spring-modulith)
     * [Beispiel mit Spring Modulith](https://www.predic8.de/spring-modulith.htm)
 * Serverless Architecture
     * [Beschreibung](https://martinfowler.com/articles/serverless.html) und viele weitere Themen, z. B. Testing
@@ -69,8 +76,10 @@ Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresyste
 * [Design Patterns Katalog in Java](https://java-design-patterns.com/patterns/)
 
 ### 12-Faktor-App
-Heutzutage werden Softwaresysteme oft als *Software-as-a-Service (SaaS)* konzipiert, d.h.  Die sogenannte *[12-Faktor-App](https://12factor.net/)* ist eine Art (abstrakter) Leitfaden zur Konzeption, Entwicklung und Betrieb von modernen SaaS-Anwendungen.
+Heutzutage werden Softwaresysteme oft als *Software-as-a-Service (SaaS)* konzipiert, d.h.  Die sogenannte *[12-Faktor-App](https://12factor.net/)* ist eine Art (abstrakter) Leitfaden zur Konzeption, Entwicklung und Betrieb von modernen SaaS-Anwendungen. [-> 12-Faktor-App mit Spring Boot](https://reflectoring.io/spring-boot-12-factor-app/)
 
+
+</br>
 
 ## Softwaredokumentation
 Damit ein implementiertes System gut verstanden, gewartet und weiterentwickelt werden kann, muss es auf eine sinnvolle Art und Weise dokumentiert werden. Folgende Seiten und Artikel bieten gute Grundlagen und Tipps für gute Softwaredokumentation:
@@ -82,6 +91,8 @@ Damit ein implementiertes System gut verstanden, gewartet und weiterentwickelt w
 * [PlantUML](https://plantuml.com/de/) (Tool/Sprache zur programmatischen Erstellung von UML-Diagrammen)
 * [draw.io](https://app.diagrams.net/) (Online-Editor zur Erstellung von Diagrammen)
 
+
+</br>
 
 ## Weitere Quellen
 * [List of software development philosophies (Wikipedia)](https://en.wikipedia.org/wiki/List_of_software_development_philosophies)

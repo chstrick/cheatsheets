@@ -1,5 +1,7 @@
 # Linux Cheatsheet
 
+</br>
+
 ## Installation
 
 ### Boot-fähigen USB-Stick erstellen
@@ -9,9 +11,13 @@ In der Anwendungssuche (Windows-Taste drücken) nach *usb* suchen und das Progra
 Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [hier](https://linux-de.com/?p=2921).
 
 
+</br>
+
 ## Kommandozeile
 Unter Linux lassen sich alle Aufgaben zur Verwaltung des Systems über die Komandozeile (Shell) erledigen. Dazu gibt es zahlreiche Befehle. Eine Übersicht findet sich [hier](https://wiki.ubuntuusers.de/Shell/Befehls%C3%BCbersicht/).
 
+
+</br>
 
 ## Pakete
 Pakete (entspricht in etwa "Programme") lassen sich unter Ubuntu auf verschiedene Arten installieren und verwalten.
@@ -65,6 +71,8 @@ sudo rm paketName.desktop
 4) Eventuell Paket aus Autostart löschen. Dazu in der Anwendungssuche (Windows-Taste drücken) *startprogramme* eingeben Programm *Startprogramme* ausführen und das Paket über die GUI entfernen.
 
 
+</br>
+
 ## Umgebungsvariablen
 [Umgebungsvariablen](https://wiki.ubuntuusers.de/Umgebungsvariable/) speichern Werte, die in einer Shell-Sitzung und von Prozessen wiederverwendet werden können. Ein typisches Beispiel sind Suchpfade zu Programmen (z.B. PATH). Umgebungsvariablen werden von Prozessen vererbt.
 
@@ -117,6 +125,8 @@ cat /proc/self/environ | tr '\0' '\n'
 ```
 
 
+</br>
+
 ## PDF
 PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) bearbeiten. Dieses muss zuvor mit ```sudo apt install pdftk``` installiert werden.
 
@@ -168,6 +178,8 @@ Folgende Parameter müssen/können dabei jeweils angepasst werden:
 - **pfad/zu/Eingabe.pdf** ist der Name bzw. Pfad zur Eingabedatei
 
 
+</br>
+
 ## Zip
 
 ### Zip-Archiv erstellen
@@ -180,6 +192,8 @@ zip archivName.zip ordner/*
 zip archivName.zip ordner/* -e
 ```
 
+
+</br>
 
 ## Services
 Ein Service ist ein Prozess, der permanent auf dem Rechner läuft (entspricht in etwa Autostart unter Windows).
@@ -219,11 +233,8 @@ systemctl enable serviceName
 systemctl disable serviceName
 ```
 
-### Service nach nächstem Reboot automatisch stoppen
-```shell
-systemctl disable serviceName
-```
 
+</br>
 
 ## Festplatte überschreiben
 Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wiederherstellbar sind, z.B. vor Verkauf oedr Verschrottung eines Rechners, kann man das Programm [DBAN](https://dban.org/) nutzen. 
@@ -234,6 +245,8 @@ Tutorials:
 * https://www.youtube.com/watch?v=qSowh52Q5lA
 * https://www.youtube.com/watch?v=lOkU2dY48_c
 
+
+</br>
 
 ## Sonstiges
 
@@ -270,6 +283,8 @@ gsettings set org.gnome.desktop.sound event-sounds false
 ### Links
 Unter Linux lassen sich Links (ähnlich Verknüpfungen unter Windows) erstellen. Dies ist mit dem Programm [ln](https://wiki.ubuntuusers.de/ln/) über die Kommandozeile möglich.
 
+
+</br>
 
 ## Weitere Quellen
 * [ubuntuusers.de](https://wiki.ubuntuusers.de/)

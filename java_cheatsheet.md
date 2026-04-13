@@ -1,5 +1,7 @@
 # Java Cheatsheet
 
+</br>
+
 ## Dokumentation
 * [Java Standard Edition (Java SE)](https://docs.oracle.com/en/java/javase/)
 * [Java Enterprise Edition (Java EE)](http://docs.oracle.com/javaee)
@@ -11,6 +13,8 @@ Die Java-API enthält alle Build-in-Sprachelemente/Packages.
 [Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl im Link lassen sich auch andere Versionen aufrufen)
 
 
+</br>
+
 ## Installation (Linux)
 ```shell
 sudo apt update # Paketquellen aktualisieren
@@ -20,6 +24,8 @@ sudo apt install openjdk-25-jdk # OpenJDK 25 installieren
 java --version # Prüfen, ob Java korrekt installiert wurde
 ```
 
+
+</br>
 
 ## Kommandozeile
 
@@ -45,6 +51,8 @@ javac -sourcepath . path/to/Main.java
 java Main.class # Klasse muss main-Methode enthalten
 ```
 
+
+</br>
 
 ## JAR-Dateien
 
@@ -76,6 +84,8 @@ java -jar DateiName.jar
 ```
 
 
+</br>
+
 ## Weitere Quellen
 * [wiki.ubuntuusers.de/Java](https://wiki.ubuntuusers.de/Java/)
 * [wiki.ubuntuusers.de/OpenJDK](https://wiki.ubuntuusers.de/OpenJDK/)
@@ -83,14 +93,15 @@ java -jar DateiName.jar
 Tutorials
 * [Youtube-Kanal mit guten Tutorials zu Java](https://www.youtube.com/c/CodingwithJohn)
 * [Geprüfte und Ungeprüfte Exceptions in Java](https://www.youtube.com/watch?v=bCPClyGsVhc)
-
-Versionen
-* [OpenJDK](https://openjdk.org/)
-* [Amazon Corretto](https://aws.amazon.com/de/corretto/)
+* [Elegant Objects (Paradigmen für besseren Java-Code)](https://www.elegantobjects.org/)
 
 
+</br>
+</br>
 
 # Maven
+
+</br>
 
 ## Dokumentation und Central Repository
 * [Maven Documentation](https://maven.apache.org/guides/index.html)
@@ -100,21 +111,29 @@ Versionen
 * [Maven Central Repository](https://central.sonatype.com/search)
 
 
+</br>
+
 ## Installation (Linux)
 ```shell
 sudo apt install maven
 ```
 
 
+</br>
+
 ## Kommandozeile
 ...
 
+
+</br>
 
 ## Weitere Quellen
 * [Maven by Example](https://www.sonatype.com/resources/guides/maven-by-example) (Sehr gutes Tutorial)
 * [Maven Cheatsheet von Eberhard Wolff](https://github.com/ewolff/cheatsheets-DE/blob/master/MavenCheatSheet.md)
 
 
+</br>
+</br>
 
 # Gradle
 ...

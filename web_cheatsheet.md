@@ -1,13 +1,18 @@
 # Web Engineering Cheatsheet
 
+</br>
+
 ## Grundlagen
-* [MDN (Mozilla Developer Network)](https://developer.mozilla.org/de/) (Dokumentation aller Web-Standards, [-APIs](https://developer.mozilla.org/de/docs/Web/API), etc.)
+* [MDN (Mozilla Developer Network)](https://developer.mozilla.org/de/) (Dokumentation aller Web-Standards)
     * [HTML](https://developer.mozilla.org/de/docs/Web/HTML)
     * [CSS](https://developer.mozilla.org/de/docs/Web/CSS)
     * [JavaScript](https://developer.mozilla.org/de/docs/Web/JavaScript)
+    * [Web-APIs](https://developer.mozilla.org/de/docs/Web/API)
 * [Grundlagenkurs von André Kless (HBRS)](https://akless.github.io/akless/we/index.html)
 * [Online-Lehrbuch Web Development](http://web-development.github.io/)
 
+
+</br>
 
 ## JavaScript
 In den folegenden Abschnitten werden einfache und nützliche Tricks und Tipps für JavaScript beschrieben.
@@ -21,10 +26,14 @@ Die Fetch-API ist eine standardmäßig in JavaScript eingebaute Schnittstelle zu
 * [Gute Erklärung für Promises und async/await](https://javascript.info/async)
 
 
+</br>
+
 ## Web Components
 * [Web Components (MDN)](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 * [Shadow DOM Deep Dive](https://github.com/praveenpuglia/shadow-dom-in-depth)
 
+
+</br>
 
 ## Weitere Quellen
 Tools

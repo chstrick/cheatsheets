@@ -473,6 +473,7 @@ def hello_world():
 # TODO weitere Konventionen
 ```
 * [Zen of Python](https://docs.python.org/3/glossary.html#term-Zen-of-Python)
+* [Best Practices (RealPython)](https://realpython.com/ref/best-practices/)
 * [Artikelsammlung zu Pythonic Code (RealPython)](https://realpython.com/learning-paths/writing-pythonic-code/)
 
 

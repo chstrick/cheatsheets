@@ -1,11 +1,14 @@
 # Git Cheatsheet
 
+</br>
+
 ## Dokumentation
 * [Offizielle git Dokumentation](https://git-scm.com/)
 * [Offizielle git Referenz](https://git-scm.com/docs)
+* Außerdem lässt sich mit ```git --help``` Hilfe anzeigen, oder mit ```git command --help``` für einen spezifischen Befehl.
 
-Außerdem lässt sich mit ```git --help``` Hilfe anzeigen, oder mit ```git command --help``` für einen spezifischen Befehl.
 
+</br>
 
 ## Installation und Setup (Linux)
 ```shell
@@ -22,6 +25,8 @@ git config --global credential.helper store # speichert Credentials, damit diese
 ```
 
 
+</br>
+
 ## Lokales Repository anlegen
 ```shell
 cd pfad/zu/projectRootFolder # in Root-Verzeichnis des Projekts navigieren
@@ -30,6 +35,8 @@ git init repoName # erzeugt ein leeres lokales Repository und den main-Branch
 ```
 
 
+</br>
+
 ## Remote-Repository klonen (lokale Kopie erstellen)
 ```shell
 git clone remoteRepoUrl
@@ -37,6 +44,8 @@ git clone remoteRepoUrl
 # eine Anleitung für GitHub und Token findet sich weiter unten.
 ```
 
+
+</br>
 
 ## Branch erstellen und auschechen
 ```shell
@@ -52,6 +61,8 @@ git checkout -b newBranchName # existingBranch weggelassen, dann wird der aktuel
 git branch # listet alle lokalen Branches auf (aktueller Branch ist mit * markeiert)
 ```
 
+
+</br>
 
 ## Änderung commiten und pushen
 ```shell
@@ -80,6 +91,8 @@ git push
 ```
 
 
+</br>
+
 ## Fremden Remote-Branch in aktuellen eigenen Local-Branch mergen
 ```shell
 git status
@@ -103,6 +116,8 @@ git status
 ```
 
 
+</br>
+
 ## Letzten lokalen Commit ändern/erweitern
 ```shell
 git add geaenderteDatei1 geaenderteDatei2 ...
@@ -112,6 +127,8 @@ git commit --amend --no-edit # fügt die Änderungen zum letzten Commit hinzu
 git commit --amend -m "Neue Commit Message" # mit amend lässt sich auch die Commit-Message ändern
 ```
 
+
+</br>
 
 ## Lokale Änderungen rückgängig machen
 ```shell
@@ -140,11 +157,15 @@ git branch -d branchName
 * [Siehe auch](https://www.atlassian.com/de/git/tutorials/resetting-checking-out-and-reverting)
 
 
+</br>
+
 ## Git Rebase
 Mit dem Befehl ```git rebase commitId/branchName``` lässt sich der aktuelle Arbeits-Branch auf den angegeben Commit anwenden, der "Startpunkt" des aktuellen Branches wird quasi verschoben.
 * [Siehe auch: Git Rebase](https://www.atlassian.com/de/git/tutorials/rewriting-history/git-rebase)
 * [Siehe auch: Merge vs. Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
 
+
+</br>
 
 ## .gitignore
 In der .gitignore-Datei werden alle Dateien spezifiziert, die nicht von Git erfasst werden sollen.
@@ -153,16 +174,30 @@ In der .gitignore-Datei werden alle Dateien spezifiziert, die nicht von Git erfa
 * [.gitignore Best Practices](https://gitignore.pro/guides/gitignore-best-practices)
 
 
+</br>
+
 ## README
 In der *README.md*-Datei ("read me", engl. für "lies mich") wird das Projekt erklärt und es werden allegemeine Informationen gegeben. Es ist üblich die README-Datei als Markdown-Datei (Endung .md) anzulegen.
 * [Leitfaden zur Erstellung einer README-Datei](https://www.makeareadme.com/)
 * [Übersicht Markdown-Syntax](https://commonmark.org/help/)
+* [Markdown Guide](https://www.markdownguide.org/)
 
+
+</br>
+
+## LICENSE
+Erstellt man ein Open-Source-Projekt, sollte man eine Lizenz angeben. Die Lizenz wird im Repository in der Datei LICENSE angegeben (ohne Endung oder mit .txt).
+* [Überblick und Auswahlhilfe](https://choosealicense.com/)
+
+
+</br>
 
 ## .gitattributes
 In der .gitattributes-Datei wird spezifiziert, wie Git mit bestimmten Dateien umgehen soll. Spezifiziert werden z.B. Dateitypen, Zeilenenden, Merge-Verhalten oder Diff-Tools.
 * [.gitattributes Referenz](https://git-scm.com/docs/gitattributes)
 
+
+</br>
 
 ## Git Large File Storage
 [Git Large File Storage (LFS)](https://git-lfs.com/) ersetzt große Dateien, wie Audio- oder Video-Dateien, durch Pointer, damit auch diese platzsparend verwaltet werden können. Dazu im Repository folgende Befehle ausführen:
@@ -172,6 +207,8 @@ git add .gitattributes # sicherstellen, dass die Datei .gitattributes getrackt w
 # nun können auch die großen Dateien mit add, commit, push verarbeitet werden
 ```
 
+
+</br>
 
 ## Sontiges
 
@@ -193,6 +230,8 @@ git remote set-url remoteName newUrl # (remoteName ist i.d.R. 'origin')
 ```
 
 
+</br>
+
 ## Weitere Quellen
 * [Sehr gutes und kompaktes cheatsheet](https://cs.fyi/guide/git-cheatsheet)
 * [Offizelles cheatsheet auf git-scm.com](https://git-scm.com/cheat-sheet)
@@ -200,4 +239,4 @@ git remote set-url remoteName newUrl # (remoteName ist i.d.R. 'origin')
 * [gittutorial (kleines Anfänger-Tutorial für Git)](https://git-scm.com/docs/gittutorial)
 * [GitHub-Remote-Repo mit Token einrichten](https://blog.techeazyconsulting.com/connecting-git-to-github-with-pat-token)
 * [Git Monorepos (ein Repo für mehrere Teile eines Projekts (z.B. Frontend und backend))](https://wellarchitected.github.com/library/scenarios/monorepos/)
-* [Tipp für .gitignore in Monorepos](https://www.tutorialpedia.org/blog/ignoring-any-bin-directory-on-a-git-project/)
+* [Tipps für .gitignore in Monorepos](https://www.tutorialpedia.org/blog/ignoring-any-bin-directory-on-a-git-project/)

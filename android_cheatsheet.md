@@ -1,5 +1,7 @@
 # Android Cheatsheet
 
+</br>
+
 ## Dokumentation
 * [Android Developers (Google)](https://developer.android.com/) (Einstiegsseite für Android-Entwicklung)
 * [Get Started (Google)](https://developer.android.com/get-started/overview)
@@ -8,9 +10,13 @@
 * [Android Jetpack Compose (Google)](https://developer.android.com/compose) (Toolkit für native UI-Entwicklung)
 
 
+</br>
+
 ## Installation und Setup (Linux)
 Der einfachste Weg ist die Installation von [Android Studio](https://developer.android.com/studio?hl=de) über das Ubuntu-Softwarecenter. Mit Android Studio wird auch direkt das Android SDK installiert.
 
+
+</br>
 
 ## Sonstiges
 
@@ -55,6 +61,8 @@ java -jar jd-gui-1.6.6.jar
 # -> Ergebnis: Source Code
 ``` 
 
+
+</br>
 
 ## Weitere Quellen
 Tutorials
