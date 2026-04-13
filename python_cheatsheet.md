@@ -44,9 +44,9 @@ python file_name.py
 ```
 
 ### Python-Skripte direkt ausführbar machen
-1) Am Anfang des Skripts folgende [Shebang](https://de.wikipedia.org/wiki/Shebang) einfügen: `#!/usr/bin/env python3`
-2) Skript ausführbar machen mit `chmod +x my_script.py` (unter Linux, unter Windows reicht ein Doppelklick)
-3) Skript direkt in der Kommandozeile ausführen mit `my_script.py`
+1) Erste Zeile im Skript: `#!/usr/bin/env python3` ([Shebang](https://de.wikipedia.org/wiki/Shebang))
+2) Skript ausführbar machen: `chmod +x my_script.py`
+3) Skript in Kommandozeile ausführen: `my_script.py`
 
 </br>
 
@@ -76,7 +76,7 @@ python -m pip uninstall package_name
 python -m pip list
 ```
 * [Liste aller pip-Befehle](https://pip.pypa.io/en/stable/cli/)
-* [Installation von Paketen (pip Docs)](https://pip.pypa.io/en/stable/user_guide/)
+* [pip Docs](https://pip.pypa.io/en/stable/user_guide/)
 * [Installation von Paketen (Python Packaging User Guide)](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 * [*Development Mode*](https://docs.python.org/3/library/devmode.html)
  | [Entwickeln im *Development Mode*](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#working-in-development-mode)
@@ -189,18 +189,16 @@ Mit *uv* können auch VEs verwaltet werden. Siehe [Python-Pakete verwalten > uv]
 # ganzes Modul importieren
 import module
 module.func1()
-func1() # Error
 
 # Alias vergeben
-import module as amod 
-amod.func1()
-module.func1() # Error
+import numpy as np 
+a = np.array([[1, 2, 3],
+              [4, 5, 6]]) # Matrix
 
 # nur bestimmte Teile importieren
 from module import const0, func1
 const0
-func1()
-func2() # Error
+func1() # ohne Referenz nutzbar (nicht empfohlen)
 # analog können auch Aliase vergeben werden
 from module import func1 as f1
 
@@ -208,7 +206,7 @@ from module import func1 as f1
 import pkg.subpkg1.mod
 pkg.subpkg1.mod.subfunc()
 # oder mit from
-import subfunc from pkg.subpkg1.mod
+from pkg.subpkg1.mod import subfunc
 subfunc()
 
 # Relative Imports: Import von Subpaketen/-modulen/etc. innerhalb eines Hauptpakets
@@ -265,7 +263,7 @@ def main()
   return 0
 
 if __name__ == "__main__":
-  # Code in diesem Block wird ausgeführt, wenn Paket nicht über import geladen wird
+  # Code in diesem Block wird ausgeführt, wenn Modul nicht über import geladen wird
   main()
 ```
 
@@ -305,18 +303,20 @@ def add(a: int, b: int) -> int:
   return a + b
 
 # Lambda-Funktionen: anonyme Funktionen in und mit einem Ausdruck
-x = (lambda x: x + 1)(3) # x = 4
+f = lambda x: x + 1
+x = f(3) # x = 4
 ```
 * [Funktionen (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
 * [Arten von Argumenten (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions)
-* [*args und **kwargs (RealPython)](https://realpython.com/python-kwargs-and-args/)
+* [*args und **kwargs (RealPython)](https://realpython.com/python-kwargs-and-args/) TODO auswerten und entfernen
 * [lambda (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)
+* [Functional Programming HOWTO](https://docs.python.org/3/howto/functional.html)
+* [Tutorial zu FP in Python (RealPython)](https://realpython.com/python-functional-programming/)
+* [Build-in-Module für FP](https://docs.python.org/3/library/functional.html)
 
 ### OOP in Python
 #### Klassen
 * TODO Klassen
-* [Referenz](https://docs.python.org/3/reference/compound_stmts.html#class-definitions)
-* [Tutorial](https://docs.python.org/3/tutorial/classes.html)
 ```python
 class Point():
   def __init__(self, x, y):
@@ -334,20 +334,20 @@ class Point():
 ```
 * Durch die Klassenmethode `__init__(self, ...)` wird ein Objekt bei der Erzeugung inizialisiert (vergleichbar mit Konstruktor) [siehe Docs](https://docs.python.org/3/reference/datamodel.html#object.__init__)
 * Durch die Klassenmethode `__new__(cls, *args, **kwargs)` wird bei der Objekterzeugung Speicherplatz zugewiesen, also das eigentliche Objekt im Speicher erzeugt. Die Methode wird i.d.R. nicht überschrieben (weitere Infos siehe Metaprogramming). [siehe Docs](https://docs.python.org/3/reference/datamodel.html#object.__new__)
+* [Tutorial](https://docs.python.org/3/tutorial/classes.html)
 
 #### Abstract Base Classes
 * [Abstract Base Classes (ABCs)](https://docs.python.org/3/glossary.html#term-abstract-base-class) sind das Gegenstück zum [Duck-Typing](https://docs.python.org/3/glossary.html#term-duck-typing).
 * Klassen folgen [Nomineller Vererbung](https://typing.python.org/en/latest/reference/protocols.html).
-* Das Modul [abc](https://docs.python.org/3/library/abc.html) bietet die Klassen und Decorators für abstrakte Klassen.
 ```python
-from abc import ABC, abstractmethod # abc muss importiert werden
+from abc import ABC, abstractmethod # Modul abc muss importiert werden
 
-class Animal(ABC): # Klasse erbt von Klasse ABC
+class Animal(ABC): # abstrakte Klasse erbt von Klasse ABC
     @abstractmethod # Decorator definiert eine abstrakte Methode
     def feed(self):
         pass
 
-class Dog(Animal): # konkrete Klasse erbt von abstrkter Klasse
+class Dog(Animal): # konkrete Klasse erbt von abstrakter Klasse
   def __init__(self):
     super() # TODO super
 
@@ -363,19 +363,20 @@ class Dog(Animal): # konkrete Klasse erbt von abstrkter Klasse
 ```
 
 #### Interfaces
-In Python gibt es keine Interfaces, aber [das Konzept von Interfaces lässt sich auf verschiedene Art und Weise umsetzen](https://realpython.com/python-interface/).
+In Python gibt es keine Interfaces, aber [das Konzept lässt sich auf verschiedene Art und Weise umsetzen](https://realpython.com/python-interface/).
 
 #### Dataclasses
 * TODO Dataclasses
 * [dataclasses](https://docs.python.org/3/library/dataclasses.html)
 ```python
-from dataclasses import dataclass # dataclass aus Modul dataclasses importieren
+from dataclasses import dataclass # Modul dataclasses muss importiert werden
 
 @dataclass
 class InventoryItem:
     name: str
     unit_price: float
     quantity_on_hand: int = 0
+    # Methode __init__() wird generiert
 ```
 
 ### Decorators
@@ -402,9 +403,12 @@ def add(a, b):
 ### Exceptions
 * Python verfolgt den Ansatz [EAFP](https://docs.python.org/3/glossary.html#term-EAFP) (Easier to ask for forgiveness than permission).
   * Viele andere Sprachen verfolgen den Ansatz [LBYL](https://docs.python.org/3/glossary.html#term-LBYL) (Look before you leap).
-* Exceptions werden gefangen und behandelt mit [try](https://docs.python.org/3/reference/compound_stmts.html#try) ... [except](https://docs.python.org/3/reference/compound_stmts.html#except-clause) ... [finally](https://docs.python.org/3/reference/compound_stmts.html#finally)
+* Behandlung mit [try](https://docs.python.org/3/reference/compound_stmts.html#try) ... [except](https://docs.python.org/3/reference/compound_stmts.html#except-clause) ... [finally](https://docs.python.org/3/reference/compound_stmts.html#finally)
 * [Liste aller Build-in-Exceptions](https://docs.python.org/3/library/exceptions.html)
 * [Tutorial zu Exceptions in Python (RealPython)](https://realpython.com/python-exceptions/)
+```python
+# TODO
+```
 
 ### yield und Generatoren
 * TODO yield
@@ -421,26 +425,29 @@ TODO Context Manager
 
 ### Typen, Type Hints und Type-Checking
 * Python ist eine dynamisch typisierte Sprache.
-* [Typesystem von Python](https://typing.python.org/en/latest/spec/)
-* Python verfolgt die Ansätze:
-  * [Duck Typing](https://docs.python.org/3/glossary.html#term-duck-typing)
-  * [Gradual Typing](https://jsiek.github.io/home/WhatIsGradualTyping.html)
+  * [Typesystem von Python](https://typing.python.org/en/latest/spec/)
+  * verfolgt [Duck Typing](https://docs.python.org/3/glossary.html#term-duck-typing)
+  * verfolgt [Gradual Typing](https://jsiek.github.io/home/WhatIsGradualTyping.html)
 * [Liste aller Build-in-Typen](https://docs.python.org/3/library/stdtypes.html)
+* `None`: Representiert fehlende oder optionale Werte
+* `type()`: Typ eines Objektes prüfen: `type(3)  # <class 'int'>`
+* `isinstance()`: Auf einen bestimmten Typ prüfen: `isinstance(3.14, float)  # True`
+* `issubclass()`: Prüft, ob eine Klasse eine Subclasse ist: `issubclass(int, object)  # True - everything is an object`
 
 #### Type Hints
 * [Type Hints](https://docs.python.org/3/glossary.html#term-type-hint) sind optionale Annotationen, die den Typ von Variablen/Parametern/Funktionen/Methode angeben.
 * [Spezifikation](https://typing.python.org/en/latest/spec/annotations.html)
 * Für Type Hints können die [Build-in-Typen](https://docs.python.org/3/library/stdtypes.html) verwendet werden.
-* Das Modul [typing](https://docs.python.org/3/library/typing.html) enthält weitere (komplexere) Typen, wie List oder Set.
-```python
-def add(a: int, b: int) -> int:
-  return a + b
-```
+  ```python
+  def add(a: int, b: int) -> int:
+    return a + b
+  ```
+* [typing](https://docs.python.org/3/library/typing.html): Modul enthält (komplexere) Typen, wie List oder Set
 * Ein [Typ-Alias](https://docs.python.org/3/glossary.html#term-type-alias) ist ein Synonym für einen (komplexeren) Typ (z.B. für die Vereinfachung von Type Hints).
 * [Spezifikation](https://typing.python.org/en/latest/spec/aliases.html)
-```python
-type Point = tuple(float, float)
-```
+  ```python
+  type Point = tuple(float, float)
+  ```
 
 #### Type-Checking
 * Typannotionen können von externen [statischen Type-Checkern](https://docs.python.org/3/glossary.html#term-static-type-checker) zur Typanalyse genutzt werden (z.B. um Fehler früher zu erkennen).
@@ -448,8 +455,8 @@ type Point = tuple(float, float)
   * [mypy](https://mypy-lang.org/) (Standard)
   * [ty](https://docs.astral.sh/ty/) (empfehlenswert)
   * [Pyrefly](https://pyrefly.org/)
-  * [pytype](https://google.github.io/pytype/) (von Google)
-  * [pyright](https://github.com/microsoft/pyright) (von Microsoft)
+  * [pytype](https://google.github.io/pytype/)
+  * [pyright](https://github.com/microsoft/pyright)
 * [Tutorial zu Type-Checking in Python (RealPython)](https://realpython.com/python-type-checking/)
 
 
@@ -478,7 +485,7 @@ def hello_world():
     * [Konfiguration von pytest](https://docs.pytest.org/en/stable/reference/customize.html)
 * [Tutorial zu Testing in Python (RealPython)](https://realpython.com/python-testing/)
 * [Debugging und Profiling (Standard Library)](https://docs.python.org/3/library/debug.html)
-  * [Performance measurement (Tutorial)](https://docs.python.org/3/tutorial/stdlib.html#performance-measurement)
+* [Performance measurement (Tutorial)](https://docs.python.org/3/tutorial/stdlib.html#performance-measurement)
 
 
 </br>
@@ -491,6 +498,7 @@ def hello_world():
   * [Black](https://black.readthedocs.io/en/stable/) (F)
   * [autopep8](https://github.com/hhatto/autopep8) (F)
   * [Flake8](https://github.com/PyCQA/flake8) (L)
+  * [bandit](https://bandit.readthedocs.io/en/latest/) (L, insb. Security Issues)
   * [Ruff](https://docs.astral.sh/ruff/) (L & F, empfehlenswert)
 
 Weitere hilfreiche Quellen:
@@ -628,7 +636,7 @@ Die Datei *requirements.txt* enthält eine Liste von Paketen, die mit `pip insta
 Die Datei *pyproject.toml* ...
 * [Guide](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
 * [Spezifikation](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
-* Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
+* ℹ️ Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
 </details>
 
 </br>
@@ -636,8 +644,8 @@ Die Datei *pyproject.toml* ...
 <details close>
 <summary>pytest.toml/.ini</summary>
 
-* Die Datei *pytest.toml/.ini* ist die Konfigurationsdatei für das Test-Framework *pytest*.
-* Weitere Infos siehe [Testing](#testing).
+* *pytest.toml/.ini* ist die Konfigurationsdatei für das Test-Framework *pytest*.
+* ℹ️ Weitere Infos siehe [Testing](#testing).
 </details>
 
 </br>
@@ -645,12 +653,12 @@ Die Datei *pyproject.toml* ...
 <details close>
 <summary>setup.cfg</summary>
 
-* Die Datei *setup.cfg* ist die deklarative Variante zur Konfiguration des Build-Tools *setuptools*.
-* Die Datei *setup.cfg* vereint die Konfiguration verschiedener Tools (z.B. Linter, Formatter, ...), die sonst ihre eigenen Konfigurationsdateien hätten.
+* *setup.cfg* ist die deklarative Variante zur Konfiguration des Build-Tools *setuptools*.
+* vereint die Konfiguration verschiedener Tools (z.B. Linter, Formatter, ...)
 * [Guide *setup.cfg*](https://setuptools.pypa.io/en/stable/userguide/declarative_config.html)
 * [Referenz der Keywords](https://setuptools.pypa.io/en/stable/references/keywords.html)
 * ℹ️ *setuptools* kann auch [über die Datei *pyproject.toml* konfiguriert werden](https://setuptools.pypa.io/en/stable/userguide/declarative_config.html).
-* Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
+* ℹ️ Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
 </details>
 
 </br>
@@ -658,15 +666,15 @@ Die Datei *pyproject.toml* ...
 <details close>
 <summary>setup.py</summary>
 
-* Die Datei *setup.py* ist die imperative Variante zur Konfiguration des Build-Tools *setuptools*.
+* *setup.py* ist die programmatische Variante zur Konfiguration des Build-Tools *setuptools*.
 * **💡 Es wird jedoch empfohlen eher eine Datei *setup.cfg* zu verwenden!**
-* ❗ Falls die Konfiguration von *setuptools* in der Datei *pyproject.toml* erfolgt, solle folgende *setup.py* vorhanden sein.
-```python
-# minimale setup.py
-from setuptools import setup
+* ❗ Falls die Konfiguration von *setuptools* in der Datei *pyproject.toml* erfolgt, sollte folgende *setup.py* vorhanden sein.
+  ```python
+  # minimale setup.py
+  from setuptools import setup
 
-setup()
-```
+  setup()
+  ```
 </details>
 
 </br>
@@ -674,7 +682,7 @@ setup()
 <details close>
 <summary>MANIFEST.in</summary>
 
-* Die Datei *MANIFEST.in* enthält Befehle für das Build-Tool *setuptools*, welche Dateien in *sdist* inkludiert werden und welche nicht.
+* *MANIFEST.in* enthält Befehle für das Build-Tool *setuptools*, welche Dateien in *sdist* inkludiert werden und welche nicht.
 * [Spezifikation](https://setuptools.pypa.io/en/stable/userguide/miscellaneous.html)
 ```ini
 # Beispiel für MANIFEST.in
@@ -691,7 +699,9 @@ global-exclude *~ *.py[cod] *.so
 <details close>
 <summary>__pycache__ (Ordner)</summary>
 
-Wenn ein Python-Programm ausgeführt wird, erzeugt der Python-Interpreter Byte-Code. Der Byte-Code wird im Ordner *\_\_pycache\_\_* gespeichert (Vereifachung). Der Ordner *\_\_pycache\_\_* kann (quasi immer) ignoriert werden, warum er auch in der *.gitignore*-Datei zu finden ist.
+* Wenn ein Python-Programm ausgeführt wird, erzeugt der Python-Interpreter Byte-Code.
+* Der Byte-Code wird im Ordner *\_\_pycache\_\_* gespeichert (Vereifachung).
+* Der Ordner *\_\_pycache\_\_* kann (quasi immer) ignoriert werden (siehe *.gitignore*).
 </details>
 
 </br>
@@ -699,7 +709,7 @@ Wenn ein Python-Programm ausgeführt wird, erzeugt der Python-Interpreter Byte-C
 <details close>
 <summary>Makefile</summary>
 
-* In einem *Makefile* können Aliase für bestimmte Befehle (z.B. build, test) definiert werden (Nicht nur für Python-Projekte).
+* Im *Makefile* können Aliase für bestimmte Befehle/Prozesse (z.B. build, test) definiert werden (nicht nur für Python-Projekte).
 * [Spezifikation](https://www.gnu.org/software/make/manual/make.html)
 * [Beispiel für Makefile für Python-Projekte](https://martinheinz.dev/blog/14)
 </details>
@@ -784,14 +794,6 @@ target/
 
 </br>
 
-## Functional Programming in Python
-* [Functional Programming HOWTO](https://docs.python.org/3/howto/functional.html)
-* [Tutorial zu FP in Python (RealPython)](https://realpython.com/python-functional-programming/)
-* [Build-in-Module für FP](https://docs.python.org/3/library/functional.html)
-
-
-</br>
-
 ## Metaprogramming in Python
 * TODO
 * [Python Language Services](https://docs.python.org/3/library/language.html) (Module für Metaprogramming)
@@ -801,7 +803,8 @@ target/
 </br>
 
 ## Installierbares stand-alone Programm erzeugen
-Ein Python-Skript kann zu einem installierbaren stand-alone Programm gemacht werden, das Nutzer einfach herunterladen, installieren und nutzen können. Mehr Infos [hier](https://docs.python.org/3/faq/programming.html#how-can-i-create-a-stand-alone-binary-from-a-python-script).
+* Ein Python-Skript kann zu einem installierbaren stand-alone Programm gemacht werden.
+* Mehr Infos [hier](https://docs.python.org/3/faq/programming.html#how-can-i-create-a-stand-alone-binary-from-a-python-script).
 
 
 </br>
@@ -839,8 +842,9 @@ Ein Python-Skript kann zu einem installierbaren stand-alone Programm gemacht wer
 Tutorials
 * [Python HOWTOs](https://docs.python.org/3/howto/)
 * [The Hitchhiker’s Guide to Python](https://docs.python-guide.org/) (Tipps für die tägliche Arbeit mit Python, etwas veraltet)
-* [Python Tutorials – Real Python](https://realpython.com/) (anschauliche Python-Tutorials)
-* [Full Stack Python](https://www.fullstackpython.com/) (Open-Source Buch zu Full-Stack-Entwicklung mit Python)
+* [Python Tutorials (RealPython)](https://realpython.com/) (anschauliche Python-Tutorials)
+* [PYthon Cheat Sheet (RealPython)](https://realpython.com/cheatsheets/python/)
+* [Full Stack Python](https://www.fullstackpython.com/) (Open-Source Online-Buch zu Full-Stack-Entwicklung mit Python)
 * [YouTube-Video zu Modulen, Paketen und Namespaces](https://www.youtube.com/watch?v=0oTh1CXRaQ0)
 
 Architektur
@@ -851,7 +855,7 @@ Architektur
 
 Notebooks
 * [Jupyter Notebooks](https://jupyter.org/) (interaktive Programmierumgebung (nicht nur für Python))
-* [Google Colab](https://colab.research.google.com/) (web-basierte Programmierumgebung für Python)
+* [Google Colab](https://colab.research.google.com/) (Cloud-basierte Notebooks)
 
 Coole Sachen
 * [Lambda-Kalkül in Python](https://www.youtube.com/watch?v=pkCLMl0e_0k)
