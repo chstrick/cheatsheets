@@ -88,6 +88,11 @@ docker logs containerName
 docker push
 ```
 
+### Aufräumen
+```shell
+docker system prune -a # löscht alle ungenutzen Images, gestoppten Conteiner, ungenutzen Netzwerke
+```
+
 
 </br>
 

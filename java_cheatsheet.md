@@ -21,18 +21,13 @@ sudo apt update # Paketquellen aktualisieren
 sudo apt upgrade # Pakete aktualisieren
 
 sudo apt install openjdk-25-jdk # OpenJDK 25 installieren
-java --version # Prüfen, ob Java korrekt installiert wurde
+java --version # prüfen, ob Java korrekt installiert wurde
 ```
 
 
 </br>
 
 ## Kommandozeile
-
-### Java Version abfragen
-```shell
-java --version
-```
 
 ### Java-Datei(en) compilieren
 ```shell
@@ -100,12 +95,14 @@ Tutorials
 </br>
 
 # Maven
+*[Maven](https://maven.apache.org/)* ist ein Open-Source Build-Tool von Apache für Java-basierte Projekte. Es unterstüzt den Build-Prozess, die Dokumentation von Abhängigkeiten und Distribution von Informationen und JARs.
 
 </br>
 
 ## Dokumentation und Central Repository
 * [Maven Documentation](https://maven.apache.org/guides/index.html)
 * [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
+* [Build Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
 * [POM Reference](https://maven.apache.org/pom.html)
 * [MvnRepository](https://mvnrepository.com/)
 * [Maven Central Repository](https://central.sonatype.com/search)
@@ -115,14 +112,25 @@ Tutorials
 
 ## Installation (Linux)
 ```shell
+java --version # JDK >= 8 wird benötigt
 sudo apt install maven
+mvn --version # prüfen, ob Maven korrekt installiert wurde
 ```
+ℹ️ Meist ist Maven in IDEs wie IntelliJ bereits enthalten.
 
 
 </br>
 
 ## Kommandozeile
-...
+```shell
+# TODO
+```
+
+
+</br>
+
+## Maven-Wrapper
+Der *[Maven-Wrapper](https://maven.apache.org/tools/mavenwrapper.html)* ist ...
 
 
 </br>
@@ -136,4 +144,23 @@ sudo apt install maven
 </br>
 
 # Gradle
-...
+*[Gradle](https://gradle.org/)* ist ein Open-Source Build-Tool. 
+
+</br>
+
+## Dokumentation
+* [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html)
+
+
+</br>
+
+## Installation
+Folge zur Installation der [Anleitung von Gradle](https://docs.gradle.org/current/userguide/installation.html#installation).
+
+ℹ️ Meist ist Gradle in IDEs wie IntelliJ bereits enthalten.
+
+
+</br>
+
+## Gradle-Wrapper
+Der *[Gradle-Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)* ist ein Skript, welches eine definierte Version von Gradle ausführt. Es ist die *empfohlene Art den Build zu starten*.

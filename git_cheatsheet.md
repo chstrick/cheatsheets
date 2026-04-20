@@ -178,9 +178,21 @@ In der .gitignore-Datei werden alle Dateien spezifiziert, die nicht von Git erfa
 
 ## README
 In der *README.md*-Datei ("read me", engl. für "lies mich") wird das Projekt erklärt und es werden allegemeine Informationen gegeben. Es ist üblich die README-Datei als Markdown-Datei (Endung .md) anzulegen.
+* [markdownlang.org](https://www.markdownlang.com/)
+* [Syntax Cheatsheet](https://www.markdownlang.com/cheatsheet/)
+* [markdownguide.org](https://www.markdownguide.org/)
+* [commonmark.org](https://commonmark.org/)
 * [Leitfaden zur Erstellung einer README-Datei](https://www.makeareadme.com/)
-* [Übersicht Markdown-Syntax](https://commonmark.org/help/)
-* [Markdown Guide](https://www.markdownguide.org/)
+* [README file in GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+
+Beispiele:
+* [Beispiel 1](https://github.com/RichardLitt/standard-readme) (eine Art "Standard")
+* [Beispiel 2](https://github.com/nqtronix/git-template)
+* [Beispiel 3](https://www.ionos.de/digitalguide/websites/web-entwicklung/readme-datei/)
+* [Beispiel 4](https://medium.com/@fulton_shaun/readme-rules-structure-style-and-pro-tips-faea5eb5d252)
+* [Beispiel 5](https://readmestudio.zenui.net/templates)
+* [Beispiel 6](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc)
+* [Beispiel 7](https://www.computerweekly.com/de/tipp/Wie-man-eine-ansprechende-README-Datei-anlegt)
 
 
 </br>
@@ -188,6 +200,7 @@ In der *README.md*-Datei ("read me", engl. für "lies mich") wird das Projekt er
 ## LICENSE
 Erstellt man ein Open-Source-Projekt, sollte man eine Lizenz angeben. Die Lizenz wird im Repository in der Datei LICENSE angegeben (ohne Endung oder mit .txt).
 * [Überblick und Auswahlhilfe](https://choosealicense.com/)
+* [LICENSE file in GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 
 
 </br>
@@ -211,6 +224,14 @@ git add .gitattributes # sicherstellen, dass die Datei .gitattributes getrackt w
 </br>
 
 ## Sontiges
+
+### Branch umbenennen
+```shell
+git checkout branchToRename # zu Branch wechseln
+git branch -m newName # benennt nur den loaken Branch um
+git push -u origin newName # neuen Remote-Branch erzeugen
+git push origin -d oldName # alten Remote-Branch löschen
+```
 
 ### Git Cherry-Pick
 Mit dem Befehl ```git cherry-pick commitId``` lässt sich ein beliebiger Commit auswählen und an den aktuellen HEAD anhängen.

@@ -457,6 +457,7 @@ TODO Context Manager
   * [Pyrefly](https://pyrefly.org/)
   * [pytype](https://google.github.io/pytype/)
   * [pyright](https://github.com/microsoft/pyright)
+* [Static Typing with Python](https://typing.python.org/en/latest/)
 * [Tutorial zu Type-Checking in Python (RealPython)](https://realpython.com/python-type-checking/)
 
 
