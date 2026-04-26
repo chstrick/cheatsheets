@@ -160,7 +160,12 @@ git branch -d branchName
 </br>
 
 ## Git Rebase
-Mit dem Befehl ```git rebase commitId/branchName``` lässt sich der aktuelle Arbeits-Branch auf den angegeben Commit anwenden, der "Startpunkt" des aktuellen Branches wird quasi verschoben.
+Mit dem Befehl ```git rebase``` lässt sich der aktuelle Arbeits-Branch auf den angegeben Commit anwenden, der "Startpunkt" des aktuellen Branches wird quasi verschoben.
+```shell
+git rebase commitId # Commit mit ID ist neue Basis
+
+git rebase otherBranchName # letzter Commit des Branches ist neue Basis
+```
 * [Siehe auch: Git Rebase](https://www.atlassian.com/de/git/tutorials/rewriting-history/git-rebase)
 * [Siehe auch: Merge vs. Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
 
