@@ -5,10 +5,16 @@
 ## Installation
 
 ### Boot-fähigen USB-Stick erstellen
-In der Anwendungssuche (Windows-Taste drücken) nach *usb* suchen und das Programm *Startmedienersteller (USB Image Writer)* starten.
+In der Anwendungssuche (Windows-Taste drücken) nach *usb* suchen und das Programm *Startmedienersteller (USB Image Writer)* starten. Ggf. muss das Programm *Startmedienersteller (USB Image Writer)* noch installiert werden:
+```shell
+sudo apt-get install usb-creator-gtk
+```
 
 ### Linux neben Windows installieren (Dual-Boot)
 Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [hier](https://linux-de.com/?p=2921).
+
+### Ubuntu upgraden (neue Ubuntu-Version)
+Um Ubuntu auf die nächste Version upzudaten ("Upgrade"), folge den [hier](https://wiki.ubuntuusers.de/Upgrade/) oder [hier](https://documentation.ubuntu.com/desktop/en/latest/how-to/upgrade-ubuntu-desktop/) beschriebenen Anweisungen.
 
 
 </br>
@@ -128,9 +134,14 @@ cat /proc/self/environ | tr '\0' '\n'
 </br>
 
 ## PDF
-PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) bearbeiten. Dieses muss zuvor mit ```sudo apt install pdftk``` installiert werden.
+
+### PDF-Datei anzeigen
+```shell
+evince datei.pdf
+```
 
 ### PDF-Dateien zusammenfügen
+PDF-Dateien lassen sich sehr einfach mit dem Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) bearbeiten. Dieses muss zuvor mit ```sudo apt install pdftk``` installiert werden.
 ```shell
 pdftk datei1.pdf datei2.pdf datei3.pdf cat output datei123.pdf
 
