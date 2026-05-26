@@ -44,7 +44,7 @@
     </head>
     <body>
 
-        <!-- Kommentar in HTML -->
+        <!-- Dies ist ein Kommentar in HTML -->
 
         <p>Paragraph</p>
         <div>Container</div>
@@ -61,7 +61,9 @@
 
 ## Cascading Style Sheets (CSS)
 
-### Einbindung von CSS in HTML
+<details close>
+<summary>Einbindung von CSS in HTML</summary>
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -91,15 +93,58 @@
     </body>
 </html>
 ```
-
-## CSS-Regeln
+</details>
 
 <details close>
-<summary>Grundlegende Beispiele</summary>
+<summary>CSS-Regeln: Grundlegende Beispiele</summary>
 
 ```css
-/* Kommentar in CSS */
-/* TODO */
+/* Grundlegender Aufbau von CSS-Regeln:
+Selektor {
+    Eigenschaft: Wert;
+    ...
+}
+*/
+p { -- in allen Paragraphen
+  color: red; -- Schriftfarbe ist Rot  
+}
+
+/* Mögliche Selektoren:
+p         -> alle p-Elemente
+.my-class -> alle Elmente mit Klasse, z.B. <p class=my-class>
+#my-id    -> alle Elemente mit ID, z.B. <p id=my-id>
+p, div    -> alle p- und div-Elmente (Selektorliste, falls Regel für mehrere Elemente geich ist)
+p.my-class -> alle p-Elemente mit Klasse my-class
+p[title]  -> alle p-Elmenete mit Attribut title
+p[title="Hallo"] -> alle p-Elemente mit Attribut title mit Wert "Hallo"
+*         -> alle Elemente
+*/
+
+/* Pseudo-Klassen */
+button:hover { -- Button wird blau, wenn Mauszeiger ueber Button schwebt
+  color: blue;
+}
+
+/* !important */
+p {
+  color: red !important; -- ueberschreibt alle anderen Deklarationen
+}
+
+/* inherit */
+p {
+  color: inherit; -- uebernimmt den Wert von seinem Elternelement - hier blau
+}
+div {
+    color: blue;
+}
+/*
+<div>
+    <p>Hallo Welt</p>
+</div>
+*/
+
+/* Dies ist ein Blockkommentar in CSS */
+-- Dies ist ein Zeilenkommentar in CSS
 ```
 </details>
 
@@ -108,7 +153,9 @@
 
 ## JavaScript (JS)
 
-### Einbindung von JS in HTML
+<details close>
+<summary>Einbindung von JS in HTML</summary>
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -131,6 +178,7 @@
     </body>
 </html> 
 ```
+</details>
 
 ### Fetch API
 Die Fetch-API ist eine standardmäßig in JavaScript eingebaute Schnittstelle zum Senden von HTTP-Anfragen und Verarbeiten der Antworten.
