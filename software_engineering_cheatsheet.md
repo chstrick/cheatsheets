@@ -1,6 +1,10 @@
 # Software Engineering Cheatsheet
 
-</br>
+1. [Softwareentwicklung](#softwareentwicklung)
+2. [Softwarearchitektur](#softwarearchitektur)
+3. [Softwaredokumentation](#softwaredokumentation)
+4. [Weitere Quellen](#weitere-quellen)
+
 
 ## Softwareentwicklung
 *Softwareentwicklung* ist der Prozess der Konzeption, Implementierung, und heutzutage meist auch des Betriebs (DevOps, SaaS), von Software auf Ingenieur-mäßige Art und Weise (daher *Software Engineering*).
@@ -24,8 +28,6 @@ Der Begriff *Refactoring* beschreibt die Änderung (vor allem die Vereinfachung)
 ### Software Delivery
 * [Software Delivery Guide (Martin Fowler)](https://martinfowler.com/delivery.html)
 
-
-</br>
 
 ## Softwarearchitektur
 Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresystems beschrieben. 
@@ -79,8 +81,6 @@ Mit *Softwarearchitektur* wird die Struktur und Organisation eines Softwaresyste
 Heutzutage werden Softwaresysteme oft als *Software-as-a-Service (SaaS)* konzipiert, d.h.  Die sogenannte *[12-Faktor-App](https://12factor.net/)* ist eine Art (abstrakter) Leitfaden zur Konzeption, Entwicklung und Betrieb von modernen SaaS-Anwendungen. [-> 12-Faktor-App mit Spring Boot](https://reflectoring.io/spring-boot-12-factor-app/)
 
 
-</br>
-
 ## Softwaredokumentation
 Damit ein implementiertes System gut verstanden, gewartet und weiterentwickelt werden kann, muss es auf eine sinnvolle Art und Weise dokumentiert werden. Folgende Seiten und Artikel bieten gute Grundlagen und Tipps für gute Softwaredokumentation:
 * [Sparsame Dokumentation](https://www.innoq.com/de/articles/2022/09/sparsame-dokumentation/) (Artikel)
@@ -91,8 +91,6 @@ Damit ein implementiertes System gut verstanden, gewartet und weiterentwickelt w
 * [PlantUML](https://plantuml.com/de/) (Tool/Sprache zur programmatischen Erstellung von UML-Diagrammen)
 * [draw.io](https://app.diagrams.net/) (Online-Editor zur Erstellung von Diagrammen)
 
-
-</br>
 
 ## Weitere Quellen
 * [List of software development philosophies (Wikipedia)](https://en.wikipedia.org/wiki/List_of_software_development_philosophies)

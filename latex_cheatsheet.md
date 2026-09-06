@@ -1,12 +1,12 @@
 # LaTeX Cheatsheet
 
-</br>
+1. [Installation und Setup (Linux)](#installation-und-setup-linux)
+2. [LaTeX-Package installieren](#latex-package-installieren)
+
 
 ## Installation und Setup (Linux)
 ...
 
-
-</br>
 
 ## LaTeX-Package installieren
 1) Package herunterladen, z.B. unter [ctan.org](https://ctan.org/pkg/pgf-pie?lang=de) (Beispiel Package!)
@@ -17,8 +17,6 @@
 
 4) Befehl ```sudo mktexlsr``` ausführen
 
-
-</br>
 
 ## Weitere Quellen
 * [wiki.ubuntuusers.de/LaTeX](https://wiki.ubuntuusers.de/LaTeX/)

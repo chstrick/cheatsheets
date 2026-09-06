@@ -1,13 +1,15 @@
 # Docker Cheatsheet
 
-</br>
+1. [Dokumentation](#dokumentation)
+2. [Installation und Setup (Linux)](#installation-und-setup-linux)
+3. [Docker](#docker)
+4. [Docker-Compose](#docker-compose)
+
 
 ## Dokumentation
 * [Offizielle Docker Dokumentation](https://docs.docker.com/)
 * [Offizielle Docker Referenz](https://docs.docker.com/reference/)
 
-
-</br>
 
 ## Installation und Setup (Linux)
 ```shell
@@ -21,8 +23,6 @@ Ein Service ist unter Linux ein Prozess, der so eingestellt werden kann, dass er
 * Stop: ```sudo service docker stop```
 * Status aller Services (nicht nur Docker): ```service --status-all```
 
-
-</br>
 
 ## Docker
 
@@ -94,8 +94,6 @@ docker system prune -a # löscht alle ungenutzen Images, gestoppten Conteiner, u
 ```
 
 
-</br>
-
 ## Docker-Compose
 
 ### Docker-Compose File
@@ -136,8 +134,6 @@ docker-compose rm
 docker-compose ps
 ```
 
-
-</br>
 
 ## Weitere Quellen
 Tutorials

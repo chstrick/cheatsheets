@@ -1,6 +1,12 @@
 # Web Engineering Cheatsheet
 
-</br>
+1. [Grundlagen](#grundlagen)
+2. [Hypertext Markup Language (HTML)](#hypertext-markup-language-html)
+3. [Cascading Style Sheets (CSS)](#cascading-style-sheets-css)
+4. [JavaScript (JS)](#javascript-js)
+5. [Web Components](#web-components)
+6. [Weitere Quellen](#weitere-quellen)
+
 
 ## Grundlagen
 * [MDN (Mozilla Developer Network)](https://developer.mozilla.org/de/) (Dokumentation aller Web-Standards)
@@ -11,8 +17,6 @@
 * [Grundlagenkurs von André Kless (HBRS)](https://akless.github.io/akless/we/index.html)
 * [Online-Lehrbuch Web Development](http://web-development.github.io/)
 
-
-</br>
 
 ## Hypertext Markup Language (HTML)
 
@@ -56,8 +60,6 @@
 ```
 </details>
 
-
-</br>
 
 ## Cascading Style Sheets (CSS)
 
@@ -149,8 +151,6 @@ div {
 </details>
 
 
-</br>
-
 ## JavaScript (JS)
 
 <details close>
@@ -189,14 +189,10 @@ Die Fetch-API ist eine standardmäßig in JavaScript eingebaute Schnittstelle zu
 * [Gute Erklärung für Promises und async/await](https://javascript.info/async)
 
 
-</br>
-
 ## Web Components
 * [Web Components (MDN)](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 * [Shadow DOM Deep Dive](https://github.com/praveenpuglia/shadow-dom-in-depth)
 
-
-</br>
 
 ## Weitere Quellen
 Tools

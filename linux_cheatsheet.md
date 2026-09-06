@@ -1,6 +1,16 @@
 # Linux Cheatsheet
 
-</br>
+1. [Installation](#installation)
+2. [Kommandozeile](#kommandozeile)
+3. [Pakete](#pakete)
+4. [Umgebungsvariablen](#umgebungsvariablen)
+5. [PDF](#pdf)
+6. [Zip](#zip)
+7. [Services](#services)
+8. [Festplatte überschreiben](#festplatte-überschreiben)
+9. [Sonstiges](#sonstiges)
+10. [Weitere Quellen](#weitere-quellen)
+
 
 ## Installation
 
@@ -17,13 +27,9 @@ Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [h
 Um Ubuntu auf die nächste Version upzudaten ("Upgrade"), folge den [hier](https://wiki.ubuntuusers.de/Upgrade/) oder [hier](https://documentation.ubuntu.com/desktop/en/latest/how-to/upgrade-ubuntu-desktop/) beschriebenen Anweisungen.
 
 
-</br>
-
 ## Kommandozeile
 Unter Linux lassen sich alle Aufgaben zur Verwaltung des Systems über die Komandozeile (Shell) erledigen. Dazu gibt es zahlreiche Befehle. Eine Übersicht findet sich [hier](https://wiki.ubuntuusers.de/Shell/Befehls%C3%BCbersicht/).
 
-
-</br>
 
 ## Pakete
 Pakete (entspricht in etwa "Programme") lassen sich unter Ubuntu auf verschiedene Arten installieren und verwalten.
@@ -77,8 +83,6 @@ sudo rm paketName.desktop
 4) Eventuell Paket aus Autostart löschen. Dazu in der Anwendungssuche (Windows-Taste drücken) *startprogramme* eingeben Programm *Startprogramme* ausführen und das Paket über die GUI entfernen.
 
 
-</br>
-
 ## Umgebungsvariablen
 [Umgebungsvariablen](https://wiki.ubuntuusers.de/Umgebungsvariable/) speichern Werte, die in einer Shell-Sitzung und von Prozessen wiederverwendet werden können. Ein typisches Beispiel sind Suchpfade zu Programmen (z.B. PATH). Umgebungsvariablen werden von Prozessen vererbt.
 
@@ -109,14 +113,13 @@ PATH=$PATH:/pfad/zu/prog # gilt nur für aktuelle Shell-Sitzung
 Weitere typische Anwendungsfälle findet sich [hier](https://wiki.ubuntuusers.de/Umgebungsvariable/typische_Anwendungsf%C3%A4lle/).
 
 ### Umgebungsvariablen dauerhaft anpassen
-Um eine Umbebungsvariable dauerhaft anzupassen, muss man diese in der entsprechenden Konfigurationsdatei ändern.
-Beispiel: PATH dauerhaft erweitern:
-* systemweit (für alle Benutzer): Datei */etc/environment* anpssen oder seit Ubuntu 17.10 */etc/environment.d/\*.conf*, was den Vorteil hat, dass die Originaleinstellung erhalten bleibt, und die Erweiterung schnell (auch temporär) deaktiviert werden kann:
+Um eine Umbebungsvariable dauerhaft anzupassen, muss man diese in der entsprechenden Konfigurationsdatei ändern. Beispiel: PATH dauerhaft erweitern:
+* systemweit (alle Benutzer): Datei */etc/environment.d/\*.conf* anpassen:
 ```shell
 sudo nano /etc/environment.d/\*.conf # nano ist ein Editor in der Shell,
                                      # sudo verwenden, weil die Datei systemweit ist
 ```
-* aktueller Benutzer: (versteckte) Datei *~/.profile* im Homeverzeichnis anpassen
+* nur aktueller Benutzer: (versteckte) Datei *~/.profile* anpassen:
 ```shell
 nano ~/.profile
 ```
@@ -130,8 +133,6 @@ cat /proc/PID/environ | tr '\0' '\n' # PID ist die Prozess-ID, environ ist eine 
 cat /proc/self/environ | tr '\0' '\n'
 ```
 
-
-</br>
 
 ## PDF
 
@@ -189,8 +190,6 @@ Folgende Parameter müssen/können dabei jeweils angepasst werden:
 - **pfad/zu/Eingabe.pdf** ist der Name bzw. Pfad zur Eingabedatei
 
 
-</br>
-
 ## Zip
 
 ### Zip-Archiv erstellen
@@ -203,8 +202,6 @@ zip archivName.zip ordner/*
 zip archivName.zip ordner/* -e
 ```
 
-
-</br>
 
 ## Services
 Ein Service ist ein Prozess, der permanent auf dem Rechner läuft (entspricht in etwa Autostart unter Windows).
@@ -245,8 +242,6 @@ systemctl disable serviceName
 ```
 
 
-</br>
-
 ## Festplatte überschreiben
 Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wiederherstellbar sind, z.B. vor Verkauf oedr Verschrottung eines Rechners, kann man das Programm [DBAN](https://dban.org/) nutzen. 
 
@@ -256,8 +251,6 @@ Tutorials:
 * https://www.youtube.com/watch?v=qSowh52Q5lA
 * https://www.youtube.com/watch?v=lOkU2dY48_c
 
-
-</br>
 
 ## Sonstiges
 
@@ -295,17 +288,15 @@ gsettings set org.gnome.desktop.sound event-sounds false
 Unter Linux lassen sich Links (ähnlich Verknüpfungen unter Windows) erstellen. Dies ist mit dem Programm [ln](https://wiki.ubuntuusers.de/ln/) über die Kommandozeile möglich.
 
 
-</br>
-
 ## Weitere Quellen
-* [ubuntuusers.de](https://wiki.ubuntuusers.de/)
+* [ubuntuusers.de (Wiki)](https://wiki.ubuntuusers.de/)
 * Bash:
   - [Bash (eine Shell-Implementierung)](https://wiki.ubuntuusers.de/Bash/)
-  - [Skripte](https://wiki.ubuntuusers.de/Skripte/)
   - [Scripting-Guide für Anfänger](https://wiki.ubuntuusers.de/Shell/Bash-Skripting-Guide_f%C3%BCr_Anf%C3%A4nger/)
+  - [Liste nützlicher Skripte](https://wiki.ubuntuusers.de/Skripte/)
   - [YouTube-Tutorial Scripting](https://www.youtube.com/watch?v=7qd5sqazD7k)
-* [List oft nützlicher Befehle](https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce)
-* [Sicherheits-Einmaleins](https://wiki.ubuntuusers.de/Sicherheits-Einmaleins/)
+* [Liste nützlicher Befehle](https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce)
+* [Sicherheits-Einmaleins für Linux](https://wiki.ubuntuusers.de/Sicherheits-Einmaleins/)
 * Linux File System:
   - https://www.youtube.com/watch?v=42iQKuQodW4
   - https://www.youtube.com/watch?v=HIXzJ3Rz9po&list=PLTXMX1FE5Hj4q0078_U4iP7JnEC8LPQaP&index=7

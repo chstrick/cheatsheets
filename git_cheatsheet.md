@@ -1,14 +1,12 @@
 # Git Cheatsheet
 
-</br>
 
 ## Dokumentation
 * [Offizielle git Dokumentation](https://git-scm.com/)
 * [Offizielle git Referenz](https://git-scm.com/docs)
+* [Offizelles Cheatsheet](https://git-scm.com/cheat-sheet)
 * Außerdem lässt sich mit ```git --help``` Hilfe anzeigen, oder mit ```git command --help``` für einen spezifischen Befehl.
 
-
-</br>
 
 ## Installation und Setup (Linux)
 ```shell
@@ -25,8 +23,6 @@ git config --global credential.helper store # speichert Credentials, damit diese
 ```
 
 
-</br>
-
 ## Lokales Repository anlegen
 ```shell
 cd pfad/zu/projectRootFolder # in Root-Verzeichnis des Projekts navigieren
@@ -35,8 +31,6 @@ git init repoName # erzeugt ein leeres lokales Repository und den main-Branch
 ```
 
 
-</br>
-
 ## Remote-Repository klonen (lokale Kopie erstellen)
 ```shell
 git clone remoteRepoUrl
@@ -44,8 +38,6 @@ git clone remoteRepoUrl
 # eine Anleitung für GitHub und Token findet sich weiter unten.
 ```
 
-
-</br>
 
 ## Branch erstellen und auschechen
 ```shell
@@ -61,8 +53,6 @@ git checkout -b newBranchName # existingBranch weggelassen, dann wird der aktuel
 git branch # listet alle lokalen Branches auf (aktueller Branch ist mit * markeiert)
 ```
 
-
-</br>
 
 ## Änderung commiten und pushen
 ```shell
@@ -91,8 +81,6 @@ git push
 ```
 
 
-</br>
-
 ## Fremden Remote-Branch in aktuellen eigenen Local-Branch mergen
 ```shell
 git status
@@ -116,8 +104,6 @@ git status
 ```
 
 
-</br>
-
 ## Letzten lokalen Commit ändern/erweitern
 ```shell
 git add geaenderteDatei1 geaenderteDatei2 ...
@@ -127,8 +113,6 @@ git commit --amend --no-edit # fügt die Änderungen zum letzten Commit hinzu
 git commit --amend -m "Neue Commit Message" # mit amend lässt sich auch die Commit-Message ändern
 ```
 
-
-</br>
 
 ## Lokale Änderungen rückgängig machen
 ```shell
@@ -145,11 +129,8 @@ git rm --cached
 git revert commitId # erstellt einen neuen Commit, der die Änderungen des Commits mit der commitId rückgängig macht
 
 # einen Commit löschen
-git reset --hard commitId # setzt HEAD auf Commit mit commitId
-                          # (Achtung: Löscht auch Staging Area)
-# oder
 git reset --soft commitId # setzt HEAD auf Commit mit commitId,
-                          # behält aber Staging Area
+                          # behält aber Deteien und Staging Area
 
 # einen Branch löschen
 git branch -d branchName
@@ -157,7 +138,34 @@ git branch -d branchName
 * [Siehe auch](https://www.atlassian.com/de/git/tutorials/resetting-checking-out-and-reverting)
 
 
-</br>
+## Commits zusammenfassen (quasi Squash)
+```shell
+git checkout branchName
+git reset --soft commitId
+git add .
+git commit -m "quasi squash commit message"
+```
+
+
+## Tag erstellen, pushen, löschen
+```shell
+# Commit-ID heraussuchen und kopieren (lange Buchstaben-Zahlen-Kombination)
+git log --pretty=oneline
+
+# Tag erstellen
+git tag tagName commitId
+
+# Tag pushen
+git push origin tagName
+
+# Tipp: Tags auflisten
+git tag
+
+# Tag löschen
+git tag -d tagName # lokal
+git push origin --delete tagName # remote
+```
+
 
 ## Git Rebase
 Mit dem Befehl ```git rebase``` lässt sich der aktuelle Arbeits-Branch auf den angegeben Commit anwenden, der "Startpunkt" des aktuellen Branches wird quasi verschoben.
@@ -170,7 +178,34 @@ git rebase otherBranchName # letzter Commit des Branches ist neue Basis
 * [Siehe auch: Merge vs. Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
 
 
-</br>
+## Branch umbenennen
+```shell
+git checkout branchToRename # zu Branch wechseln
+git branch -m newName # benennt nur den loaken Branch um
+git push -u origin newName # neuen Remote-Branch erzeugen
+git push origin -d oldName # alten Remote-Branch löschen
+```
+
+
+## Git Cherry-Pick
+Mit dem Befehl ```git cherry-pick commitId``` lässt sich ein beliebiger Commit auswählen und an den aktuellen HEAD anhängen.
+* [Siehe auch: Cherry-Pick](https://www.atlassian.com/de/git/tutorials/cherry-pick)
+
+
+## Letzte(n) Remote-Commit(s) löschen
+```shell
+git stash # alle lokale Änderungen zwischenspeichern!
+git reset --hard idLetzterFunktionierenderCommit # setzt HEAD (aktueller Commit) auf diesen Commit
+git push --force # pusht Änderungen (Achtung: force vorsichtig verwenden, es gibt kein zurück!)
+```
+
+
+## Remote-Repo ändern
+```shell
+git remote -v # listet alle Remote-Repos auf
+git remote set-url remoteName newUrl # (remoteName ist i.d.R. 'origin')
+```
+
 
 ## .gitignore
 In der .gitignore-Datei werden alle Dateien spezifiziert, die nicht von Git erfasst werden sollen.
@@ -178,8 +213,6 @@ In der .gitignore-Datei werden alle Dateien spezifiziert, die nicht von Git erfa
 * [.gitignore-Templates von GitHub](https://github.com/github/gitignore)
 * [.gitignore Best Practices](https://gitignore.pro/guides/gitignore-best-practices)
 
-
-</br>
 
 ## README
 In der *README.md*-Datei ("read me", engl. für "lies mich") wird das Projekt erklärt und es werden allegemeine Informationen gegeben. Es ist üblich die README-Datei als Markdown-Datei (Endung .md) anzulegen.
@@ -200,22 +233,16 @@ Beispiele:
 * [Beispiel 7](https://www.computerweekly.com/de/tipp/Wie-man-eine-ansprechende-README-Datei-anlegt)
 
 
-</br>
-
 ## LICENSE
 Erstellt man ein Open-Source-Projekt, sollte man eine Lizenz angeben. Die Lizenz wird im Repository in der Datei LICENSE angegeben (ohne Endung oder mit .txt).
 * [Überblick und Auswahlhilfe](https://choosealicense.com/)
 * [LICENSE file in GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
 
 
-</br>
-
 ## .gitattributes
 In der .gitattributes-Datei wird spezifiziert, wie Git mit bestimmten Dateien umgehen soll. Spezifiziert werden z.B. Dateitypen, Zeilenenden, Merge-Verhalten oder Diff-Tools.
 * [.gitattributes Referenz](https://git-scm.com/docs/gitattributes)
 
-
-</br>
 
 ## Git Large File Storage
 [Git Large File Storage (LFS)](https://git-lfs.com/) ersetzt große Dateien, wie Audio- oder Video-Dateien, durch Pointer, damit auch diese platzsparend verwaltet werden können. Dazu im Repository folgende Befehle ausführen:
@@ -226,41 +253,8 @@ git add .gitattributes # sicherstellen, dass die Datei .gitattributes getrackt w
 ```
 
 
-</br>
-
-## Sontiges
-
-### Branch umbenennen
-```shell
-git checkout branchToRename # zu Branch wechseln
-git branch -m newName # benennt nur den loaken Branch um
-git push -u origin newName # neuen Remote-Branch erzeugen
-git push origin -d oldName # alten Remote-Branch löschen
-```
-
-### Git Cherry-Pick
-Mit dem Befehl ```git cherry-pick commitId``` lässt sich ein beliebiger Commit auswählen und an den aktuellen HEAD anhängen.
-* [Siehe auch: Cherry-Pick](https://www.atlassian.com/de/git/tutorials/cherry-pick)
-
-### Letzte(n) Remote-Commit(s) löschen
-```shell
-git stash # alle lokale Änderungen zwischenspeichern!
-git reset --hard idLetzterFunktionierenderCommit # setzt HEAD (aktueller Commit) auf diesen Commit
-git push --force # pusht Änderungen (Achtung: force vorsichtig verwenden, es gibt kein zurück!)
-```
-
-### Remote-Repo ändern
-```shell
-git remote -v # listet alle Remote-Repos auf
-git remote set-url remoteName newUrl # (remoteName ist i.d.R. 'origin')
-```
-
-
-</br>
-
 ## Weitere Quellen
 * [Sehr gutes und kompaktes cheatsheet](https://cs.fyi/guide/git-cheatsheet)
-* [Offizelles cheatsheet auf git-scm.com](https://git-scm.com/cheat-sheet)
 * [giteveryday (nützliche Befehlsketten für die tägliche Arbeit mit Git)](https://git-scm.com/docs/giteveryday)
 * [gittutorial (kleines Anfänger-Tutorial für Git)](https://git-scm.com/docs/gittutorial)
 * [GitHub-Remote-Repo mit Token einrichten](https://blog.techeazyconsulting.com/connecting-git-to-github-with-pat-token)

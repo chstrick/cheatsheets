@@ -1,6 +1,9 @@
 # Python Cheatsheet
 
-</br>
+1. [Dokumentation](#dokumentation)
+2. [Installation und Setup (Linux)](#installation-und-setup-linux)
+3. [Kommandozeile](#kommandozeile)
+
 
 ## Dokumentation
 * [python.org](https://www.python.org/) (Python-Webseite)
@@ -12,8 +15,6 @@
 * [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
 * [Python Developer Tooling Handbook](https://pydevtools.com/handbook/) (Handbuch zu modernen Python-Tools)
 
-
-</br>
 
 ## Installation und Setup (Linux)
 ```shell
@@ -29,7 +30,6 @@ python -m setuptools --version # prüfen, ob setuptools installiert wurde (Build
 python -m wheel --version # prüfen, ob wheel installiert wurde (Standard zur Distribution von Paketen)
 ```
 
-</br>
 
 ## Kommandozeile
 
@@ -48,9 +48,8 @@ python file_name.py
 2) Skript ausführbar machen: `chmod +x my_script.py`
 3) Skript in Kommandozeile ausführen: `my_script.py`
 
-</br>
-
 ## Python-Pakete verwalten
+
 <details close>
 <summary>pip</summary>
 
@@ -81,8 +80,6 @@ python -m pip list
 * [*Development Mode*](https://docs.python.org/3/library/devmode.html)
  | [Entwickeln im *Development Mode*](https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#working-in-development-mode)
 </details>
-
-</br>
 
 <details close>
 <summary>uv</summary>
@@ -125,8 +122,6 @@ deactivate # '.venv' vor der Prompt verschwindet
 ```
 </details>
 
-</br>
-
 <details close>
 <summary>pipenv</summary>
 
@@ -161,16 +156,12 @@ pipenv run python file_name.py
 ```
 </details>
 
-</br>
-
 <details close>
 <summary>uv</summary>
 
 Mit *uv* können auch VEs verwaltet werden. Siehe [Python-Pakete verwalten > uv](#python-pakete-verwalten).
 </details>
 
-
-</br>
 
 ## Grundlagen
 
@@ -315,6 +306,7 @@ x = f(3) # x = 4
 * [Build-in-Module für FP](https://docs.python.org/3/library/functional.html)
 
 ### OOP in Python
+
 #### Klassen
 * TODO Klassen
 ```python
@@ -461,8 +453,6 @@ TODO Context Manager
 * [Tutorial zu Type-Checking in Python (RealPython)](https://realpython.com/python-type-checking/)
 
 
-</br>
-
 ## Konventionen
 ```python
 # Snake-Case für Bezeichner
@@ -478,8 +468,6 @@ def hello_world():
 * [Artikelsammlung zu Pythonic Code (RealPython)](https://realpython.com/learning-paths/writing-pythonic-code/)
 
 
-</br>
-
 ## Testing
 * Test-Framworks:
   * [unittest](https://docs.python.org/3/library/unittest.html) (Build-in-Modul)
@@ -489,8 +477,6 @@ def hello_world():
 * [Debugging und Profiling (Standard Library)](https://docs.python.org/3/library/debug.html)
 * [Performance measurement (Tutorial)](https://docs.python.org/3/tutorial/stdlib.html#performance-measurement)
 
-
-</br>
 
 ## Linting und Formatting
 * *Linting* ist der Prozess der statischen Code-Analyse bei der verschiedene statische Eigenschaften geprüft werden können, z.B. die Einhaltung von [Stype Guidelines](https://peps.python.org/pep-0008/).
@@ -509,17 +495,14 @@ Weitere hilfreiche Quellen:
 * [Liste statischer Analyse-Tools für Python (und andere Sprachen)](https://analysis-tools.dev/tools?languages=python)
 
 
-</br>
-
 ## Bau und Distribution von Python-Paketen
 💡 Bevor man sich mit diesem Thema auseinandersetzt, lohnt es sich auch den Abschnitt [Struktur eines Python-Projekts](#struktur-eines-python-projekts) anzuschauen.
 * Anleitung im [Python Packaging User Guide](https://packaging.python.org/) (Standard)
 * Anleitung in der [Dokumentation des Build-Tools *setuptools*](https://setuptools.pypa.io/en/stable/setuptools.html)
 
 
-</br>
-
 ## Struktur eines Python-Projekts
+
 <details close>
 <summary>Projekt mit nur einer Skript-Datei</summary>
 
@@ -534,8 +517,6 @@ helloworld/
   tests.py
 ```
 </details>
-
-</br>
 
 <details close>
 <summary>Projekt mit einem installierbaren Package</summary>
@@ -558,8 +539,6 @@ sample/
   setup.py
 ```
 </details>
-
-</br>
 
 <details close>
 <summary>Projekt mit einem Package und mehreren Subpackages</summary>
@@ -593,8 +572,6 @@ sample/
 ```
 </details>
 
-</br>
-
 <details close>
 <summary>Projekt mit einem Web-Framework</summary>
 
@@ -611,15 +588,11 @@ Frameworks wie [Django](https://www.djangoproject.com/) erzeugen ihre eigene Pro
 * Oft ist die Datei einfach leer.
 </details>
 
-</br>
-
 <details close>
 <summary>__main__.py</summary>
 
 Der Code in der Datei *[\_\_main\_\_.py](https://docs.python.org/3/library/__main__.html#main-py-in-python-packages)* wird ausgeführt, wenn das Modul direkt mit `python -m module` ausgeführt wird.
 </details>
-
-</br>
 
 <details close>
 <summary>requirements.txt</summary>
@@ -630,8 +603,6 @@ Die Datei *requirements.txt* enthält eine Liste von Paketen, die mit `pip insta
 * ℹ️ Die Datei ist ggf. nicht notwendig, falls *pyproject.toml* und/oder *setup.cfg* verwendet wird/werden.
 </details>
 
-</br>
-
 <details close>
 <summary>pyproject.toml</summary>
 
@@ -641,16 +612,12 @@ Die Datei *pyproject.toml* ...
 * ℹ️ Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
 </details>
 
-</br>
-
 <details close>
 <summary>pytest.toml/.ini</summary>
 
 * *pytest.toml/.ini* ist die Konfigurationsdatei für das Test-Framework *pytest*.
 * ℹ️ Weitere Infos siehe [Testing](#testing).
 </details>
-
-</br>
 
 <details close>
 <summary>setup.cfg</summary>
@@ -662,8 +629,6 @@ Die Datei *pyproject.toml* ...
 * ℹ️ *setuptools* kann auch [über die Datei *pyproject.toml* konfiguriert werden](https://setuptools.pypa.io/en/stable/userguide/declarative_config.html).
 * ℹ️ Weitere Infos siehe [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen).
 </details>
-
-</br>
 
 <details close>
 <summary>setup.py</summary>
@@ -678,8 +643,6 @@ Die Datei *pyproject.toml* ...
   setup()
   ```
 </details>
-
-</br>
 
 <details close>
 <summary>MANIFEST.in</summary>
@@ -696,8 +659,6 @@ global-exclude *~ *.py[cod] *.so
 ```
 </details>
 
-</br>
-
 <details close>
 <summary>__pycache__ (Ordner)</summary>
 
@@ -706,8 +667,6 @@ global-exclude *~ *.py[cod] *.so
 * Der Ordner *\_\_pycache\_\_* kann (quasi immer) ignoriert werden (siehe *.gitignore*).
 </details>
 
-</br>
-
 <details close>
 <summary>Makefile</summary>
 
@@ -715,8 +674,6 @@ global-exclude *~ *.py[cod] *.so
 * [Spezifikation](https://www.gnu.org/software/make/manual/make.html)
 * [Beispiel für Makefile für Python-Projekte](https://martinheinz.dev/blog/14)
 </details>
-
-</br>
 
 <details close>
 <summary>Beispiel für .gitignore für Python-Projekt</summary>
@@ -786,15 +743,11 @@ target/
 * [Beispielstruktur (Blog-Beitrag)](https://martinheinz.dev/blog/14)
 
 
-</br>
-
 ## Logging
 * [Logging HOWTO](https://docs.python.org/3/howto/logging.html)
 * [Logging (Tutorial)](https://docs.python.org/3/tutorial/stdlib2.html#logging)
 * [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html)
 
-
-</br>
 
 ## Metaprogramming in Python
 * TODO
@@ -802,23 +755,18 @@ target/
 * [YouTube-Video zu Python-Metaclasses](https://www.youtube.com/watch?v=NzzKTWiaN68)
 
 
-</br>
-
 ## Installierbares stand-alone Programm erzeugen
 * Ein Python-Skript kann zu einem installierbaren stand-alone Programm gemacht werden.
 * Mehr Infos [hier](https://docs.python.org/3/faq/programming.html#how-can-i-create-a-stand-alone-binary-from-a-python-script).
 
-
-</br>
 
 ## C/C++ Code in Python ausführen
 * TODO
 * [ctypes](https://docs.python.org/3/library/ctypes.html) (Build-in-Modul zum Laden von C/C++ Code)
 
 
-</br>
-
 ## Nützliche Third-Party-Pakete
+
 <details close>
 <summary>(Hier klicken)</summary>
 
@@ -833,9 +781,8 @@ target/
 </details>
 
 
-</br>
-
 ## Weitere Quellen
+
 <details close>
 <summary>(Hier klicken)</summary>
 
