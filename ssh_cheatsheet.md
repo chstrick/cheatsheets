@@ -1,18 +1,26 @@
 # SSH Cheatsheet
 
 1. [Secure Shell (SSH)](#secure-shell-ssh)
-2. [Mit Remote-Server über SSH und Passwort verbinden](#mit-remote-server-über-ssh-und-passwort-verbinden)
-3. [Mit Remote-Server über SSH und Public-Key verbinden](#mit-remote-server-über-ssh-und-public-key-verbinden)
+2. [Installation (Linux)](#installation-linux)
+3. [Mit Remote-Server über SSH und Passwort verbinden](#mit-remote-server-über-ssh-und-passwort-verbinden)
+4. [Mit Remote-Server über SSH und Public-Key verbinden](#mit-remote-server-über-ssh-und-public-key-verbinden)
 
 
 ## Secure Shell (SSH)
 Die [Secure Shell (SSH)](https://wiki.ubuntuusers.de/SSH/) bietet die Möglichkeit sich über eine gesicherte Verbindung mit einem Remote-Server zu verbinden.
 
 
+## Installation (Linux)
+```shell
+sudo apt update
+sudo apt install openssh-client
+```
+
+
 ## Mit Remote-Server über SSH und Passwort verbinden
 ```shell
 ssh userName@remoteHost # remoteHost = IP-Adresse z.B. 127.0.0.1
-                        # remoteHost = Rechnername
+                        # remoteHost = Rechnername z.B. rechner
                         # remoteHost = Domain z.B. example.com
                         # Danach muss man das Passwort eingeben
 ```
@@ -37,6 +45,5 @@ ssh -v userName@remoteHost
 
 
 ## Weitere Quellen
-* https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
-* https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
-* https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server
+* [Tutorial von linuxize.com](https://linuxize.com/series/ssh-essentials/)
+* [SSH Cheatsheet von linuxize.com](https://linuxize.com/cheatsheet/ssh/)
