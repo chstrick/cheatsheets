@@ -1,5 +1,28 @@
 # Git Cheatsheet
 
+1. [Dokumentation](#dokumentation)
+2. [Installation und Setup (Linux)](#installation-und-setup-linux)
+3. [Lokales Repository anlegen](#lokales-repository-anlegen)
+4. [Remote-Repository klonen](#remote-repository-klonen)
+5. [Branch erstellen und auschechen](#branch-erstellen-und-auschechen)
+6. [Änderung commiten und pushen](#änderung-commiten-und-pushen)
+7. [Fremden Remote-Branch in aktuellen eigenen Local-Branch mergen](#fremden-remote-branch-in-aktuellen-eigenen-local-branch-mergen)
+8. [Letzten lokalen Commit ändern/erweitern](#letzten-lokalen-commit-ändernerweitern)
+9. [Lokale Änderungen rückgängig machen](#lokale-änderungen-rückgängig-machen)
+10. [Commits zusammenfassen (quasi Squash)](#commits-zusammenfassen-quasi-squash)
+11. [Tag erstellen, pushen, löschen](#tag-erstellen-pushen-löschen)
+12. [Git Rebase](#git-rebase)
+13. [Branch umbenennen](#branch-umbenennen)
+14. [Git Cherry-Pick](#git-cherry-pick)
+15. [Letzte(n) Remote-Commit(s) löschen](#letzten-remote-commits-löschen)
+16. [Remote-Repo ändern](#remote-repo-ändern)
+17. [.gitignore](#gitignore)
+18. [README](#readme)
+19. [LICENSE](#license)
+20. [.gitattributes](#gitattributes)
+21. [Git Large File Storage](#git-large-file-storage)
+22. [Weitere Quellen](#weitere-quellen)
+
 
 ## Dokumentation
 * [Offizielle git Dokumentation](https://git-scm.com/)
@@ -31,11 +54,11 @@ git init repoName # erzeugt ein leeres lokales Repository und den main-Branch
 ```
 
 
-## Remote-Repository klonen (lokale Kopie erstellen)
+## Remote-Repository klonen
 ```shell
 git clone remoteRepoUrl
-# danach wird man aufgefordert sich zu authentifiziern (z.B. mit Benutzername und Password, Token, SSH-Key)
-# eine Anleitung für GitHub und Token findet sich weiter unten.
+# Danach wird man aufgefordert sich zu authentifiziern (nur beim ersten Mal).
+# Eine Anleitung für GitHub und Token findet sich weiter unten.
 ```
 
 
@@ -83,22 +106,18 @@ git push
 
 ## Fremden Remote-Branch in aktuellen eigenen Local-Branch mergen
 ```shell
-git status
 git stash # alle eigenen Änderungen stashen (zwischenspeichern)
-git status # (sicherheitshalber nach jedem Befehl Zustand kontrollieren)
+git status # (sicherheitshalber nach jedem Befehl Zustand kontrollieren, optional)
+
 git pull --rebase # Änderungen von Remote-Repo holen
-git status
-git stash list # listet alle Stash-Einträge auf
+
+git stash list # listet alle Stash-Einträge auf (optional)
 git stash apply nr # eigene Änderungen anwenden, nr ist Nummer in Stash-Liste (Eintrag bleibt in Stash erhalten)
 
-git status
 git add . # alle eigenen Änderungen zu Staging Area hinzufügen
-git status
 git commit -m "Commit Message" # eigene Änderungen commiten
-git status
 git pull --rebase # noch mal Änderungen von Remote-Repo holen
                   # (vielleicht hat sich in der Zwischenzeit was geändert)
-git status
 git push # eigene Änderungen pushen
 git status
 ```
