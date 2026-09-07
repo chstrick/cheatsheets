@@ -1,8 +1,45 @@
 # Python Cheatsheet
 
-1. [Dokumentation](#dokumentation)
-2. [Installation und Setup (Linux)](#installation-und-setup-linux)
-3. [Kommandozeile](#kommandozeile)
+- [Dokumentation](#dokumentation)
+- [Installation und Setup (Linux)](#installation-und-setup-linux)
+- [Kommandozeile](#kommandozeile)
+  - [Python CLI starten](#python-cli-starten)
+  - [Python-Datei ausführen](#python-datei-ausfhren)
+  - [Python-Skripte direkt ausführbar machen](#python-skripte-direkt-ausfhrbar-machen)
+- [Python-Pakete verwalten](#python-pakete-verwalten)
+  - [Virtual Environments](#virtual-environments)
+- [Grundlagen](#grundlagen)
+  - [Module und Pakete](#module-und-pakete)
+    - [Import von Modulen](#import-von-modulen)
+  - [\_ (Unterstrich) in Python](#unterstrich-in-python)
+  - [if \\name\\ == "\\main\\"](#if-name-main)
+  - [Funktionen](#funktionen)
+  - [OOP in Python](#oop-in-python)
+    - [Klassen](#klassen)
+    - [Abstract Base Classes](#abstract-base-classes)
+    - [Protocols](#protocols)
+    - [Interfaces](#interfaces)
+    - [Dataclasses](#dataclasses)
+  - [Decorators](#decorators)
+  - [Exceptions](#exceptions)
+  - [yield und Generatoren](#yield-und-generatoren)
+  - [Context Managers](#context-managers)
+  - [Typen, Type Hints und Type-Checking](#typen-type-hints-und-type-checking)
+    - [Type Hints](#type-hints)
+    - [Type-Checking](#type-checking)
+- [Konventionen](#konventionen)
+- [Testing](#testing)
+- [Linting und Formatting](#linting-und-formatting)
+- [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen)
+- [Struktur eines Python-Projekts](#struktur-eines-python-projekts)
+  - [Spezielle Dateien](#spezielle-dateien)
+  - [Beispiele für ein Python-Projekt-Repository](#beispiele-fr-ein-python-projekt-repository)
+- [Logging](#logging)
+- [Metaprogramming in Python](#metaprogramming-in-python)
+- [Installierbares stand-alone Programm erzeugen](#installierbares-stand-alone-programm-erzeugen)
+- [C/C++ Code in Python ausführen](#cc-code-in-python-ausfhren)
+- [Nützliche Third-Party-Pakete](#ntzliche-third-party-pakete)
+- [Weitere Quellen](#weitere-quellen)
 
 
 ## Dokumentation
@@ -125,7 +162,7 @@ deactivate # '.venv' vor der Prompt verschwindet
 <details close>
 <summary>pipenv</summary>
 
-[pipenv](https://pipenv.pypa.io/en/stable/) ist ein Third-Party-Modul für VEs. Es vereinfacht einige Dinge im Vergleich zu venv. 
+[pipenv](https://pipenv.pypa.io/en/stable/) ist ein Third-Party-Modul für VEs. Es vereinfacht einige Dinge im Vergleich zu venv.
 ```shell
 # Paket pipenv global installieren
 python -m pip install pipenv
@@ -182,7 +219,7 @@ import module
 module.func1()
 
 # Alias vergeben
-import numpy as np 
+import numpy as np
 a = np.array([[1, 2, 3],
               [4, 5, 6]]) # Matrix
 
@@ -243,41 +280,41 @@ Der `if __name__ == "__main__"`-Block definiert einen Entry-Point in Python, z.B
 # my_script.py
 
 def my_func()
-  # ...
+    # ...
 
 # Konvention ist, die Definition einer zusätzlichen Methode main(), da
 # sonst die Variablen, die im Block definiert werden, global verfügbar wären.
 def main()
-  # ...
-  my_func()
-  # ...
-  return 0
+    # ...
+    my_func()
+    # ...
+    return 0
 
 if __name__ == "__main__":
-  # Code in diesem Block wird ausgeführt, wenn Modul nicht über import geladen wird
-  main()
+    # Code in diesem Block wird ausgeführt, wenn Modul nicht über import geladen wird
+    main()
 ```
 
 ### Funktionen
 ```python
 # Funktion ohne Argumente
 def hello_world():
-  print("Hello World!")
+    print("Hello World!")
 
 # Funktion mit Argumenten
 def hello(first_name, last_name):
-  print("Hello " + first_name + " " + last_name + "!")
+    print("Hello " + first_name + " " + last_name + "!")
 
 # Funktion mit Rückgabewert
 def even(n):
-  if n % 2 == 0:
-    return True
-  else
-    return False
+    if n % 2 == 0:
+        return True
+    else
+        return False
 
 # Default-Werte für Argumente
 def hello(name = "World"):
-  print("Hello " + name + "!")
+    print("Hello " + name + "!")
 
 # Keyword-Argumente
 # TODO
@@ -287,11 +324,11 @@ def hello(name = "World"):
 
 # Funktion ohne Implementierung
 def empty_func():
-  pass
+    pass
 
 # Funktionsannotationen (Type-Hints für Funktionen)
 def add(a: int, b: int) -> int:
-  return a + b
+    return a + b
 
 # Lambda-Funktionen: anonyme Funktionen in und mit einem Ausdruck
 f = lambda x: x + 1
@@ -311,18 +348,18 @@ x = f(3) # x = 4
 * TODO Klassen
 ```python
 class Point():
-  def __init__(self, x, y):
-    # self ist die Referenz auf das Objekt selbst
-    # self ist immer der erste Parameter einer Methode
-    self.x = x # public
-    self._y = y # private
-  
-  def move(self, a, b):
-    self.x += a
-    self._y += b
+    def __init__(self, x, y):
+        # self ist die Referenz auf das Objekt selbst
+        # self ist immer der erste Parameter einer Methode
+        self.x = x # public
+        self._y = y # private
 
-  def __repr__(self): # __repr__ ist die "toString"-Methode in Python
-    return f"({self.x}, {self._y})"  
+    def move(self, a, b):
+        self.x += a
+        self._y += b
+
+    def __repr__(self): # __repr__ ist die "toString"-Methode in Python
+        return f"({self.x}, {self._y})"
 ```
 * Durch die Klassenmethode `__init__(self, ...)` wird ein Objekt bei der Erzeugung inizialisiert (vergleichbar mit Konstruktor) [siehe Docs](https://docs.python.org/3/reference/datamodel.html#object.__init__)
 * Durch die Klassenmethode `__new__(cls, *args, **kwargs)` wird bei der Objekterzeugung Speicherplatz zugewiesen, also das eigentliche Objekt im Speicher erzeugt. Die Methode wird i.d.R. nicht überschrieben (weitere Infos siehe Metaprogramming). [siehe Docs](https://docs.python.org/3/reference/datamodel.html#object.__new__)
@@ -340,11 +377,11 @@ class Animal(ABC): # abstrakte Klasse erbt von Klasse ABC
         pass
 
 class Dog(Animal): # konkrete Klasse erbt von abstrakter Klasse
-  def __init__(self):
-    super() # TODO super
+    def __init__(self):
+        super() # TODO super
 
-  def feed(self): # abstrakte Methoden müssen implementiert werden
-    return True
+    def feed(self): # abstrakte Methoden müssen implementiert werden
+        return True
 ```
 
 #### Protocols
@@ -377,11 +414,11 @@ TODO Decorators
 ```python
 # Decorator für Funktionen
 def fdecorator():
-  # TODO sinnvolles Beispiel
+    # TODO sinnvolles Beispiel
 
 @fdecorator
 def add(a, b):
-  return a + b
+    return a + b
 
 # Decorator für Klassen
 # TODO
@@ -417,7 +454,7 @@ TODO Context Manager
 
 ### Typen, Type Hints und Type-Checking
 * Python ist eine dynamisch typisierte Sprache.
-  * [Typesystem von Python](https://typing.python.org/en/latest/spec/)
+  * [Typsystem von Python](https://typing.python.org/en/latest/spec/)
   * verfolgt [Duck Typing](https://docs.python.org/3/glossary.html#term-duck-typing)
   * verfolgt [Gradual Typing](https://jsiek.github.io/home/WhatIsGradualTyping.html)
 * [Liste aller Build-in-Typen](https://docs.python.org/3/library/stdtypes.html)
@@ -432,7 +469,7 @@ TODO Context Manager
 * Für Type Hints können die [Build-in-Typen](https://docs.python.org/3/library/stdtypes.html) verwendet werden.
   ```python
   def add(a: int, b: int) -> int:
-    return a + b
+      return a + b
   ```
 * [typing](https://docs.python.org/3/library/typing.html): Modul enthält (komplexere) Typen, wie List oder Set
 * Ein [Typ-Alias](https://docs.python.org/3/glossary.html#term-type-alias) ist ein Synonym für einen (komplexeren) Typ (z.B. für die Vereinfachung von Type Hints).
@@ -459,7 +496,7 @@ TODO Context Manager
 my_text = "Hello world!"
 
 def hello_world():
-  print(my_text)
+    print(my_text)
 
 # TODO weitere Konventionen
 ```
