@@ -1,95 +1,84 @@
 # Docker Cheatsheet
 
-1. [Dokumentation](#dokumentation)
-2. [Installation und Setup (Linux)](#installation-und-setup-linux)
-3. [Docker](#docker)
-4. [Docker-Compose](#docker-compose)
-
-
-## Dokumentation
-* [Offizielle Docker Dokumentation](https://docs.docker.com/)
-* [Offizielle Docker Referenz](https://docs.docker.com/reference/)
-
-
-## Installation und Setup (Linux)
-```shell
-sudo apt update # Paketquellen aktualisieren
-sudo apt upgrade # Pakete aktualisieren
-```
-Folge danach der [Installationsanleitung](https://docs.docker.com/desktop/setup/install/linux/ubuntu/) von Docker.
-
-Ein Service ist unter Linux ein Prozess, der so eingestellt werden kann, dass er immer läuft. Für den Docker Deamon ist es sinnvoll so einen Service zu erstellen (entspricht Autostart von Docker Desktop unter Windows).
-* Start: ```sudo service docker start```
-* Stop: ```sudo service docker stop```
-* Status aller Services (nicht nur Docker): ```service --status-all```
+1. [Docker](#docker)
+    - [Dokumentation](#dokumentation)
+    - [Installation und Setup (Linux)](#installation-und-setup-linux)
+    - [Dockerfile](#dockerfile)
+    - [Docker-Befehle](#docker-befehle)
+2. [Docker-Compose](#docker-compose)
+    - [Docker-Compose File](#docker-compose-file)
+    - [Docker-Compose-Befehle](#docker-compose-befehle)
 
 
 ## Docker
 
+### Dokumentation
+* [Offizielle Docker Dokumentation](https://docs.docker.com/)
+* [Offizielle Docker Referenz](https://docs.docker.com/reference/)
+
+### Installation und Setup (Linux)
+```shell
+sudo apt update # Paketquellen aktualisieren
+sudo apt upgrade # Pakete aktualisieren
+```
+Folge danach der [Installationsanleitung von Docker](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).
+
+Für den *Docker Deamon* ist es sinnvoll einen Service zu erstellen (entspricht Autostart von Docker Desktop unter Windows):
+```shell
+# Start des Services
+sudo service docker start
+systemctl enable docker # startet automatisch nach Reboot
+
+# Stop des Services
+sudo service docker stop
+systemctl disable docker # startet nicht mehr automatisch nach Reboot
+
+# Status aller Services (nicht nur Docker) abfragen
+service --status-all
+```
+
 ### Dockerfile
 [Dockerfile Referenz](https://docs.docker.com/reference/dockerfile/)
 
-### Image erstellen
+### Docker-Befehle
 ```shell
+# Image erstellen
 docker build -t imageName . # -t = xyz (Name des Images)
                             # . = Dockerfile liegt im selben Verzeichnis
-```
 
-### Container starten
-```shell
+# Container starten
 docker run imageName
-```
-
-### Container mit Optionen starten
-```shell
+# Container mit Optionen starten
 sudo docker run -it -p 8080:8080 --network="host" imageName
 # -it : interaktiver Modus
 # -p : Port, Container intern:extern
 # --network="host" : Zugriff auf localhost
-```
 
-### Alle laufenden Container anzeigen
-```shell
+# Alle laufenden Container anzeigen
 docker ps
-```
 
-### Alle vorhandenen Container (laufend oder gestoppt) anzeigen
-```shell
+# Alle vorhandenen Container (laufend oder gestoppt) anzeigen
 docker ps -a
-```
 
-### Container stoppen
-```shell
+# Container stoppen
 docker stop containerName
-```
 
-### Alle laufenden Container stoppen
-```shell
+# Alle laufenden Container stoppen
 docker stop $(docker ps -a -q)
-```
 
-### Container löschen
-```shell
+# Container löschen
 docker rm containerName
-```
 
-### Alle Container löschen
-```shell
+# Alle Container löschen
 docker rm $(docker ps -a -q)
-```
 
-### Logs eines laufenden Containes anzeigen
-```shell
+# Logs eines laufenden Containes anzeigen
 docker logs containerName
-```
 
-### Image in einer Registry (default: Docker Hub) ablegen (vorher anmelden mit docker login)
-```shell
+# Image in einer Registry (default: Docker Hub) ablegen (vorher anmelden mit docker login)
 docker push
-```
 
-### Aufräumen
-```shell
+# Aufräumen
 docker system prune -a # löscht alle ungenutzen Images, gestoppten Conteiner, ungenutzen Netzwerke
 ```
 
@@ -99,38 +88,27 @@ docker system prune -a # löscht alle ungenutzen Images, gestoppten Conteiner, u
 ### Docker-Compose File
 [Docker Compose File Referenz](https://docs.docker.com/reference/compose-file/)
 
-### Mehrere Container erstellen und starten
+### Docker-Compose-Befehle
 ```shell
+# Mehrere Container erstellen und starten
 docker-compose up -d # -d: detach, Konsole wird nach Start wieder freigegeben
-```
 
-### Container stoppen und entfernen
-```shell
+# Container stoppen und entfernen
 docker-compose down
-```
 
-### Images erstellen
-```shell
+# Images erstellen
 docker-compose build
-```
 
-### Container starten
-```shell
+# Container starten
 docker-compose start
-```
 
-### Container stoppen
-```shell
+# Container stoppen
 docker-compose stop
-```
 
-### Container löschen
-```shell
+# Container löschen
 docker-compose rm
-```
 
-### Alle laufenden Container anzeigen
-```shell
+# Alle laufenden Container anzeigen
 docker-compose ps
 ```
 
