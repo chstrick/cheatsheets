@@ -44,17 +44,21 @@ Ubuntu bietet standardmäßig die Anwendung *Softwarecenter* mit einer GUI an. I
 Pakete lassen sich auch mit [apt](https://wiki.ubuntuusers.de/apt/apt/) über die Kommandozeile verwalten.
 ```shell
 # Paket installieren
-sudo apt install paketName
+sudo apt install paketName -y
 
 # Paket deinstallieren
-sudo apt remove paketName
+sudo apt remove paketName -y
 
 # Paket updaten
-sudo apt update # alle Paketquellen aktualisieren
-sudo apt upgrade # alle Pakete aktualisieren
+sudo apt update -y # alle Paketquellen aktualisieren
+sudo apt upgrade -y # alle Pakete aktualisieren
 
 # Abhängigkeiten entfernen
-sudo apt autoremove # alle nicht mehr benötigten Pakete entfernen
+sudo apt autoremove --purge -y # alle nicht mehr benötigten Pakete entfernen
+                               # --purge entfernt auch alle Abhägigkeiten
+
+# Paketquellen entfernen
+sudo apt autoclean
 ```
 
 ### Synaptic
@@ -77,7 +81,8 @@ dpkg -l | cat
 2) Paket löschen
 ```shell
 sudo apt remove paketName
-sudo apt autoremove 
+sudo apt autoremove --purge
+sudo apt autoclean
 ```
 3) Eventuell Desktopicon aus Starter entfernen. gegebenefalls auch .desktop-Datei unter */usr/share/applications* oder *~/.local/share/applications* löschen:
 ```shell
