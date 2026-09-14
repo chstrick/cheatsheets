@@ -2,10 +2,15 @@
 
 1. [Installation und Setup (Linux)](#installation-und-setup-linux)
 2. [LaTeX-Package installieren](#latex-package-installieren)
+3. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation und Setup (Linux)
-...
+Zur installation aller relevanten Pakete des [TeX Live Systems](https://wiki.ubuntuusers.de/TeX_Live/) folgenden Befehl ausführen:
+```shell
+texlive texlive-lang-german texlive-latex-extra
+```
+Als Editor kann [TeXstudio](https://texstudio.org/) genutzt werden, welches über das Ubuntu-Softwarecenter installiert werden kann.
 
 
 ## LaTeX-Package installieren
