@@ -3,37 +3,37 @@
 - [Dokumentation](#dokumentation)
 - [Installation und Setup (Linux)](#installation-und-setup-linux)
 - [Kommandozeile](#kommandozeile)
-  - [Python CLI starten](#python-cli-starten)
-  - [Python-Datei ausführen](#python-datei-ausfhren)
-  - [Python-Skripte direkt ausführbar machen](#python-skripte-direkt-ausführbar-machen)
+    - [Python CLI starten](#python-cli-starten)
+    - [Python-Datei ausführen](#python-datei-ausfhren)
+    - [Python-Skripte direkt ausführbar machen](#python-skripte-direkt-ausführbar-machen)
 - [Python-Pakete verwalten](#python-pakete-verwalten)
-  - [Virtual Environments](#virtual-environments)
+    - [Virtual Environments](#virtual-environments)
 - [Grundlagen](#grundlagen)
-  - [Module und Pakete](#module-und-pakete)
-    - [Import von Modulen](#import-von-modulen)
-  - [\_ (Unterstrich) in Python](#unterstrich-in-python)
-  - [if \_\_name\_\_ == "\_\_main\_\_"](#if-name-main)
-  - [Funktionen](#funktionen)
-  - [OOP in Python](#oop-in-python)
-    - [Klassen](#klassen)
-    - [Abstract Base Classes](#abstract-base-classes)
-    - [Protocols](#protocols)
-    - [Interfaces](#interfaces)
-    - [Dataclasses](#dataclasses)
-  - [Decorators](#decorators)
-  - [Exceptions](#exceptions)
-  - [Generatoren und yield](#generatoren-und-yield)
-  - [Context Managers](#context-managers)
-  - [Typen, Type Hints und Type-Checking](#typen-type-hints-und-type-checking)
-    - [Type Hints](#type-hints)
-    - [Type-Checking](#type-checking)
+    - [Module und Pakete](#module-und-pakete)
+        - [Import von Modulen](#import-von-modulen)
+    - [\_ (Unterstrich) in Python](#unterstrich-in-python)
+    - [if \_\_name\_\_ == "\_\_main\_\_"](#if-name-main)
+    - [Funktionen](#funktionen)
+    - [OOP in Python](#oop-in-python)
+        - [Klassen](#klassen)
+        - [Abstract Base Classes](#abstract-base-classes)
+        - [Protocols](#protocols)
+        - [Interfaces](#interfaces)
+        - [Dataclasses](#dataclasses)
+    - [Decorators](#decorators)
+    - [Exceptions](#exceptions)
+    - [Generatoren und yield](#generatoren-und-yield)
+    - [Context Managers](#context-managers)
+    - [Typsystem](#typsystem)
+        - [Type Hints](#type-hints)
+        - [Type-Checking](#type-checking)
 - [Konventionen](#konventionen)
 - [Testing](#testing)
 - [Linting und Formatting](#linting-und-formatting)
 - [Bau und Distribution von Python-Paketen](#bau-und-distribution-von-python-paketen)
 - [Struktur eines Python-Projekts](#struktur-eines-python-projekts)
-  - [Spezielle Dateien](#spezielle-dateien)
-  - [Beispiele für ein Python-Projekt-Repository](#beispiele-für-ein-python-projekt-repository)
+    - [Spezielle Dateien](#spezielle-dateien)
+    - [Beispiele für ein Python-Projekt-Repository](#beispiele-für-ein-python-projekt-repository)
 - [Logging](#logging)
 - [Metaprogramming in Python](#metaprogramming-in-python)
 - [Installierbares stand-alone Programm erzeugen](#installierbares-stand-alone-programm-erzeugen)
@@ -45,12 +45,13 @@
 ## Dokumentation
 * [python.org](https://www.python.org/) (Python-Webseite)
 * [Python Docs](https://docs.python.org/) (Python-Dokumentation)
+    * [Python Glossary](https://docs.python.org/3/glossary.html) (Glossar mit den wichtigsten Begriffen)
 * [Python Standard Library](https://docs.python.org/3/library/) (eingebaute Module und Funktionen)
-  * **[Python Module Index](https://docs.python.org/3/py-modindex.html) (Liste aller Build-in-Module)**
+    * [Python Module Index](https://docs.python.org/3/py-modindex.html) (Liste aller Build-in-Module)
 * [Python Language Reference](https://docs.python.org/3/reference/) (Syntax, Semantik, Datenmodell, etc. der Sprache Python)
-* [Python Glossary](https://docs.python.org/3/glossary.html) (Glossar mit den wichtigsten Begriffen)
-* [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
+* [PEP 8 - Style Guide for Python Code](https://peps.python.org/pep-0008/)
 * [Python Developer Tooling Handbook](https://pydevtools.com/handbook/) (Handbuch zu modernen Python-Tools)
+* [Scientific Python](https://scientific-python.org/) (Webseite zu Python in der Wissenschaft)
 
 
 ## Installation und Setup (Linux)
@@ -233,13 +234,13 @@ Mit *uv* können auch VEs verwaltet werden. Siehe [Python-Pakete verwalten > uv]
 
 ### Module und Pakete
 * Module
-  * Ein [Modul](https://docs.python.org/3/glossary.html#term-module) ist ein Objekt, das als Organisationseinheit dient.
-  * Ein Modul spannt einen [Namespace](https://docs.python.org/3/glossary.html#term-namespace) mit anderen Python-Objekten auf.
-  * [Tutorial](https://docs.python.org/3/tutorial/modules.html)
+    * Ein [Modul](https://docs.python.org/3/glossary.html#term-module) ist ein Objekt, das als Organisationseinheit dient.
+    * Ein Modul spannt einen [Namespace](https://docs.python.org/3/glossary.html#term-namespace) mit anderen Python-Objekten auf.
+    * [Tutorial](https://docs.python.org/3/tutorial/modules.html)
 * Pakete
-  * Ein [Package](https://docs.python.org/3/glossary.html#term-package) ist eine Modul mit einer Datei *\_\_init\_\_.py* und ggf. weiteren Dateien, Submodulen und Subpackages.
-  * Jedes Package ist eine Modul, aber nicht jedes Modul ist ein Package.
-  * [Tutorial](https://docs.python.org/3/tutorial/modules.html#packages)
+    * Ein [Package](https://docs.python.org/3/glossary.html#term-package) ist eine Modul mit einer Datei *\_\_init\_\_.py* und ggf. weiteren Dateien, Submodulen und Subpackages.
+    * Jedes Package ist eine Modul, aber nicht jedes Modul ist ein Package.
+    * [Tutorial](https://docs.python.org/3/tutorial/modules.html#packages)
 
 #### Import von Modulen
 ```python
@@ -299,8 +300,8 @@ Der \_ (Unterstrich) wird in Python in verschiedenen Situationen verwendet:
 * `__var` : Name Mangling: D.h. der Python-Interpreter verändert Namen, so dass es bei Vererbung keine Konflikte in Subklassen gibt
 * `__method__()` : Sogenannte *[dunder](https://docs.python.org/3/glossary.html#term-dunder) methods* sind [spezielle Python-Methoden](https://docs.python.org/3/glossary.html#term-special-method) wie z.B. `__init___()` ([Liste aller spezillen Methoden](https://docs.python.org/3/reference/datamodel.html#special-method-names))
 * `_` : Einzelner Unterstrich
-  * anzeigen, dass ein (Argument-, Rückgabe-)Wert ignoriert wird, oder nur temporär gebraucht wird
-  * Wert des letzten Ausdrucks in der Python-Shell
+    * anzeigen, dass ein (Argument-, Rückgabe-)Wert ignoriert wird, oder nur temporär gebraucht wird
+    * Wert des letzten Ausdrucks in der Python-Shell
 * In Python wird konventionell der **Snake-Case** für Bezeichner verwendet, z.B. `hello_world`
 
 ### if \_\_name\_\_ == "\_\_main\_\_"
@@ -355,18 +356,18 @@ def multiply(*args):
 print(multiply(2, 3, 4)) # 24
 
 # Positions- und Keyword-Argumente
-def myFunc(reqPosArg, kwa1="Hello", kwa2=1):
+def func(reqPosArg, kwa1="Hello", kwa2=1):
     # ...
 # Aufruf z.B. wie folgt möglich:
-myFunc("World")
-myFunc("World", kwa1="Ciao")
-myFunc(reqPosArg="World", kwa2=2)
-myFunc(kwa1="Tschüss", reqPosArg="World")
+func("World")
+func("World", kwa1="Ciao")
+func(reqPosArg="World", kwa2=2)
+func(kwa1="Tschüss", reqPosArg="World")
 # aber nicht so:
-myFunc(kwa1="Ciao") # req pos arg missing
-myFunc(reqPosArg="World", "Ciao") # non-kwarg after kwarg
-myFunc("Bob", reqPosArg="World") # duplicate req pos arg
-myFunc(kwa3=True) # unknown kwarg
+func(kwa1="Ciao") # req pos arg missing
+func(reqPosArg="World", "Ciao") # non-kwarg after kwarg
+func("Bob", reqPosArg="World") # duplicate req pos arg
+func(kwa3=True) # unknown kwarg
 
 # beliebig viele Keyword-Argumente
 def introduce(**kwargs):
@@ -392,7 +393,7 @@ x = f(3) # x = 4
 ```
 * [Funktionen (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
 * [Arten von Argumenten (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions)
-* [lambda (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)
+* [lambda Ausdrücke (Tutorial)](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)
 * [Functional Programming HOWTO](https://docs.python.org/3/howto/functional.html)
 * [Tutorial zu FP in Python (RealPython)](https://realpython.com/python-functional-programming/)
 * [Build-in-Module für FP](https://docs.python.org/3/library/functional.html)
@@ -402,7 +403,7 @@ x = f(3) # x = 4
 #### Klassen
 * [Python](https://de.wikipedia.org/wiki/Python_(Programmiersprache)) ist auch eine objektorientierte Programmiersprache. In Python können eigene [Klassen](https://docs.python.org/3/tutorial/classes.html) wie folgt erzeugt werden:
 ```python
-class Point():
+class Point:
     def __init__(self, x, y):
         # self ist die Referenz auf das Objekt selbst
         # self ist immer der erste Parameter einer Methode
@@ -438,32 +439,73 @@ len(order) # liefert 3
 
 #### Abstract Base Classes
 * [Abstract Base Classes (ABCs)](https://docs.python.org/3/glossary.html#term-abstract-base-class) sind das Gegenstück zum [Duck-Typing](https://docs.python.org/3/glossary.html#term-duck-typing).
-* Klassen im Allgemeinen implementieren [Nominelle Vererbung](https://typing.python.org/en/latest/reference/protocols.html).
+* Klassen bilden Typen, die [Nominelle Vererbung](https://typing.python.org/en/latest/reference/protocols.html) unterstützen.
 * Abstrakte Klassen können mithilfe des Moduls [abc](https://docs.python.org/3/library/abc.html) erstellt werden:
 ```python
 from abc import ABC, ABCMeta, abstractmethod # Modul abc muss importiert werden
 
-class Animal(ABC): # abstrakte Klasse erbt von Klasse ABC
+class Shape(ABC): # abstrakte Klasse erbt von Klasse ABC
+# oder: Shape(metaclass=ABCMeta), abstrakte Klasse hat ABCMeta als Metaklasse
     @abstractmethod # Decorator definiert eine abstrakte Methode
-    def feed(self):
+    def area(self):
         pass
 
-# oder
-class Animal(metaclass=ABCMeta): # abstrakte Klasse hat ABCMeta als Metaklasse
-    pass
+class Rectangle(Shape): # konkrete Klasse erbt von abstrakter Klasse
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
 
-class Dog(Animal): # konkrete Klasse erbt von abstrakter Klasse
-    def __init__(self):
-        super.
+    def area(self): # abstrakte Methoden müssen implementiert werden
+        return self.length * self.width
 
-    def feed(self): # abstrakte Methoden müssen implementiert werden
-        return True
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(length, length)
+
+class Cube(Square):
+    def surface_area(self):
+        face_area = super().area()
+        return face_area * 6
+
+    def volume(self):
+        face_area = super().area()
+        return face_area * self.length
 ```
 
 #### Protocols
-* Protocols implementieren im Gegensatz zu ABCs, die [Strukturelle Vererbung](https://typing.python.org/en/latest/reference/protocols.html) (statisches Äquivalent zu Duck-Typing).
+* Protocols bilden Typen, die [Strukturelle Vererbung](https://typing.python.org/en/latest/reference/protocols.html) unterstützen (statisches Äquivalent zu Duck-Typing).
+* Protocols können mithilfe des Moduls [typing](https://docs.python.org/3/library/typing.html) erstellt werden:
 ```python
-# TODO(Beispiel)
+from typing import Protocol
+from abc import abstractmethod
+
+class Template(Protocol):
+    name: str        # This is a protocol member
+    value: int = 0   # This is a protocol member (with default)
+
+    def first(self) -> int: # This is a protocol member
+        return 42
+
+    @abstractmethod
+    def second(self) -> int: # Method without a default implementation
+        raise NotImplementedError
+
+class Concrete: # implicit structural subtype, no base 'Template'
+    def __init__(self, name: str, value: int) -> None:
+        self.name = name
+        self.value = value
+
+    def first(self) -> int: # Concrete must implement this method
+        return self.value   # because default implementation can not be used
+
+    def second(self) -> int: # Concrete must implement this abstract method
+        return 44
+
+var: Template = Concrete('value', 42)  # OK
+print(var.first()) # 42
 ```
 
 #### Interfaces
@@ -484,70 +526,185 @@ class InventoryItem:
 ```
 
 ### Decorators
-TODO(Decorators erläutern)
-* Ein [Decorator](https://docs.python.org/3/glossary.html#term-decorator) ist ...
+* Ein [Decorator](https://docs.python.org/3/glossary.html#term-decorator) ist eine Funktion oder ein [Callable](https://docs.python.org/3/glossary.html#term-callable), die/das eine Funktion oder Klasse wrappt und so transformiert. Beispiele sind [@classmethod](https://docs.python.org/3/builtins/functions.html#classmethod), [@staticmethod](https://docs.python.org/3/builtins/functions.html#staticmethod) oder [@dataclass](https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass).
 ```python
-# Decorator für Funktionen
-# TODO(Beispiel)
-def myDec():
-    pass
+import functools # Modul functools importieren
 
-@myDec
-def add(a, b):
-    return a + b
+# Decorator für Funktionen
+def do_twice(func): # Decorator-Funktion nimmt Funktion als Argument entgegen
+    @functools.wraps(func) # Speichert Informationen über func (z.B. für Hilfe oder Debugging)
+    def wrapper(): # Innere Wrapper-Funktion im Decorator
+        func() # Funktion wird zweimal aufgerufen
+        func()
+    return wrapper # Wrapper-Funktion wird zurückgegeben
+
+@do_twice # Anwendung des Decorators
+def say_hello():
+    print("Hello")
+# Decorators können auch folgendermaßen angewendet werden:
+# say_hello = do_twice(say_hello)
+
+say_hello()
+# Hello
+# Hello
+
+# Decorator für Funktion mit Argumenten
+def do_twice(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        func(*args, **kwargs)
+        func(*args, **kwargs)
+    return wrapper
+
+@do_twice
+def greet(name): # Funktion hat argument
+    print(f"Hello {name}")
+
+greet("World")
+# Hello World
+# Hello World
 
 # Decorator mit Argumenten
-# TODO(Beispiel)
+def repeat(num_times=4): # es gibt noch eine zusätzliche Schicht, die die Argumente entgegennimmt
+    def dec_repeat(func): # (dec_repeat entspricht der Decorator-Funktion ohne Argumente, s. o.)
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs): # (Closure mit num_times entsteht)
+            for _ in range(num_times): func(*args, **kwargs) # x wird in Wrapper-Funktion angewendet
+        return wrapper
+    return dec_repeat
 
-# Decorator für Klassen
-# TODO(Beispiel)
+@repeat(num_times=5)
+def greet(name):
+    print(f"Hello {name}")
+
+# Klassen als Decorator
+class repeat:
+    def __init__(self, num_times=4):
+        self.num_times = num_times
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            for _ in range(self.num_times): func(*args, **kwargs)
+        return wrapper
+
+# Decorator für Klassen - Beispiel 1
+from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+# Decorator für Klassen - Beispiel 2
+def singleton(cls):
+    """Make a class a Singleton class (only one instance)"""
+    @functools.wraps(cls)
+    def wrapper_singleton(*args, **kwargs):
+        if wrapper_singleton.instance is None:
+            wrapper_singleton.instance = cls(*args, **kwargs)
+        return wrapper_singleton.instance
+    wrapper_singleton.instance = None
+    return wrapper_singleton
+
+@singleton
+class TheOne:
+    pass
+
+first_one = TheOne()
+another_one = TheOne()
+print(first_one is another_one) # True
+
+# Verschachtelte Decorators
+@debug # wird als erstes ausgeführt
+@do_twice # wird quasi "in" @debug ausgeführt
+def greet(name):
+    print(f"Hello {name}")
+
+greet("World")
+# Calling greet('World')
+# Hello World
+# Hello World
+# greet() returned None
+
+# Bedingte Decorators (Decorator wird nur angewandt, wenn Bedingung erfüllt ist)
+def conditional_decorator(decorator, condition):
+    def wrapper(func):
+        # return the function unchanged, not decorated
+        return decorator(func) if condition else func
+    return wrapper
+
+# Anwendungsbeispiel:
+DO_TIME_ANALYSIS = True
+
+@conditional_decorator(timeit, DO_TIME_ANALYSIS)
+def myFunc()
+    # ...
 ```
-* [Conditional Decorator](https://stackoverflow.com/questions/10724854/how-to-do-a-conditional-decorator-in-python/10724898#10724898)
-* Klasse als Decorator für Funktion oder Methode ...
 
 ### Exceptions
-* Python verfolgt den Ansatz [EAFP](https://docs.python.org/3/glossary.html#term-EAFP) (Easier to ask for forgiveness than permission), d.h. es wird darauf vertraut, dass übergebene Wert korrekt sind, sonst wird eine Exception geworfen.
-  * Viele andere Sprachen verfolgen eher den Ansatz [LBYL](https://docs.python.org/3/glossary.html#term-LBYL) (Look before you leap), d.h. es wird explizit auf Vorbedingungen geprüft, bevor Werte verwendet werden.
-* Behandlung von Exceptions funktioniert in Python mit
-  * [`try`](https://docs.python.org/3/reference/compound_stmts.html#try),
-  * [`except`](https://docs.python.org/3/reference/compound_stmts.html#except-clause) und
-  * ggf. [`finally`](https://docs.python.org/3/reference/compound_stmts.html#finally)
-```python
-# Exceptions fangen und behandeln
-# TODO(Beispiel)
+* Python verfolgt den Ansatz [EAFP](https://docs.python.org/3/glossary.html#term-EAFP) (Easier to ask for forgiveness than permission), d.h. es wird darauf vertraut, dass übergebene Werte korrekt sind, sonst wird eine [Exception](https://docs.python.org/3/tutorial/errors.html) geworfen.
+    * Viele andere Sprachen verfolgen eher den Ansatz [LBYL](https://docs.python.org/3/glossary.html#term-LBYL) (Look before you leap), d.h. es wird explizit auf Vorbedingungen geprüft, bevor Werte verwendet werden.
+* [Behandlung von Exceptions](https://docs.python.org/3/tutorial/errors.html#handling-exceptions) mit `try`, `except` und ggf. `else` und `finally`:
+    ```python
+    def this_fails():
+        x = 1/0 # Division durch 0
+        return x
 
-# Eigene Exceptions erstellen
-# TODO(Beispiel)
-```
+    try:
+        this_fails()
+    except ZeroDivisionError as err:
+        # hier meist Logging
+        print('Handling run-time error:', err)
+    ```
+* [Werfen von Exceptions](https://docs.python.org/3/tutorial/errors.html#raising-exceptions) mit [`raise`]:
+    ```python
+    class My_Class:
+        @abstractmethod # abstrakte Methode in einer Klasse
+        def my_func(x):
+            raise NotImplementedError
+    ```
+* [Eigene Exceptions erstellen]((https://docs.python.org/3/tutorial/errors.html#raising-exceptions)):
+    ```python
+    class MyError(BaseException): # Namenskonvention: ...Error
+        pass
+    ```
 * [Liste aller Build-in-Exceptions](https://docs.python.org/3/library/exceptions.html)
-* [Tutorial zu Exceptions in Python (RealPython)](https://realpython.com/python-exceptions/)
 
 ### Generatoren und yield
-TODO(Generatoren und yield erläutern)
-* [Generatoren](https://docs.python.org/3/glossary.html#term-generator) sind [Funktionen](https://docs.python.org/3/glossary.html#term-generator-function) oder [Iteratoren](https://docs.python.org/3/glossary.html#term-generator-iterator), die ...
-* [`yield`-Ausdrücke](https://docs.python.org/3/reference/expressions.html#yieldexpr) sind ...
+* Ein [Generator](https://docs.python.org/3/glossary.html#term-generator) eine Funktion, die durch ein [`yield`-Ausdruck](https://docs.python.org/3/reference/expressions.html#yieldexpr)/[-Statement](https://docs.python.org/3/reference/simple_stmts.html#yield) erzeugt wurde, d.h. Funktion enthält `yield`-Ausdruck.
+Die Funktion gibt ein Iterator-Objekt, den Generator, zurück. Diese steuert die Ausführung der Funktion, die zeitlich verschoben wird (suspending).
 ```python
-# TODO(Beispiel)
+def infinite_sequence():
+    num = 0
+    while True:
+        yield num
+        num += 1
+
+gen = infinite_sequence()
+next(gen) # Berechnung der ersten Zahl: 0
+next(gen) # Berechnung der nächsten Zahl: 1
+next(gen) # Berechnung der nächsten Zahl: 2
+# could be done forever
 ```
+* [Nette Erklärung ;)](https://www.youtube.com/watch?v=5jwV3zxXc8E)
 
 ### Context Managers
-TODO(Context Manager erläutern)
-* [Context Managers](https://docs.python.org/3/glossary.html#term-context-manager) sind ...
-* [Referenz *Context Managers*](https://docs.python.org/3/reference/datamodel.html#context-managers)
-* [Referenz `with`](https://docs.python.org/3/reference/compound_stmts.html#with)
-* [Tutorial zu Context Managers (RealPython)](https://realpython.com/python-with-statement/)
-* [YouTube-Video zu Context Managers zum Lesen von Dateien](https://www.youtube.com/watch?v=-aKFBoZpiqA&list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&index=50)
+* Ein [Context Manager](https://docs.python.org/3/glossary.html#term-context-manager) ist ein Objekt, das das *Context Management Protocol* in einem [`with`](https://docs.python.org/3/reference/compound_stmts.html#with)-Statement implementiert, wodurch bestimmte Garantien gegeben sind.
+* Ein bekanntes Anwendungsbeispiel ist das Öffnen und Lesen von Dateien und dem garantierten Schließen am Ende des Vorgangs. [Weitere Beispiele](https://peps.python.org/pep-0343/#examples)
 
-### Typen, Type Hints und Type-Checking
-* Python ist eine dynamisch typisierte Sprache, d.h. .
-  * [Typsystem von Python](https://typing.python.org/en/latest/spec/)
-  * Python verfolgt [Duck Typing](https://docs.python.org/3/glossary.html#term-duck-typing)
-  * Python verfolgt [Gradual Typing](https://jsiek.github.io/home/WhatIsGradualTyping.html)
+### Typsystem
+* Python ist eine [dynamisch typisierte Sprache](https://typing.python.org/en/latest/spec/concepts.html#static-dynamic-and-gradual-typing), d.h. ....
+    * [Typsystem von Python](https://typing.python.org/en/latest/spec/)
+    * Python verfolgt [Duck Typing](https://docs.python.org/3/glossary.html#term-duck-typing)
+    * Python verfolgt [Gradual Typing](https://jsiek.github.io/home/WhatIsGradualTyping.html)
 * [Liste aller Build-in-Typen](https://docs.python.org/3/library/stdtypes.html)
-* `None`: Representiert fehlende oder optionale Werte
-* `type()`: Typ eines Objektes prüfen: `type(3)  # <class 'int'>`
-* `isinstance()`: Auf einen bestimmten Typ prüfen: `isinstance(3.14, float)  # True`
-* `issubclass()`: Prüft, ob eine Klasse eine Subclasse ist: `issubclass(int, object)  # True - everything is an object`
+* Spezielle Typen sind z.B.:
+    * `Any`: Representiert einen unbekannten statischen Typ
+    * `None`: Representiert fehlende oder optionale Werte
+* Spezielle Funktionen zur Typermittlung und -prüfung:
+    * `type()`: Typ eines Objektes prüfen: `type(3)  # <class 'int'>`
+    * `isinstance()`: Auf einen bestimmten Typ prüfen: `isinstance(3.14, float)  # True`
+    * `issubclass()`: Prüft, ob eine Klasse eine Subclasse ist: `issubclass(int, object)  # True - everything is an object`
 
 #### Type Hints
 * [Type Hints](https://docs.python.org/3/glossary.html#term-type-hint) sind optionale Annotationen, die den Typ von Variablen/Parametern/Funktionen/Methoden (Rückgabewert) angeben.
@@ -575,35 +732,26 @@ TODO(Context Manager erläutern)
 #### Type-Checking
 * Typannotionen können von externen [statischen Type-Checkern](https://docs.python.org/3/glossary.html#term-static-type-checker) zur Typanalyse genutzt werden (z.B. um Fehler früher zu erkennen).
 * Beispiele für Type-Checker:
-  * [mypy](https://mypy-lang.org/) (Standard)
-  * [ty](https://docs.astral.sh/ty/) (empfehlenswert)
-  * [Pyrefly](https://pyrefly.org/)
-  * [pytype](https://google.github.io/pytype/)
-  * [pyright](https://github.com/microsoft/pyright)
+    * [mypy](https://mypy-lang.org/) (Standard)
+    * [ty](https://docs.astral.sh/ty/) (empfehlenswert)
+    * [Pyrefly](https://pyrefly.org/)
+    * [pytype](https://google.github.io/pytype/)
+    * [pyright](https://github.com/microsoft/pyright)
 * [Static Typing with Python](https://typing.python.org/en/latest/) (Übersichtsseite)
 * [Tutorial zu Type-Checking in Python (RealPython)](https://realpython.com/python-type-checking/)
 
 
 ## Konventionen
-```python
-# Snake-Case für Bezeichner
-my_text = "Hello world!" # Variable
-
-def hello_world(): # Funktion
-    print(my_text)
-
-# TODO(weitere Konventionen hinzufügen)
-```
 * [Zen of Python](https://docs.python.org/3/glossary.html#term-Zen-of-Python)
+* [PEP 8 - Style Guide for Python Code](https://peps.python.org/pep-0008/)
 * [Best Practices (RealPython)](https://realpython.com/ref/best-practices/)
-* [Artikelsammlung zu Pythonic Code (RealPython)](https://realpython.com/learning-paths/writing-pythonic-code/)
 
 
 ## Testing
 * Test-Framworks:
-  * [unittest](https://docs.python.org/3/library/unittest.html) (Build-in-Modul)
-  * [pytest](https://docs.pytest.org/en/stable/) (empfehlenswert, [unterstützt auch unittest-Test-Cases](https://docs.pytest.org/en/stable/how-to/unittest.html))
-    * [Konfiguration von pytest](https://docs.pytest.org/en/stable/reference/customize.html)
+    * [unittest](https://docs.python.org/3/library/unittest.html) (Build-in-Modul)
+    * [pytest](https://docs.pytest.org/en/stable/) (empfehlenswert, [unterstützt auch unittest-Test-Cases](https://docs.pytest.org/en/stable/how-to/unittest.html))
+        * [Konfiguration von pytest](https://docs.pytest.org/en/stable/reference/customize.html)
 * [Tutorial zu Testing in Python (RealPython)](https://realpython.com/python-testing/)
 * [Debugging und Profiling (Standard Library)](https://docs.python.org/3/library/debug.html)
 * [Performance measurement (Tutorial)](https://docs.python.org/3/tutorial/stdlib.html#performance-measurement)
@@ -613,12 +761,12 @@ def hello_world(): # Funktion
 * *Linting* ist der Prozess der statischen Code-Analyse bei der verschiedene statische Eigenschaften geprüft werden können, z.B. die Einhaltung von [Stype Guidelines](https://peps.python.org/pep-0008/).
 * *Formatting* ist der Prozess Python-Code automatisch so zu formattieren, dass dieser den Style Guidelines entspricht.
 * Linter (L) und Formatter (F):
-  * [Pylint](https://pylint.readthedocs.io/en/stable/) (L)
-  * [Black](https://black.readthedocs.io/en/stable/) (F)
-  * [autopep8](https://github.com/hhatto/autopep8) (F)
-  * [Flake8](https://github.com/PyCQA/flake8) (L)
-  * [bandit](https://bandit.readthedocs.io/en/latest/) (L, insb. Security Issues)
-  * [Ruff](https://docs.astral.sh/ruff/) (L & F, empfehlenswert)
+    * [Pylint](https://pylint.readthedocs.io/en/stable/) (L)
+    * [Black](https://black.readthedocs.io/en/stable/) (F)
+    * [autopep8](https://github.com/hhatto/autopep8) (F)
+    * [Flake8](https://github.com/PyCQA/flake8) (L)
+    * [bandit](https://bandit.readthedocs.io/en/latest/) (L, insb. Security Issues)
+    * [Ruff](https://docs.astral.sh/ruff/) (L & F, empfehlenswert)
 
 Weitere hilfreiche Quellen:
 * [Übersicht zu statischer Code-Analyse (Blog-Beitrag)](https://luminousmen.com/post/python-static-analysis-tools)
@@ -950,13 +1098,11 @@ target/
 <details close>
 <summary>(Hier klicken)</summary>
 
-* [wiki.ubuntuusers.de/Python](https://wiki.ubuntuusers.de/Python/)
-
 Tutorials
 * [Python HOWTOs](https://docs.python.org/3/howto/)
 * [The Hitchhiker’s Guide to Python](https://docs.python-guide.org/) (Tipps für die tägliche Arbeit mit Python, etwas veraltet)
 * [Python Tutorials (RealPython)](https://realpython.com/) (anschauliche Python-Tutorials)
-* [PYthon Cheat Sheet (RealPython)](https://realpython.com/cheatsheets/python/)
+* [Python Cheat Sheet (RealPython)](https://realpython.com/cheatsheets/python/)
 * [Full Stack Python](https://www.fullstackpython.com/) (Open-Source Online-Buch zu Full-Stack-Entwicklung mit Python)
 * [YouTube-Video zu Modulen, Paketen und Namespaces](https://www.youtube.com/watch?v=0oTh1CXRaQ0)
 
@@ -973,7 +1119,6 @@ Notebooks
 Coole Sachen
 * [Lambda-Kalkül in Python](https://www.youtube.com/watch?v=pkCLMl0e_0k)
 * [Turingmaschine in Python](https://www.python-kurs.eu/turingmaschine.php)
-* [Python Class Performance verbessern (YouTube)](https://www.youtube.com/watch?v=Fot3_9eDmOs)
 * [Laziness in Python (YouTube)](https://www.youtube.com/watch?v=5jwV3zxXc8E)
 * [Interessante Python-Kurse](https://www.dabeaz.com/)
 </details>
