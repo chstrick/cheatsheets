@@ -1,37 +1,41 @@
 # Linux Cheatsheet
 
 1. [Installation](#installation)
-2. [Kommandozeile](#kommandozeile)
-3. [Pakete](#pakete)
-4. [Umgebungsvariablen](#umgebungsvariablen)
-5. [PDF](#pdf)
-6. [Zip](#zip)
-7. [Weitere nützliche Kommandozeilenbefehle](#weitere-nützliche-kommandozeilenbefehle)
+2. [Pakete](#pakete)
+3. [Kommandozeile](#kommandozeile)
+4. [PDF-Dateien](#pdf-dateien)
+    - [PDF-Datei anzeigen](#pdf-datei-anzeigen)
+    - [PDF-Datei bearbeiten](#pdf-datei-bearbeiten)
+    - [Bilddateien zu PDF-Datei zusammenfügen](#bilddateien-zu-pdf-datei-zusammenfügen)
+    - [PDF-Datei verkleinern](#pdf-datei-verkleinern)
+5. [ZIP-Archive](#zip-archive)
+6. [Umgebungsvariablen](#umgebungsvariablen)
+7. [Links](#links)
 8. [Services](#services)
-9. [Links](#links)
-10. [Festplatte überschreiben](#festplatte-überschreiben)
-11. [Weitere Quellen](#weitere-quellen)
+9. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
+10. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation
 
-### Boot-fähigen USB-Stick erstellen
-In der Anwendungssuche (Windows-Taste drücken) nach *usb* suchen und das Programm *Startmedienersteller (USB Image Writer)* starten. Ggf. muss das Programm *Startmedienersteller (USB Image Writer)* noch installiert werden:
-```shell
-sudo apt-get install usb-creator-gtk
-```
+### Linux über Boot-fähigen USB-Stick installieren
+* Das Programm *Startmedienersteller (USB Image Writer)* starten.
+    - Dazu in der Anwendungssuche (Windows-Taste drücken) nach *usb image writer* suchen.
+    - Ggf. muss das Programm noch installiert werden: `sudo apt-get install usb-creator-gtk`.
+* Mit dem *Startmedienersteller* einen Boot-fähigen USB-Strick erstellen.
+* Den Rechner herunterfahren.
+* Den USB-Stick einstecken, oder eingesteckt lassen.
+* Den Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
+* Danach kann der USB-Stick als Startmedium ausgewählt werden.
+* Das Linx-Betriebssystem startet im *Live-Modus* (eine Art Probemodus).
+    - In diesem kann das System leicht installiert werden.
+    - Dazu einfach den Anweisungen folgen.
 
 ### Linux neben Windows installieren (Dual-Boot)
 Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [hier](https://linux-de.com/?p=2921).
 
 ### Ubuntu upgraden (neue Ubuntu-Version)
-Um Ubuntu auf die nächste Version upzudaten ("Upgrade"), folge den [hier](https://wiki.ubuntuusers.de/Upgrade/) oder [hier](https://documentation.ubuntu.com/desktop/en/latest/how-to/upgrade-ubuntu-desktop/) beschriebenen Anweisungen.
-
-
-## Kommandozeile
-Unter Linux lassen sich alle Aufgaben zur Verwaltung des Systems über die Komandozeile (**Shell**) erledigen. Dazu gibt es zahlreiche Befehle. Eine Übersicht findet sich [hier](https://wiki.ubuntuusers.de/Shell/Befehls%C3%BCbersicht/) und ein gutes Cheatsheet findet sich [hier](https://linuxize.com/cheatsheet/linux-commands/).
-
-Die **Bash** (Bourne Again Shell) ist eine Implementierung der Shell und in vielen Linux-Distributionen die Standard-Shell. Ein gutes Cheatsheet findet sich [hier](https://linuxize.com/cheatsheet/bash/).
+Um Ubuntu auf die nächste Version upzugraden, folge den [hier](https://wiki.ubuntuusers.de/Upgrade/) oder [hier](https://documentation.ubuntu.com/desktop/en/latest/how-to/upgrade-ubuntu-desktop/) beschriebenen Anweisungen.
 
 
 ## Pakete
@@ -46,12 +50,12 @@ Pakete lassen sich auch mit [apt](https://wiki.ubuntuusers.de/apt/apt/) über di
 # Paket installieren
 sudo apt install paketName -y
 
+# Paket updaten
+sudo apt update # alle Paketquellen aktualisieren
+sudo apt upgrade -y # alle Pakete aktualisieren
+
 # Paket deinstallieren
 sudo apt remove paketName -y
-
-# Paket updaten
-sudo apt update -y # alle Paketquellen aktualisieren
-sudo apt upgrade -y # alle Pakete aktualisieren
 
 # Abhängigkeiten entfernen
 sudo apt autoremove --purge -y # alle nicht mehr benötigten Pakete entfernen
@@ -76,19 +80,242 @@ dpkg -l paketName | cat
 dpkg -l | cat
 ```
 
-### Pakete komplett manuell löschen
-1) Eventuell Ordner manuell löschen, auch versteckte Dateien (sichtbar machen mit Strg-H).
-2) Paket löschen
+### Pakete komplett löschen
+1) Paket löschen mit apt:
 ```shell
 sudo apt remove paketName
 sudo apt autoremove --purge
 sudo apt autoclean
 ```
-3) Eventuell Desktopicon aus Starter entfernen. gegebenefalls auch .desktop-Datei unter */usr/share/applications* oder *~/.local/share/applications* löschen:
+2) Eventuell Dateien und Verzeichnisse noch manuell löschen, auch versteckte Dateien (sichtbar machen mit Strg-H).
+3) Eventuell Desktopicon aus Starter entfernen. Ggf. auch *.desktop*-Datei löschen:
 ```shell
-sudo rm paketName.desktop
+sudo rm /usr/share/applications/paketName.desktop
+sudo rm ~/.local/share/applications/paketName.desktop
 ```
-4) Eventuell Paket aus Autostart löschen. Dazu in der Anwendungssuche (Windows-Taste drücken) *startprogramme* eingeben Programm *Startprogramme* ausführen und das Paket über die GUI entfernen.
+4) Eventuell Paket aus Autostart löschen.
+    - Dazu in der Anwendungssuche (Windows-Taste drücken) *startprogramme* suchen.
+    - Das Programm *Startprogramme* ausführen und das Paket über die GUI entfernen.
+
+
+## Kommandozeile
+Unter Linux lassen sich alle Aufgaben zur Verwaltung des Systems über die Komandozeile ([**Shell**](https://wiki.ubuntuusers.de/Shell/)) erledigen. Dazu gibt es zahlreiche Befehle. Die [**Bash**](https://wiki.ubuntuusers.de/Bash/) (Bourne Again Shell) ist eine Implementierung der Shell und der Quasi-Standard-Shell.
+
+<details>
+<summary>Nützliche Befehle</summary>
+
+```shell
+# --- Verzeichnis wechseln --------------------
+cd /pfad/zu/verzeichnis/
+cd ~           # Home-Verzeichnis des aktuellen Nutzers
+cd ..          # ein Verzeichnis hoch
+cd -           # vorheriges Verzeichnis
+pwd            # Pfad zum aktuellen Verzeichnis anzeigen
+
+
+# --- Dateien & Verzeichnisse auflisten --------------------
+ls
+ls -l          # Liste alle Dateien/Verzeichnisse mit Details
+ls -la         # inklusive versteckter Dateien/Verzeichnisse
+ls -lt         # nach Änderungsdatum sortieren
+ls -lS         # nach Größe sortieren
+ls -R          # rekursiv - Inhalt von Unterordnern anzeigen
+
+
+# --- Datei(en) erstellen --------------------
+touch neueDatei.txt
+touch datei1.txt datei2.txt datei3.txt
+
+# --- Verzeichnis erstellen --------------------
+mkdir neuesVerzeichnis
+# Verschachtelte Verzeichnisse erstellen
+mkdir -p pfad/von/verschachtelten/verzeichnissen/
+# Mehrere Verzeichnisse gleichzeitig erstellen
+mkdir ordner1 ordner2 ordner3
+
+# --- Dateien & Verzeichnisse kopieren --------------------
+cp alterName.txt neuerName.txt
+cp datei1.txt datei2.txt pfad/zum/ziel/
+# Verzeichnisse rekursiv kopieren
+cp -r quell_verz/ ziel_verz/
+
+# --- Datei umbenennen/verschieben --------------------
+mv alterName.txt neuerName.txt
+# Datei(en) verschieben
+mv datei.txt /pfad/zum/ziel/
+mv datei1.txt datei2.txt /pfad/zum/ziel/
+
+# --- Dateien & Verzeichnisse löschen --------------------
+rm datei.txt                # Datei löschen
+rm datei1.txt datei2.txt    # mehrere Dateien löschen
+rm -rf verzeichnis/         # Verzeichnis rekursiv löschen
+rmdir leeres_verz/          # Leeres Verzeichnis löschen
+
+# --- Dateiinhalt anzeigen --------------------
+cat datei.txt
+cat -n datei.txt     # mit Zeilennummern
+less datei.txt       # aufgeteilt in Seiten (gut für große Dateien)
+
+# --- Datei bearbeiten --------------------
+nano datei.txt       # Nano ist ein einfacher Texteditor
+vim datei.txt        # Vim ist ein umfangreicher Texteditor
+
+
+# --- Suchen & Finden --------------------
+find /pfad -name "dateiname.txt"        # Datei nach Dateiname
+find . -name "*.js"                     # Datei nach Dateiendung
+find . -type f                          # nur Dateien suchen
+find . -type d                          # nur Verzeichnisse suchen
+find . -name "*.log" -delete            # Datei suchen und Löschen
+find . -type f -exec chmod 644 {} \;    # Datei suchen und Befehl ausführen (z.B. chmod)
+
+grep "muster" datei.txt                 # in Datei suchen
+grep -i "muster" datei.txt              # Case-sensitiv
+grep -r "muster" verzeichnis/           # rekursiv in Inhalt von Verzeichnis suchen
+grep -n "muster" datei.txt              # Zeilennummern anzeigen
+grep -c "muster" datei.txt              # Treffer zählen
+grep -v "muster" datei.txt              # Suche invertieren (exkludieren)
+
+
+# --- Rechte für Dateien & Verzeichnisse bearbeiten --------------------
+chmod XXX datei.txt         # XXX = Nummer, z.B. 644 = rw-r--r--
+chmod +x                    # Datei ausführbar machen
+chmod -R XXX verzeichnis/   # rekursiv für Verzeichnisse
+sudo befehl                 # befehl mit Root-Rechten ausführen
+# Besitzer für Dateien & Verzeichnissenbearbeiten
+sudo chown username datei.txt
+sudo chown -R username verzeichnis/
+# Gruppe für Dateien & Verzeichnisse bearbeiten
+chgrp groupname file.txt
+chgrp -R groupname verzeichnis/
+groups                      # aktuelle Gruppen anzeigen
+id                          # aktuelle Gruppen inklusive IDs anzeigen
+
+
+# --- Systeminformationen --------------------
+uname -a                # Alle Systeminformationen
+uname -r                # Aktuelle Kernel-Version
+uname -m                # Aktuelle Rechnerarchitekture
+cat /etc/os-release     # OS Informationen
+hostname                # Hostname (Name des Rechners)
+who                     # Aktueller Nutzer
+whoami                  # Name des aktuellen Nutzers
+id                      # ID des aktuellen Nutzers
+date                    # Aktuelle Zeit und aktuelles Datum
+
+
+# --- Festplatten-/RAM-Informationen --------------------
+df -h                           # Größe/freier Platz pro Dateisystem
+du -h verzeichnis/              # Verzeichnisgröße
+du -ah | sort -rh | head -20    # Dateien/Verzeichnisse nach Größe sortiert
+free -h                         # Größe/freier Platz RAM
+cat /proc/meminfo               # Ausführliche RAM-Informationen
+
+
+# --- Netzwerkinformationen --------------------
+ip a                # IP-Adresse anzeigen
+ss -tuln            # Alle offenen eingehenden Ports anzeigen
+ss -ant             # Alle Verbindungen anzeigen
+ping google.com     # Ping zu Server; prüft, ob Server erreicht werden kann
+
+
+# --- Weitere Befehle --------------------
+# Papierkorb leeren
+sudo rm -r ~/.local/share/Trash/files/
+
+# Ausführbare Programme finden
+which python3        # Verzeichnis der Binärdatei
+whereis python3      # Verzeichnisse von Binärdatei, Quellcode, etc.
+
+# Dateimanager (Nautilus) mit Root-Rechten ausführen
+nautilus admin:/
+
+# Systemwarnungstöne ausschalten (GNOME)
+gsettings set org.gnome.desktop.sound event-sounds false
+```
+* [Shell-Befehlsübersicht (ubuntuusers)](https://wiki.ubuntuusers.de/Shell/Befehls%C3%BCbersicht/)
+</details>
+
+
+## PDF-Dateien
+
+### PDF-Datei anzeigen
+```shell
+evince datei.pdf
+```
+
+### PDF-Datei bearbeiten
+Das Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) installieren:
+```shell
+sudo apt install pdftk
+```
+Mit *pdftk* lassen sich PDF-Dateien bearbeiten, z. B.:
+```shell
+# PDF-Dateien zusammenführen
+pdftk datei1.pdf datei2.pdf datei3.pdf cat output datei123.pdf
+
+# oder
+pdftk *.pdf cat output zusammen.pdf
+
+# Seiten aus PDF-Dateien entfernen
+pdftk datei.pdf cat 2-10 15 20-end output dateiOhneSeiten.pdf # Seiten 1, 11-14, 16-19 werden entfernt
+```
+Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/pdftk/).
+
+### Bilddateien zu PDF-Datei zusammenfügen
+Zuvor muss das Programm [ImageMagick](https://wiki.ubuntuusers.de/ImageMagick/) installiert werden:
+```shell
+sudo apt install imagemagick
+```
+Mit *ImageMagick* lassen sich dann Bilddateien zu einer PDF-Datei zusammenfügen:
+```shell
+convert bild1.png bild2.png pdfDatei.pdf
+
+# oder für alle Bilddateien in einem Ordner
+convert *.* -gravity center -page a4 pdfDatei.pdf
+```
+Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/ImageMagick/).
+
+### PDF-Datei verkleinern
+Das Programm [Ghostscript](https://wiki.ubuntuusers.de/Ghostscript/) installieren:
+```shell
+sudo apt install ghostscript
+```
+Mit *Ghostscript* lassen sich dann PDF-Dateien verkleinern:
+```shell
+gs -sDEVICE=pdfwrite \
+   -dCompatibilityLevel=1.4 \
+   -dPDFSETTINGS=ebook \
+   -dNOPAUSE \
+   -dBATCH \
+   -sOutputFile=pfad/zu/Ausgabe.pdf \
+   pfad/zu/Eingabe.pdf
+```
+Folgende Parameter müssen/können dabei jeweils angepasst werden:
+- **sDEVICE** definiert das Ausgabegerät, hier das Schreiben in eine PDF-Datei (*pdfwrite*) (kann so bleiben)
+- **dCompatibilityLevel** legt den kompatiblen PDF-Standard fest (kann so bleiben)
+- **dPDFSETTINGS** spezifiziert die Qualität der Ausgabedatei. Qualität kann durch einen der folgenden Werte ersetzt werden:
+  - *screen* niedrige Qualität (72 dpi)
+  - *ebook* mittlere Qualität (150 dpi)
+  - *printer* hohe Qualität (300 dpi)
+  - *prepress* sehr hohe Qualität (300 dpi)
+- **dNOPAUSE** deaktiviert die notwendige manuelle Bestätigung nach der Konvertierung jeder einzelner Seite
+- **dBATCH** beendet Ghostscript nach dem Ausführen automatisch
+- **sOutputFile** legt den Namen bzw. Pfad der Ausgabedatei fest
+- **pfad/zu/Eingabe.pdf** ist der Name bzw. Pfad zur Eingabedatei
+
+
+## ZIP-Archive
+```shell
+# ZIP-Archiv erstellen
+zip archiv.zip datei1.txt datei2.txt    # Archiv erstellen
+zip archiv.zip verzeichnis/*            # alle Datein im Verzeichnis
+zip -r archiv.zip verzeichnis/          # rekursiv das ganze Verzeichnis
+zip archiv.zip verzeichnis/* -e         # Archiv mit Passwort erstellen
+unzip archiv.zip                        # Archiv entpacken
+unzip archiv.zip -d /verzeichnis/       # Archiv nach Verzeichnis entpacken
+unzip -l archiv.zip                     # Inhalt des Archivs auflisten
+```
 
 
 ## Umgebungsvariablen
@@ -96,7 +323,6 @@ sudo rm paketName.desktop
 ```shell
 # Umgebungsvariablen anzeigen
 echo $VARIABLE
-
 # oder
 printenv VARIABLE1 VARIABLE2 ...
 
@@ -134,137 +360,42 @@ cat /proc/self/environ | tr '\0' '\n'
 ```
 
 
-## PDF
-
-### PDF-Datei anzeigen
+## Links
+Mit dem Befehl [ln](https://wiki.ubuntuusers.de/ln/) lassen sich unter Linux lassen zwei Arten von Links erstellen:
+* Ein *Symbolic/Soft Link* ist eine kleine Datei, die den Pfad zu einer anderen Datei/einem anderen Verzeichnis enthält. Symbolic Links können Partitions- und Dateisystemübergreifend auf Ziele zeigen. Sie sind vergleichbar mit Verknüpfungen unter Windows. Wird eine Symbolic Link gelöscht, bleibt die Ursprungsdatei erhalten.
+* Ein *Hard Link* ist ein zusätzlicher Name für eine Datei (auch nur eine Datei). Zwei oder mehr Namen zeigen auf die gleichen Daten auf der Festplatte. Hard Links können nur für Dateien erstellt werden und sind nicht Dateisystem-übergreifend. Werden alle Hard Links gelöscht, wird auch die Ursprungsdatei gelöscht.
 ```shell
-evince datei.pdf
-```
-
-### PDF-Dateien bearbeiten
-Zuvor muss das Programm [pdftk](https://wiki.ubuntuusers.de/pdftk/) installiert werden:
-```shell
-sudo apt install pdftk
-```
-Mit *pdftk* lassen sich PDF-Dateien bearbeiten, z. B.:
-```shell
-# PDF-Dateien zusammenführen
-pdftk datei1.pdf datei2.pdf datei3.pdf cat output datei123.pdf
-
-# oder
-pdftk *.pdf cat output zusammen.pdf
-
-# Seiten aus PDF-Dateien entfernen
-pdftk datei.pdf cat 2-10 15 20-end output dateiOhneSeiten.pdf # Seiten 1, 11-14, 16-19 werden entfernt
-```
-Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/pdftk/).
-
-### Bilddateien zu PDF-Datei zusammenfügen
-Zuvor muss das Programm [ImageMagick](https://wiki.ubuntuusers.de/ImageMagick/) installiert werden:
-```shell
-sudo apt install imagemagick
-```
-Mit *ImageMagick* lassen sich dann Bilddateien zu einer PDF-Datei zusammenfügen:
-```shell
-convert bild1.png bild2.png pdfDatei.pdf
-
-# oder für alle Bilddateien in einem Ordner
-convert *.* -gravity center -page a4 pdfDatei.pdf
-```
-Weitere Befehle und Beispiele finden sich [hier](https://wiki.ubuntuusers.de/ImageMagick/).
-
-### PDF-Datei verkleinern
-Zuvor muss das Programm [Ghostscript](https://wiki.ubuntuusers.de/Ghostscript/) installiert werden:
-```shell
-sudo apt install ghostscript
-```
-Mit *Ghostscript* lassen sich dann PDF-Dateien verkleinern:
-```shell
-gs -sDEVICE=pdfwrite \
-   -dCompatibilityLevel=1.4 \
-   -dPDFSETTINGS=ebook \
-   -dNOPAUSE \
-   -dBATCH \
-   -sOutputFile=pfad/zu/Ausgabe.pdf \
-   pfad/zu/Eingabe.pdf
-```
-Folgende Parameter müssen/können dabei jeweils angepasst werden:
-- **sDEVICE** definiert das Ausgabegerät, hier das Schreiben in eine PDF-Datei (*pdfwrite*) (kann so bleiben)
-- **dCompatibilityLevel** legt den kompatiblen PDF-Standard fest (kann so bleiben)
-- **dPDFSETTINGS** spezifiziert die Qualität der Ausgabedatei. Qualität kann durch einen der folgenden Werte ersetzt werden:
-  - *screen* niedrige Qualität (72 dpi)
-  - *ebook* mittlere Qualität (150 dpi)
-  - *printer* hohe Qualität (300 dpi)
-  - *prepress* sehr hohe Qualität (300 dpi)
-- **dNOPAUSE** deaktiviert die notwendige manuelle Bestätigung nach der Konvertierung jeder einzelner Seite
-- **dBATCH** beendet Ghostscript nach dem Ausführen automatisch
-- **sOutputFile** legt den Namen bzw. Pfad der Ausgabedatei fest
-- **pfad/zu/Eingabe.pdf** ist der Name bzw. Pfad zur Eingabedatei
-
-
-## Zip
-```shell
-# Zip-Archiv erstellen
-zip archivName.zip ordner/*
-
-# Zip-Archiv mit Passwort erstellen
-zip archivName.zip ordner/* -e
-```
-
-
-## Weitere nützliche Kommandozeilenbefehle
-```shell
-# Dateimanager (Nautilus) mit Root-Rechten ausführen
-nautilus admin:/
-
-# Aktuell eingeloggten Nutzer anzeigen
-whoami
-
-# Aktuelle Zeit und aktuelles Datum anzeigen
-date
-
-# Ganzen Pfad zum aktuellen Verzeichnis anzeigen
-pwd
-
-# Papierkorb leeren
-sudo rm -r ~/.local/share/Trash/files/
-
-# Systemwarnungstöne ausschalten (GNOME)
-gsettings set org.gnome.desktop.sound event-sounds false
+ln pfad1/ziel.txt pfad2/linkname.txt    # Hard link erstellen
+ln -s ziel linkname                     # Symbolic Link erstellen (ziel/linkname sind Verzeichnis oder Datei)
+ln -sf ziel linkname	                # Symbolic Link erstellen oder überschreiben (f = force)
+ls -l linkname                          # Link und sein Ziel anzeigen
+ls -la /pfad/                           # Alle Dateien anzeigen (inkl. versteckter Symlinks)
+readlink linkname                       # Ziel eines Symlinks anzeigen
+readlink -f linkname                    # Absoluten Zielpfad eines Symlinks anzeigen
+stat linkname	                        # Komplette Metadaten eines Links anzeigen
+file linkname                           # Prüfen, ob ein Pfad ein Symlink ist
+find verzeichnis/ -type l               # Finde alle Symbolic Links in einem Verzeichnis
+find verzeichnis/ -xtype l              # Finde nur kaputte Symbolic Links
+rm symlinkname                          # Symbolic Link löschen
+unlink symlinkname                      # Symbolic Link löschen
+find verzeichnis/ -type l -delete       # Alle Symbolic Links in einem Verzeichnis löschen
 ```
 
 
 ## Services
 Ein Service ist ein Prozess, der permanent auf dem Rechner läuft (entspricht in etwa Autostart unter Windows).
 ```shell
-# Alle laufenden Services auflisten
-service --status-all
-
-# Status des Services zeigen
-systemctl status serviceName
-
-# Service starten (nach Reboot nicht mehr aktiv)
-systemctl start serviceName
-
-# Service stoppen (nach Reboot Service wieder aktiv)
-systemctl stop serviceName
-
-# Service wieder starten
-systemctl restart serviceName
-
-# Service starten (nach Reboot automatisch wieder aktiv)
-systemctl enable serviceName
-
-# Service stoppen (nach Reboot nicht wieder aktiv)
-systemctl disable serviceName
+service --status-all                # alle laufenden Services auflisten
+systemctl status serviceName        # Status des Services zeigen
+systemctl start serviceName         # Service starten (nach Reboot nicht mehr aktiv)
+systemctl stop serviceName          # Service stoppen (nach Reboot Service wieder aktiv)
+systemctl restart serviceName       # Service wieder starten
+systemctl enable serviceName        # Service starten (nach Reboot automatisch wieder aktiv)
+systemctl disable serviceName       # Service stoppen (nach Reboot nicht wieder aktiv)
 ```
 
 
-### Links
-Unter Linux lassen sich Links (ähnlich Verknüpfungen unter Windows) erstellen. Dies ist mit dem Programm [ln](https://wiki.ubuntuusers.de/ln/) über die Kommandozeile möglich.
-
-
-## Festplatte überschreiben
+## Festplatte überschreiben (komplett löschen)
 Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wiederherstellbar sind, z.B. vor Verkauf oedr Verschrottung eines Rechners, kann man das Programm [DBAN](https://dban.org/) nutzen. Folgende Tutorials können hilfreich sein:
 * https://www.youtube.com/watch?v=ZNVpTIE3nf4
 * https://techexchangeblog.wordpress.com/2015/08/12/festplatten-mit-dban-sicher-loeschen/
@@ -274,7 +405,8 @@ Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wieder
 
 ## Weitere Quellen
 * [ubuntuusers.de (Wiki)](https://wiki.ubuntuusers.de/)
-* [Sammlung von Cheatsheets](https://linuxize.com/cheatsheet/page/1/)
+* [Sammlung von Cheatsheets (linuxize.com)](https://linuxize.com/cheatsheet/page/1/)
+* [Sammlung von Cheatsheets (devsheets.io)](https://devsheets.io/sheets/)
 * [Sicherheits-Einmaleins für Linux](https://wiki.ubuntuusers.de/Sicherheits-Einmaleins/)
 * Linux File System:
   - https://www.youtube.com/watch?v=42iQKuQodW4
