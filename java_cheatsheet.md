@@ -1,8 +1,37 @@
 # Java Cheatsheet
 
 1. [Java](#java)
+    - [Dokumentation](#dokumentation)
+    - [Installation (Linux)](#installation-linux)
+    - [Kommandozeile](#kommandozeile)
+        - [JAR-Dateien erstellen](#jar-dateien-erstellen)
+    - [Grundlagen der Sprache Java](#grundlagen-der-sprache-java)
+        - [Ein Java-Programm](#ein-java-programm)
+        - [Primitive Datentypen und Operatoren](#primitive-datentypen-und-operatoren)
+        - [Kontrollflussstrukturen](#kontrollflussstrukturen)
+        - [Zugriffsmodifikatoren](#zugriffsmodifikatoren)
+        - [Klassen, Konstruktoren, Methoden, Variablen](#klassen-konstruktoren-methoden-variablen)
+        - [Records](#records)
+        - [Enums](#enums)
+        - [Arrays, Listen und andere Datenstrukturen](#arrays-listen-und-andere-datenstrukturen)
+        - [Objektorientierte Programmierung (OOP)](#objektorientierte-programmierung-oop)
+        - [Exception Handling](#exception-handling)
+        - [Lambdas und Funktionale Interfaces](#lambdas-und-funktionale-interfaces)
+        - [Streams, Collectors und Optional](#streams-collectors-und-optional)
+        - [Generics](#generics)
+        - [Regular Expressions](#regular-expressions)
+        - [Kommentare](#kommentare)
+    - [Weitere Quellen](#weitere-quellen)
 2. [Maven](#maven)
+    - [Dokumentation und Central Repository](#dokumentation-und-central-repository)
+    - [Installation (Linux)](#installation-linux-1)
+    - [Kommandozeile](#kommandozeile-1)
+    - [Maven-Wrapper](#maven-wrapper)
+    - [Weitere Quellen](#weitere-quellen-1)
 3. [Gradle](#gradle)
+    - [Dokumentation](#dokumentation-1)
+    - [Installation](#installation)
+    - [Gradle-Wrapper](#gradle-wrapper)
 
 
 ## Java
@@ -12,70 +41,98 @@
 ### Dokumentation
 * [Java Standard Edition (Java SE)](https://docs.oracle.com/en/java/javase/)
 * [Java Enterprise Edition (Java EE)](http://docs.oracle.com/javaee)
-
-
-### API
-Die Java-API enthält alle Build-in-Sprachelemente/Packages.
-
-[Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (durch Änderung der Versionszahl im Link lassen sich auch andere Versionen aufrufen)
+* [Java 25 API](https://docs.oracle.com/en/java/javase/25/docs/api/) (Versionszahl im Link ändern für andere Versionen)
+* [Java Cheatsheet Uni Princeton](https://introcs.cs.princeton.edu/java/11cheatsheet/)
 
 
 ### Installation (Linux)
 ```shell
-sudo apt update # Paketquellen aktualisieren
-sudo apt upgrade # Pakete aktualisieren
-
-sudo apt install openjdk-25-jdk # OpenJDK 25 installieren
-java --version # prüfen, ob Java korrekt installiert wurde
+sudo apt update                  # Paketquellen aktualisieren
+sudo apt upgrade                 # Pakete aktualisieren
+sudo apt install openjdk-25-jdk  # OpenJDK 25 installieren
+java --version                   # prüfen, ob Java korrekt installiert wurde
 ```
 
 
 ### Kommandozeile
-
-#### Java-Datei(en) kompilieren
 ```shell
-# Eine Datei kompilieren
-javac Main.java
+# Java-Quellcode kompilieren
+javac Main.java                        # Eine Java-Datei kompilieren
+javac Main.java tests/Tests.java       # Mehrere Java-Dateien kompilieren
+javac -sourcepath . path/to/Main.java  # Alle benötigten Java-Dateien kompilieren:
 
-# Mehrere Dateien kompilieren
-javac Main.java tests/Tests.java
-
-# Alle benötigten Dateien kompilieren:
-javac -sourcepath . path/to/Main.java
+# Java-Programm ausführen
+java Main       # Klasse muss main-Methode enthalten
+java Main.java  # Seit Java 11+ in einem Schritt kompilieren und ausführen
 ```
 
-#### Java-Programm ausführen
-```shell
-java Main.class # Klasse muss main-Methode enthalten
-```
-
-#### JAR-Datei über die Konsole erstellen und ausführen
-1) Im Ordner mit den Java-Dateien neue Datei *manifest.txt* mit folgendem Inhalt erstellen.
-    ```
-    Main-Class: DateiMitMainMethode.java
-
+#### JAR-Dateien erstellen
+1) Mit `cd` in den Ordner mit den Java-Dateien navigieren.
+2) Im Ordner dann die neue Datei *manifest.inf* mit folgendem Inhalt erstellen.
+    ```txt
+    Manifest-Version: 1.0
+    Class-Path: .
+    Sealed: true
+    Main-Class: DateinameMitMainMethode
 
     ```
-
-2) Mit ```cd``` in Ordner mit den Java-Dateien und der *manifest.txt* navigieren.
-
-4) Mit ```javac``` die Java-Datei(en) compilieren.
-
-5) Mit ```jar cfm JarDateiName.jar manifest.txt Datei1.class Datei2.class``` wird eine JAR-Datei erstellt, die die angegeben .class-Dateien enthält.
-
-6) Oder mit ```jar cfm JarDateiName.jar manifest.txt *.class``` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Dateien einbindet.
-
-7) Oder mit ```jar cvfm JarDateiName.jar manifest.txt *.class ordnerName``` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Dateien und den Ordner *ordnerName* (samt Inhalt, z.B. Bilder) einbindet.
-
-8) JAR-Datei mit ```java -jar DateiName.jar``` ausführen.
+3) Mit `javac` die Java-Datei(en) compilieren.
+4) JAR-Datei erstellen:
+    - Mit `jar cfm JarDateiName.jar manifest.inf Datei1.class Datei2.class` wird eine JAR-Datei erstellt, die die angegeben .class-Dateien enthält.
+    - Oder mit `jar cfm JarDateiName.jar manifest.inf *.class` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Dateien einbindet.
+    - Oder mit `jar cvfm JarDateiName.jar manifest.inf *.class ordnerName` wird eine JAR-Datei erstellt, die alle im Ordner vorhandenen .class-Dateien und den Ordner *ordnerName* samt Inhalt einbindet, z.B. Bilder.
+5) JAR-Datei ausführen: `java -jar DateiName.jar`.
 
 
 ### Grundlagen der Sprache Java
+
+#### Ein Java-Programm
 ```java
-////// Klassen, Konstruktoren, Methoden, Variablen
+// Datei: Main.java
+
+public class Main {
+    // In einem Java-Programm muss es mind. ein Klasse mit einer main-Methode geben.
+    // Diese dient als Einstiegspunkt für das Programm
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+#### Primitive Datentypen und Operatoren
+```java
+// TODO
+```
+
+#### Kontrollflussstrukturen
+```java
+// TODO
+// if und else
+
+// while-Schleife
+
+// for-Schleife
+
+// for-each-Schleife
+
+// do-while-Schleife
+
+// switch
+
+```
+
+#### Zugriffsmodifikatoren
+```java
+// public : von überall Zugriff
+// kein Modifikator : nur im selben Paket Zugriff
+// private : nur in der selben Klasse/Methode Zugriff
+```
+
+#### Klassen, Konstruktoren, Methoden, Variablen
+```java
 public class Mensch { // Klassenkopf gefolgt von Klassenkörper in geschw. Klammern
     private static int anzahl; // Klassenvariable: Wert gebunden an Klasse, d.h. für alle Instanzen gleich
-    private String name; // Instanzvariable: Wert gebunden an Instanz (Exemplar dieser Klasse)
+    private String name; // Instanzvariable: Wert gebunden an Instanz, d.h. pro Exemplar dieser Klasse
     private int gebJahr;
 
     // Konstruktor: Methode, die bei Erzeugung einer Instanz aufgerufen wird:
@@ -103,23 +160,65 @@ public class Mensch { // Klassenkopf gefolgt von Klassenkörper in geschw. Klamm
         return alter;
     }
 }
+```
 
-////// Zugriffsmodifikatoren
-// public : von überall Zugriff
-// kein Modifikator : nur im selben Paket Zugriff
-// private : nur in der selben Klasse/Methode Zugriff
-
-////// Objektorientierte Programmierung (OOP)
-// TODO
-
-////// Java-Programme (mind. eine Klasse mit main-Methode)
-public class MainClass {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+#### Records
+```java
+// Records (Java 16+) sind unveränderliche Datenklassen
+// Konstruktor, Getter, equals, hashCode und toString werden automatisch generiert
+record Point(int x, int y) {
+    // Optional kompakter Konstructor für Validierung
+    Point {
+        if (x < 0 || y < 0) throw new IllegalArgumentException("negative");
     }
+    // Extra Methoden sind erlaubt
+    double distance() { return Math.sqrt(x * x + y * y); }
 }
 
-////// Kommentare
+// Anwendungsbeispiel
+var pt = new Point(3, 4);
+pt.x();          // 3
+pt.distance();   // 5.0
+System.out.println(pt); // Point[x=3, y=4]
+```
+
+#### Enums
+```java
+// TODO
+```
+
+#### Arrays, Listen und andere Datenstrukturen
+```java
+// TODO
+```
+
+#### Objektorientierte Programmierung (OOP)
+```java
+// TODO
+```
+
+#### Exceptions
+```java
+// TODO
+```
+
+#### Lambdas und Funktionale Interfaces
+```java
+// TODO
+```
+
+#### Streams, Collectors und Optional
+```java
+// TODO
+```
+
+#### Generics
+```java
+// TODO
+```
+
+#### Kommentare
+```java
 /**
  * Klasse mit mathematischen Operationen. (JavaDoc-Kommentar)
  * @author Christoph
@@ -133,7 +232,11 @@ public class Mathe {
      * @return Summe von a und b
      */
     public static int plus(int a, int b) {
-        /* Blockkommentar */
+        /*
+        Blockkommentar
+        über mehrere
+        Zeilen
+        */
         return a + b; // Zeilenkommentar
     }
 }
