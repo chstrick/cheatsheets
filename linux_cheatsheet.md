@@ -14,7 +14,8 @@
 8. [Services](#services)
 9. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
 10. [Boot-fähigen USB-Stick für Windows erstellen und anwenden](#boot-fähigen-usb-stick-für-windows-erstellen-und-anwenden)
-11. [Weitere Quellen](#weitere-quellen)
+11. [Von Linux auf Windows-Partition zugreifen](#von-linux-auf-windows-partition-zugreifen)
+12. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation
@@ -475,6 +476,25 @@ Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io
 3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
 4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
 5) DBAN startet und dort den Anweisungen folgen.
+
+
+## Von Linux auf Windows-Partition zugreifen
+```shell
+sudo fdisk -l                                       # Partitionsname ermitteln (sollte /dev/xxx.. sein)
+sudo mkdir /mnt/mswpart                             # Mount-Point erstellen
+sudo mount -t ntfs-3g -o ro /dev/xxx /mnt/mswpart   # Partition einhängen (xxx durch richtigen Namen ersetzen)
+
+# Wenn Partion eingehängt
+cd Users/chris/XXX/         # In Benutzerordner navigieren, z.B. XXX = Documents, Downloads, ...
+ls -la                      # z.B. Dateien anzeigen
+cat MeineDatei.txt          # z.B. Dateiinhalt anzeigen
+exit                        # Terminal und Session beenden
+
+# Neues Terminal starten
+sudo umount /mnt/mswpart/   # Partition aushängen
+lsblk                       # Prüfen, ob Partition ausgehängt ist
+sudo rmdir /mnt/mswpart     # Mount-Point löschen
+```
 
 
 ## Weitere Quellen
