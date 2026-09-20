@@ -13,21 +13,22 @@
 7. [Links](#links)
 8. [Services](#services)
 9. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
-10. [Weitere Quellen](#weitere-quellen)
+10. [Boot-fähigen USB-Stick für Windows erstellen und anwenden](#boot-fähigen-usb-stick-für-windows-erstellen-und-anwenden)
+11. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation
 
 ### Linux über Boot-fähigen USB-Stick installieren
-* Das Programm *Startmedienersteller (USB Image Writer)* starten.
-    - Dazu in der Anwendungssuche (Windows-Taste drücken) nach *usb image writer* suchen.
-    - Ggf. muss das Programm noch installiert werden: `sudo apt-get install usb-creator-gtk`.
-* Mit dem *Startmedienersteller* einen Boot-fähigen USB-Strick erstellen.
-* Den Rechner herunterfahren.
-* Den USB-Stick einstecken, oder eingesteckt lassen.
-* Den Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
-* Danach kann der USB-Stick als Startmedium ausgewählt werden.
-* Das Linx-Betriebssystem startet im *Live-Modus* (eine Art Probemodus).
+0) Boot-fähigen USB-Stick für Linux erstellen
+    - Ggf. noch folgendes Programm installieren: `sudo apt-get install usb-creator-gtk`.
+    - Das Programm *Startmedienersteller (USB Image Writer)* starten. Dazu in der Anwendungssuche (Windows-Taste drücken) nach *usb image writer* suchen.
+    - Mit dem *Startmedienersteller* einen Boot-fähigen USB-Strick erstellen.
+1) Rechner herunterfahren.
+2) USB-Stick einstecken.
+3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
+4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
+5) Das Linx-Betriebssystem startet im *Live-Modus* (eine Art Probemodus).
     - In diesem kann das System leicht installiert werden.
     - Dazu einfach den Anweisungen folgen.
 
@@ -223,6 +224,13 @@ ping google.com     # Ping zu Server; prüft, ob Server erreicht werden kann
 # Papierkorb leeren
 sudo rm -r ~/.local/share/Trash/files/
 
+# Job anhalten
+# Strg-Z drücken
+
+# Angehaltenen Job stoppen
+jobs                # listet alle Jobs auf (NUmmer ist Zahl in eckigen Klammern)
+kill -9 %nummer     # stoppt Job mit nummer
+
 # Ausführbare Programme finden
 which python3        # Verzeichnis der Binärdatei
 whereis python3      # Verzeichnisse von Binärdatei, Quellcode, etc.
@@ -396,11 +404,77 @@ systemctl disable serviceName       # Service stoppen (nach Reboot nicht wieder 
 
 
 ## Festplatte überschreiben (komplett löschen)
-Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wiederherstellbar sind, z.B. vor Verkauf oedr Verschrottung eines Rechners, kann man das Programm [DBAN](https://dban.org/) nutzen. Folgende Tutorials können hilfreich sein:
-* https://www.youtube.com/watch?v=ZNVpTIE3nf4
-* https://techexchangeblog.wordpress.com/2015/08/12/festplatten-mit-dban-sicher-loeschen/
-* https://www.youtube.com/watch?v=qSowh52Q5lA
-* https://www.youtube.com/watch?v=lOkU2dY48_c
+Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wiederherstellbar sind, z.B. vor Verkauf oder Verschrottung eines Rechners, kann man das Programm [DBAN](https://dban.org/) nutzen.
+
+### Boot-fähigen USB-Stick für DBAN erstellen
+1) Datei *DBAN.iso* herunterladen.
+2) USB-Stick einstecken.
+3) Boot-fähigen USB-Stick erstellen:
+```shell
+# Ggf. benötigte Programme installieren
+sudo apt install dd lsblk fdisk
+
+# USB-Stick- und Partitionsnamen ermitteln
+lsblk           # listet alle Medien und Partitionen auf
+sudo fdisk -l   # Alternative
+
+# USB-Stick aushängen
+sudo umount /dev/sdX*   # hängt das Medium sdX und alle seine Partionen aus
+                        # (X durch eigenen Buchstaben ersetzen!!!)
+
+# ISO auf USB-Stick schreiben
+sudo dd if=/path/to/dban.iso of=/dev/sdX bs=4M status=progress
+
+# Buffer synchronisieren
+sudo sync
+```
+
+### DBAN anwenden
+0) Boot-fähigen USB-Stick erstellen.
+1) Rechner herunterfahren.
+2) USB-Stick mit DBAN einstecken.
+3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
+4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
+5) DBAN startet und dort den Anweisungen folgen. Tutorials:
+    - https://www.youtube.com/watch?v=ZNVpTIE3nf4
+    - https://techexchangeblog.wordpress.com/2015/08/12/festplatten-mit-dban-sicher-loeschen/
+    - https://www.youtube.com/watch?v=qSowh52Q5lA
+    - https://www.youtube.com/watch?v=lOkU2dY48_c
+
+
+## Boot-fähigen USB-Stick für Windows erstellen und anwenden
+
+### USB-Stick erstellen
+1) Datei *Win11_25H2_German_x64_v2.iso* (oder so ähnlich) herunterladen.
+2) USB-Stick einstecken.
+3) Boot-fähigen USB-Stick erstellen:
+```shell
+# Ggf. benötigte Programme installieren
+sudo apt install dd lsblk fdisk
+
+# USB-Stick- und Partitionsnamen ermitteln
+lsblk           # listet alle Medien und Partitionen auf
+sudo fdisk -l   # Alternative
+
+# USB-Stick aushängen
+sudo umount /dev/sdX*   # hängt das Medium sdX und alle seine Partionen aus
+                        # (X durch eigenen Buchstaben ersetzen!!!)
+
+# ISO auf USB-Stick schreiben
+sudo dd if=/path/to/windows.iso of=/dev/sdX bs=4M status=progress
+
+# Buffer synchronisieren
+sudo sync
+```
+Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io/posts/Creating_a_bootable_Windows_USB_on_linux/).
+
+### USB-Stick anwenden
+0) Boot-fähigen USB-Stick erstellen.
+1) Rechner herunterfahren.
+2) USB-Stick mit DBAN einstecken.
+3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
+4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
+5) DBAN startet und dort den Anweisungen folgen.
 
 
 ## Weitere Quellen
