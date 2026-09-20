@@ -15,7 +15,8 @@
 9. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
 10. [Boot-fähigen USB-Stick für Windows erstellen und anwenden](#boot-fähigen-usb-stick-für-windows-erstellen-und-anwenden)
 11. [Von Linux auf Windows-Partition zugreifen](#von-linux-auf-windows-partition-zugreifen)
-12. [Weitere Quellen](#weitere-quellen)
+12. [Von Linux Windows Product Key finden](#von-linux-windows-product-key-finden)
+13. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation
@@ -472,10 +473,10 @@ Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io
 ### USB-Stick anwenden
 0) Boot-fähigen USB-Stick erstellen.
 1) Rechner herunterfahren.
-2) USB-Stick mit DBAN einstecken.
+2) USB-Stick mit Windows einstecken.
 3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
 4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
-5) DBAN startet und dort den Anweisungen folgen.
+5) Windows startet und dort den Anweisungen folgen.
 
 
 ## Von Linux auf Windows-Partition zugreifen
@@ -494,6 +495,12 @@ exit                        # Terminal und Session beenden
 sudo umount /mnt/mswpart/   # Partition aushängen
 lsblk                       # Prüfen, ob Partition ausgehängt ist
 sudo rmdir /mnt/mswpart     # Mount-Point löschen
+```
+
+
+## Von Linux Windows Product Key finden
+```shell
+sudo cat /sys/firmware/acpi/tables/MSDM | tail -1   # gibt Product Key aus
 ```
 
 
