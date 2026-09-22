@@ -450,35 +450,25 @@ sudo sync
 
 ### USB-Stick erstellen
 1) Datei *Win11_25H2_German_x64_v2.iso* (oder so ähnlich) herunterladen.
+2) Das Tool [YUMI](https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-py) mit grafischer Benutzeroberfläche herunterladen.
 2) USB-Stick einstecken.
-3) Boot-fähigen USB-Stick erstellen:
-```shell
-# Ggf. benötigte Programme installieren
-sudo apt install fdisk
+3) Boot-fähigen USB-Stick mit YUMI erstellen:
+    - YUMI-Script ausfürbar machen: `chmod +x yumi-1.0.8`.
+    - YUMI starten: `sudo ./yumi-1.0.8`.
+    - Mit YUMI USB-Stick mit Windows erstellen.
 
-# USB-Stick- und Partitionsnamen ermitteln
-lsblk           # listet alle Medien und Partitionen auf
-sudo fdisk -l   # Alternative
-
-# USB-Stick aushängen
-sudo umount /dev/sdX*   # hängt das Medium sdX und alle seine Partionen aus
-                        # (X durch eigenen Buchstaben ersetzen!!!)
-
-# ISO auf USB-Stick schreiben
-sudo dd if=/path/to/windows.iso of=/dev/sdX bs=4M status=progress
-
-# Buffer synchronisieren
-sudo sync
-```
 Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io/posts/Creating_a_bootable_Windows_USB_on_linux/).
 
 ### USB-Stick anwenden
 0) Boot-fähigen USB-Stick erstellen.
 1) Rechner herunterfahren.
-2) USB-Stick mit Windows einstecken.
-3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
-4) Danach kann der USB-Stick als Startmedium ausgewählt werden.
-5) Windows startet und dort den Anweisungen folgen.
+2) Rechner starten und Secure Boot im BIOS ausschalten.
+3) USB-Stick mit Windows einstecken.
+4) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
+5) Danach kann der USB-Stick als Startmedium ausgewählt werden.
+6) Windows startet und dort den Anweisungen folgen.
+7) Rechner starten und Secure Boot im BIOS wieder einschalten.
+8) Rechner neu starten (und gewünschtes Betriebssystem auswählen und starten).
 
 
 ## Von Linux auf Windows-Partition zugreifen
