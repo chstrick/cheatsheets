@@ -34,6 +34,8 @@
     - In diesem kann das System leicht installiert werden.
     - Dazu einfach den Anweisungen folgen.
 
+Alternativ kann auch das Tool [YUMI](https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-py) mit grafischer Benutzeroberfläche genutzt werden.
+
 ### Linux neben Windows installieren (Dual-Boot)
 Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [hier](https://linux-de.com/?p=2921).
 
@@ -414,7 +416,7 @@ Will man die Festplatte eines Rechners überschreiben, sodass keine Daten wieder
 3) Boot-fähigen USB-Stick erstellen:
 ```shell
 # Ggf. benötigte Programme installieren
-sudo apt install dd lsblk fdisk
+sudo apt install fdisk
 
 # USB-Stick- und Partitionsnamen ermitteln
 lsblk           # listet alle Medien und Partitionen auf
@@ -452,7 +454,7 @@ sudo sync
 3) Boot-fähigen USB-Stick erstellen:
 ```shell
 # Ggf. benötigte Programme installieren
-sudo apt install dd lsblk fdisk
+sudo apt install fdisk
 
 # USB-Stick- und Partitionsnamen ermitteln
 lsblk           # listet alle Medien und Partitionen auf
