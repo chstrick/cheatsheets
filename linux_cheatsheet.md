@@ -362,6 +362,9 @@ echo $VARIABLE
 # oder
 printenv VARIABLE1 VARIABLE2 ...
 
+# alle globalen Umgebungsvariablen anzeigen
+printenv
+
 # Umgebungsvariable erzeugen
 VARIABLE=123 # Variable ist nur in der aktuellen Shell verfügbar
 
@@ -376,15 +379,19 @@ Weitere typische Anwendungsfälle finden sich [hier](https://wiki.ubuntuusers.de
 
 ### Umgebungsvariablen dauerhaft anpassen
 Um eine Umbebungsvariable dauerhaft anzupassen, muss man diese in der entsprechenden Konfigurationsdatei ändern. Beispiel: PATH dauerhaft erweitern:
-* systemweit (alle Benutzer): Datei */etc/environment.d/\*.conf* anpassen:
+* systemweit (alle Benutzer): Dateien */etc/environment.d/\*.conf* und */etc/bash.bashrc* anpassen:
 ```shell
 sudo nano /etc/environment.d/\*.conf # nano ist ein Editor in der Shell,
                                      # sudo verwenden, weil die Datei systemweit ist
+                                     # Form eines Eintrags: NAME="WERT"
+sudo nano /etc/bash.bashrc           # Ganz unten den Eintrag export NAME="WERT" hinzufügen
 ```
 * nur aktueller Benutzer: (versteckte) Datei *~/.profile* anpassen:
 ```shell
 nano ~/.profile
 ```
+Nach den Anpassungen muss man sich noch einmal abmelden und wieder anmelden, damit die neuen Umgebungsvariablen geladen werden.
+
 Eine Übersicht über alle Konfigurationsdateien findet sich [hier](https://wiki.ubuntuusers.de/Umgebungsvariable/Dateien/).
 
 ### Umgebungsvariablen für Prozess anzeigen
