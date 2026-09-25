@@ -1,22 +1,21 @@
 # Linux Cheatsheet
 
 1. [Installation](#installation)
-2. [Pakete](#pakete)
-3. [Kommandozeile](#kommandozeile)
-4. [PDF-Dateien](#pdf-dateien)
+2. [Linux File System](#linux-file-system)
+3. [Pakete](#pakete)
+4. [Kommandozeile](#kommandozeile)
+5. [PDF-Dateien](#pdf-dateien)
     - [PDF-Datei anzeigen](#pdf-datei-anzeigen)
     - [PDF-Datei bearbeiten](#pdf-datei-bearbeiten)
     - [Bilddateien zu PDF-Datei zusammenfügen](#bilddateien-zu-pdf-datei-zusammenfügen)
     - [PDF-Datei verkleinern](#pdf-datei-verkleinern)
-5. [ZIP-Archive](#zip-archive)
-6. [Umgebungsvariablen](#umgebungsvariablen)
-7. [Links](#links)
-8. [Services](#services)
-9. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
-10. [Boot-fähigen USB-Stick für Windows erstellen und anwenden](#boot-fähigen-usb-stick-für-windows-erstellen-und-anwenden)
-11. [Von Linux auf Windows-Partition zugreifen](#von-linux-auf-windows-partition-zugreifen)
-12. [Von Linux Windows Product Key finden](#von-linux-windows-product-key-finden)
-13. [Weitere Quellen](#weitere-quellen)
+6. [ZIP-Archive](#zip-archive)
+7. [Umgebungsvariablen](#umgebungsvariablen)
+8. [Links](#links)
+9. [Services](#services)
+10. [Festplatte überschreiben (komplett löschen)](#festplatte-überschreiben-komplett-löschen)
+11. [Linux und Windows](#linux-und-windows)
+12. [Weitere Quellen](#weitere-quellen)
 
 
 ## Installation
@@ -41,6 +40,30 @@ Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [h
 
 ### Ubuntu upgraden (neue Ubuntu-Version)
 Um Ubuntu auf die nächste Version upzugraden, folge den [hier](https://wiki.ubuntuusers.de/Upgrade/) oder [hier](https://documentation.ubuntu.com/desktop/en/latest/how-to/upgrade-ubuntu-desktop/) beschriebenen Anweisungen.
+
+
+## Linux File System
+/             root
+|-- bin/      essential user commands (ls, cp, mv)
+|-- boot/     boot loader and kernel files
+|-- dev/      device files for hardware
+|-- etc/      system-wide configuration files
+|-- home/     personal directories for regular users
+|-- lib/      shared libraries and kernel modules
+|-- media/    mount points for removable media
+|-- mnt/      temporary mount points for manual mounts
+|-- opt/      optional third-party software
+|-- proc/     virtual filesystem of system processes
+|-- root/     home directory of the root (super) user
+|-- run/      runtime data for running processes
+|-- sbin/     essential system administration commands
+|-- srv/      data served by system services
+|-- sys/      virtual filesystem of system/device info
+|-- tmp/      temporary files
+|-- usr/      secondary hierarchy for user programs
+    |-- bin/  programms installed by user (also build from source)
+    |-- sbin/ admin programms installed by user (also build from source)
+|-- var/      variable data such as logs and caches
 
 
 ## Pakete
@@ -164,6 +187,7 @@ less datei.txt       # aufgeteilt in Seiten (gut für große Dateien)
 # --- Datei bearbeiten --------------------
 nano datei.txt       # Nano ist ein einfacher Texteditor
 vim datei.txt        # Vim ist ein umfangreicher Texteditor
+open datei.xxx       # Eine Datei (txt, pdf, png, ...) mit der Standardanwendung öffnen
 
 
 # --- Suchen & Finden --------------------
@@ -253,7 +277,7 @@ gsettings set org.gnome.desktop.sound event-sounds false
 
 ### PDF-Datei anzeigen
 ```shell
-evince datei.pdf
+open datei.pdf
 ```
 
 ### PDF-Datei bearbeiten
@@ -446,9 +470,11 @@ sudo sync
     - https://www.youtube.com/watch?v=lOkU2dY48_c
 
 
-## Boot-fähigen USB-Stick für Windows erstellen und anwenden
+## Linux und Windows
 
-### USB-Stick erstellen
+### Boot-fähigen USB-Stick für Windows erstellen und anwenden
+
+#### USB-Stick erstellen
 1) Datei *Win11_25H2_German_x64_v2.iso* (oder so ähnlich) herunterladen.
 2) Das Tool [YUMI](https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-py) mit grafischer Benutzeroberfläche herunterladen.
 2) USB-Stick einstecken.
@@ -459,7 +485,7 @@ sudo sync
 
 Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io/posts/Creating_a_bootable_Windows_USB_on_linux/).
 
-### USB-Stick anwenden
+#### USB-Stick anwenden
 0) Boot-fähigen USB-Stick erstellen.
 1) Rechner herunterfahren.
 2) Rechner starten und Secure Boot im BIOS ausschalten.
@@ -471,7 +497,7 @@ Für ein Hybrid-System, folge dieser [Anleitung](https://guillermodotn.github.io
 8) Rechner neu starten (und gewünschtes Betriebssystem auswählen und starten).
 
 
-## Von Linux auf Windows-Partition zugreifen
+### Von Linux auf Windows-Partition zugreifen
 ```shell
 sudo fdisk -l                                       # Partitionsname ermitteln (sollte /dev/xxx.. sein)
 sudo mkdir /mnt/mswpart                             # Mount-Point erstellen
@@ -490,7 +516,7 @@ sudo rmdir /mnt/mswpart     # Mount-Point löschen
 ```
 
 
-## Von Linux Windows Product Key finden
+### Von Linux Windows Product Key finden
 ```shell
 sudo cat /sys/firmware/acpi/tables/MSDM | tail -1   # gibt Product Key aus
 ```
@@ -501,7 +527,3 @@ sudo cat /sys/firmware/acpi/tables/MSDM | tail -1   # gibt Product Key aus
 * [Sammlung von Cheatsheets (linuxize.com)](https://linuxize.com/cheatsheet/page/1/)
 * [Sammlung von Cheatsheets (devsheets.io)](https://devsheets.io/sheets/)
 * [Sicherheits-Einmaleins für Linux](https://wiki.ubuntuusers.de/Sicherheits-Einmaleins/)
-* Linux File System:
-  - https://www.youtube.com/watch?v=42iQKuQodW4
-  - https://www.youtube.com/watch?v=HIXzJ3Rz9po&list=PLTXMX1FE5Hj4q0078_U4iP7JnEC8LPQaP&index=7
-  - https://www.youtube.com/watch?v=A3G-3hp88mo
