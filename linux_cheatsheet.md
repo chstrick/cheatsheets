@@ -22,9 +22,15 @@
 
 ### Linux über Boot-fähigen USB-Stick installieren
 0) Boot-fähigen USB-Stick für Linux erstellen
-    - Ggf. noch folgendes Programm installieren: `sudo apt-get install usb-creator-gtk`.
-    - Das Programm *Startmedienersteller (USB Image Writer)* starten. Dazu in der Anwendungssuche (Windows-Taste drücken) nach *usb image writer* suchen.
-    - Mit dem *Startmedienersteller* einen Boot-fähigen USB-Strick erstellen.
+    1) Mithilfe des Programms *USB Image Writer* (graphische Benutzeroberfläche):
+        - Ggf. noch folgendes Programm installieren: `sudo apt-get install usb-creator-gtk`.
+        - Das Programm *Startmedienersteller (USB Image Writer)* starten. Dazu in der Anwendungssuche (Windows-Taste drücken) nach *usb image writer* suchen.
+        - Mit dem *Startmedienersteller* einen Boot-fähigen USB-Strick erstellen.
+    2) Mithilfe des Befehls `dd` (Kommandozeile):
+        - Folgenden Befehl ausführen `sudo dd bs=4M if=pfad/zu/My_Linux.iso of=/dev/sdx && sync`
+        - ACHTUNG: ISO-Datei (`pfad/zu/My_Linux.iso`) und Medium (`/dev/sdx`, meist sda) anpassen
+    3) Mithilfe des Programms *YUMI* (graphische Benutzeroberfläche):
+        - Mit [YUMI](https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-py) kann man mehrere Images auf einen USB-Stick schreiben.
 1) Rechner herunterfahren.
 2) USB-Stick einstecken.
 3) Rechner neu starten und den Start mit einer der Tasten Enter / F2 / F11 / F12 unterbrechen.
@@ -32,8 +38,6 @@
 5) Das Linx-Betriebssystem startet im *Live-Modus* (eine Art Probemodus).
     - In diesem kann das System leicht installiert werden.
     - Dazu einfach den Anweisungen folgen.
-
-Alternativ kann auch das Tool [YUMI](https://pendrivelinux.com/yumi-multiboot-usb-creator/#yumi-py) mit grafischer Benutzeroberfläche genutzt werden.
 
 ### Linux neben Windows installieren (Dual-Boot)
 Linux lässt sich auch neben Windows installieren. Eine Anleitung findet sich [hier](https://linux-de.com/?p=2921).
